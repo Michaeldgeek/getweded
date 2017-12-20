@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="userApp">
+
+<head>
+    <% include partials/head.ejs %>
+        <script src="/js/ng-sortable.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/ng-sortable.min.css">
+        <style>
+            .alert-danger {
+                background-color: #fdedeb;
+                border-color: #fcdddf;
+                color: #e74c3c;
+            }
+            
+            .alert-dismissable,
+            .alert-dismissible {
+                padding-right: 35px;
+            }
+            
+            .alert {
+                padding: 15px;
+                margin-bottom: 22px;
+                border: 1px solid transparent;
+                border-radius: 0px;
+            }
+            
+            button.close {
+                padding: 0;
+                cursor: pointer;
+                background: transparent;
+                border: 0;
+                -webkit-appearance: none;
+            }
+            
+            .close {
+                opacity: 1;
+                filter: alpha(opacity=100);
+            }
+            
+            .close {
+                float: right;
+                font-size: 22.5px;
+                font-weight: bold;
+                line-height: 1;
+                color: #555555;
+                text-shadow: 0 1px 0 #fff;
+                opacity: 0.2;
+            }
+            
+            .alert-dismissable .close,
+            .alert-dismissible .close {
+                position: relative;
+                top: -10px;
+                color: black;
+                right: 10px;
+            }
+        </style>
+</head>
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+
+    <div class="page-wrapper">
+        <!-- start preloader  -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <% include partials/nav.ejs %>
+            <!-- end of header -->
+            <!-- section -->
+            <section class="wedding-couple-section" ng-controller="UserCtrl" style="background-color: #F5F5F5;position: relative;" id="couple">
+                <% include partials/banner.ejs %>
+
+                    <div class="nservice-wrapper" ng-controller="CheckListCtrl" style="padding-top: 180px;">
+                        <div class="row">
+                            <div class="col col-md-8 pl-6">
+                                <% include partials/checklist.ejs %>
+                            </div>
+                            <div class="col col-md-4 pl-6" style="padding-right: 3rem;padding-top: 0.8rem;">
+                                <% include partials/side-bar.ejs %>
+                                    <% include partials/reminder.ejs %>
+                            </div>
+                        </div>
+
+                    </div>
+            </section>
+            <!-- section ends -->
+            <!-- footer starts -->
+            <% include partials/footer.ejs %>
+                <!-- footer ends -->
+
+                <script src="/js/spin.min.js"></script>
+                <script src="/js/moment.min.js"></script>
+                <script src="/js/bootstrap-material-datetimepicker.js"></script>
+</body>
+
+</html>

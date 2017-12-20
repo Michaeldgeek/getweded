@@ -1,0 +1,109 @@
+<div class=" stagebox_img">
+    <div id="price_calculator" data-active="0" class="calculator form">
+        <div id="pricingTab" class="pricing_calc">
+            <div class="calc_input">
+                <form>
+                    <div class="row">
+                        <div class="col" ng-class="(maxBudgetInput) ? 'col-xs-6' : 'col-xs-12'" style="padding-right: 0">
+                            <input ng-model="min" id="minInput" placeholder="Enter your budget" class="text total-emails" ng-click="minClicked();" ng-readonly="minInputDisabled" type="text" awnum num-thousand=true num-int="12" num-thousand-sep="{{','}}">
+                            <div class="webui-popover-content">
+                                <p class="note"></p>
+                                <div class="modal-footer">
+                                    <button type="submit" class="button button--rounded" ng-click="yes($event);" data-type="2" style="background-color: #7bcad1; color: white">Yes</button>
+                                    <button type="button" class="button button--rounded" ng-click="no($event);" data-selector="#minInput" style="background-color: #dde1e5; color: black" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col col-xs-6" ng-if="maxBudgetInput">
+                            <input class="text total-emails" ng-model="max" placeholder="Max budget" type="text" awnum num-thousand=true num-int="12" num-thousand-sep="{{','}}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#pane4" data-toggle="tab">Custom</a> </li>
+                <li class=""> <a href="#pane3" data-toggle="tab">Recommended</a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="pane4">
+                    <table class="tiers" border="0">
+                        <thead>
+                            <tr>
+                                <th style="width:40%" class="emails-co-header">Vendor</th>
+                                <th class="yourcost-col-header">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tier" ng-repeat="vendor in vendors">
+                                <td>{{vendor.name}}</td>
+                                <td class="cost">{{vendor.amount | number:2}}
+                                    <sup ng-show="pencil" ng-click="editAmount($event);" title="Edit vendor amount" data-type="{{vendor.name | lowercase}}" data-amount="{{vendor.amount | number:2}}" class="pointer fa fa-pencil editAmount"></sup>
+                                    <sup ng-show="pencil" ng-click="removeVendor($event);" title="Remove vendor" data-type="{{vendor.name}}" style="color: red" class="pointer fa fa-remove"></sup>
+                                </td>
+                            </tr>
+                            <tr ng-show="addRow">
+                                <td style="width: 50%;">
+                                    <span angucomplete-alt id="ex1" placeholder="Search vendors" text-no-results="false" maxlength="50" pause="1" selected-object="selectedVendors;" local-data="vendorsList" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small total-cost small-input"
+                                        match-class="highlight">
+                                    </span>
+                                    <div class="webui-popover-content">
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <input class="total-cost" id="ex2" placeholder="Amount" ng-model="ex2" type="text" />
+                                    <div class="webui-popover-content">
+                                        <p class="note"></p>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="button button--rounded" ng-click="yes($event);" data-type="1" style="background-color: #7bcad1; color: white">Yes</button>
+                                            <button type="button" class="button button--rounded" ng-click="no($event);" data-selector="#ex2" style="background-color: #dde1e5; color: black" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="pointer fa fa-check" ng-click="addRowHandler();"></span> <span class="pointer fa fa-remove" ng-click="removeRow();" style="color:red"></span></td>
+                            </tr>
+                            <tr class="tier" ng-show="others" id="hideOthers">
+                                <td class="pointer" ng-click="otherHanler()" title="Add new vendor" style="width: auto">Add Vendor</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total cost:</td>
+                                <td colspan="2">
+                                    <span class="total-cost" id="calc_total">{{totalMax | number:2}}</span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="tab-pane" id="pane3">
+                    <table class="tiers" border="0">
+                        <thead>
+                            <tr>
+                                <th style="width:40%" class="emails-co-header">Vendor</th>
+                                <th class="yourcost-col-header">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tier" ng-repeat="vendor in recommendedVendors">
+                                <td>{{vendor.name}}</td>
+                                <td class="cost">{{vendor.amount | number:2}} </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total cost:</td>
+                                <td colspan="2">
+                                    <span class="total-cost" id="calc_total">{{totalRecMax | number:2}}</span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div style="text-align: right;margin-top: 5px;"><a ng-click="useRec();" class=" pointer">Use Recommended budget</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

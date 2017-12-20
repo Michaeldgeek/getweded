@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="userApp">
+
+<head>
+    <% include partials/head.ejs %>
+        <script src="/js/ng-sortable.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/ng-sortable.min.css">
+</head>
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+
+    <div class="page-wrapper">
+        <!-- start preloader  -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <% include partials/nav.ejs %>
+            <!-- end of header -->
+            <!-- section -->
+            <section class="wedding-couple-section" ng-controller="UserCtrl" style="background-color: #F5F5F5;position: relative;" id="couple">
+                <% include partials/banner.ejs %>
+                    <div class="nservice-wrapper" style="padding-top: 180px;">
+                        <div class="row">
+                            <div class="col col-md-8 pl-6">
+                                <% include partials/dashboard.ejs %>
+                            </div>
+                            <div class="col col-md-4 pl-6" style="padding-right: 3rem;padding-top: 0.8rem;">
+                                <% include partials/side-bar.ejs %>
+                                    <% include partials/reminder.ejs %>
+                            </div>
+                        </div>
+
+                    </div>
+            </section>
+            <!-- section ends -->
+            <!-- footer starts -->
+            <% include partials/footer.ejs %>
+                <!-- footer ends -->
+                <script src="/js/moment.min.js"></script>
+
+</body>
+
+</html>

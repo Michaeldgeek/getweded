@@ -1,0 +1,94 @@
+<html ng-app="registerApp" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="theme-color" content="#187fc0">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <title>Platinum Investors</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <style>
+        .err {
+            color: red;
+        }
+        
+        .succ {
+            color: #00a65a;
+        }
+    </style>
+
+</head>
+
+<body cz-shortcut-listen="true">
+
+    <div id="wrapper-div" class="login-pg overflow-scroll flex-justify flex-center">
+        <nav class="navbar navbar-default navbar-inverse pos-abs bc-header bc-logo-header width-100 width-100-tablet width-100-mobile">
+            <div class="container container-fluid flex-center">
+                <div class="navbar-header flex-center flex-row-reverse flex-between">
+                    <a class="navbar-brand flex-center" href="/">
+                        <h3><b style="color: #D97A5F">Platinum</b> <span style="color: #FFF">Investors</span></h3>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="flex-center flex-justify flex-column">
+            <div class="flex flex-justify">
+                <div class="alert-in-app">
+                    <alerts>
+                        <!---->
+                    </alerts>
+                </div>
+            </div>
+            <!---->
+            <div class="login-box mhs" ng-controller="FormCtrl">
+                <div data-preflight-tag="CreateWallet">
+                    <header>
+                        <hgroup>
+                            <div class="flex-between flex-center flex-wrap mb-10"><span class="f-24 lh1" translate="CREATE_A_WALLET">Login into your Account</span><span><span translate="OR">or</span>&nbsp;<a href="register"><span translate="LOGIN">Register</span></a></span>
+                            </div>
+
+                        </hgroup>
+                    </header>
+                </div>
+                <form class="bc-form form-horizontal mt-30 " id="signupForm" action="login" method="post" role="form" name="signupForm">
+                    <fieldset ng-disabled="browser.disabled || working">
+                        <div class="group mb-20" style="">
+                            <div class="item">
+                                <label translate="EMAIL">Email</label>
+                                <div class="pos-rel">
+                                    <input class="form-control" name="email" id="email" ng-model="email" style="" required="" type="email">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group mb-20">
+                            <div class="item">
+                                <label translate="NEW_PASSWORD">Password</label>
+                                <div class="pos-rel">
+                                    <input class="form-control " name="password" ng-model="password" required="" type="password">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="group mb-15 full">
+                            <button class="button-primary button-heavy ladda-button" type="submit" ng-disabled="signupForm.$invalid || (invalid || !aggrement)" ladda-translate="CONTINUE" ui-ladda="working"><span><span class="ladda-label" translate="CONTINUE">Login</span><span class="ladda-spinner"><div class="spinner"></div></span></span>
+                                    </button>
+                        </div>
+                        <p style="text-align: center"><a href="reset-password">Reset Password</a></p>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="flex-row flex-center flex-column-mobile flex-between bc-logo-footer width-100 width-100-tablet" style="margin-top: 10px;">
+            <div class="container">
+                <div class="flex-row flex-center flex-column-mobile em-300">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

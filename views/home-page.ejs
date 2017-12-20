@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="mainApp">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#5e9a8e">
+    <meta name="theme-color" content="#5e9a8e">
+    <!-- Page Title -->
+    <title> GetWeded </title>
+
+    <!-- Favicon and Touch Icons -->
+    <link href="images/favicon/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="images/favicon/apple-icon.png" rel="apple-touch-icon">
+    <!--<link href="images/favicon/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="images/favicon/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="images/favicon/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Icon fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/flaticon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Plugins for this template -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/slick-theme.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/pretty-checkbox.min.css" rel="stylesheet">
+    <link href="css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="css/jquery.webui-popover.min.css" rel="stylesheet">
+    <link href="css/ng-tags-input.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bundle.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 101 !important;
+            background-color: white;
+            box-shadow: 0 1px 4px -1px rgba(32, 37, 37, 0.3);
+        }
+        
+        nav.affix li.global-nav__item a {
+            color: black;
+        }
+        
+        nav.affix-top a#secondLogo {
+            display: none;
+        }
+        
+        nav.affix a#firstLogo {
+            display: none;
+        }
+        
+        .navbar {
+            margin-bottom: 0px;
+        }
+        
+        .affix~.container-fluid {
+            position: relative;
+            top: 50px;
+        }
+    </style>
+</head>
+
+<body id="home" data-ng-controller="mainController" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <div class="page-wrapper">
+        <!-- start preloader -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <nav class="global-nav global-nav--transparent" data-spy="affix" data-offset-top="97">
+            <div class="container">
+                <div class="global-nav__left">
+                    <a class="global-nav__logo" href="/" id="firstLogo">
+                        <img src="images/icons/logo-white.png" style="height: 30px" alt="GetWeded">
+                    </a>
+                    <a class="global-nav__logo" href="/" id="secondLogo">
+                        <img src="images/icons/logo.png" style="height: 30px" alt="GetWeded">
+                    </a>
+                </div>
+                <div class="global-nav__right">
+                    <ul class="global-nav__menu">
+                        <li class="global-nav__item"><a href="/">Blog</a></li>
+                        <li class="global-nav__item"><a class="pointer" data-toggle='modal' data-target="#mainLoginModal">Login</a></li>
+                        <li class="global-nav__button" style=" color:white;">
+                            <a class="button button--rounded pointer getStarted" style="background-color: #7bcad1;">
+                                   Get Started
+                             </a>
+                            <span class="cd-modal-bg"></span>
+                        </li>
+                    </ul>
+                    <div class="global-mobile-nav">
+                        <div class="global-mobile-nav__trigger" id="mobile-nav-trigger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul class="global-mobile-nav-menu" id="mobile-nav-menu" style="display: none;">
+                            <div class="row">
+                                <div class="col col-xs-7">
+                                    <li class="global-mobile-nav-menu__label">COUPLE KITS</li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Budget Tool</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Checklist</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Inspirations</a>
+                                    </li>
+                                </div>
+                                <div class="col col-xs-5">
+                                    <li class="global-mobile-nav-menu__label">ACCOUNT</li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Log In</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a class="pointer getStarted" data-type="modal-trigger">Get Started</a>
+                                        <span class="cd-modal-bg"></span>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- end of header -->
+        <!-- start of hero -->
+        <section class="hero" style="position: relative;">
+            <div class="hero-slider hero-slider-s1">
+                <div class="slide-item">
+                    <img src="images/slider/slide-1.jpg" alt class="slider-bg">
+                </div>
+            </div>
+
+            <div id="spirit-header" class="spirit-header" style="top: 0; position: absolute">
+                <canvas id="spirit-canvas"></canvas>
+            </div>
+
+            <div class="wedding-announcement">
+                <div class="couple-name-merried-text">
+                    <h2 class="wow slideInUp" data-wow-duration="1s">Your Perfect Wedding, effortlessly</h2>
+                    <div class="married-text wow fadeIn" data-wow-delay="1s">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 col-md-7 col-md-offset-2 col-sm-offset-2 col-sm-8">
+                                <p class="m-t joy-sub-headline" style="color:white;">
+                                    From venues, wedding dress and planners to honeymoon getaways, we connect you to the best & fully vetted service providers that will deliver your wedding just perfectly!
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hero-section__call-to-action">
+                        <section class="cd-section">
+                            <div class="cd-modal-action">
+                                <a class="button button--large wow fadeInUp pointer" id="start" data-type="modal-trigger" style="background-color: #7bcad1; color:white;opacity: 1" data-wow-delay="1.40s">Getting Married?</a>
+                                <span class="cd-modal-bg"></span>
+                                <a class="cd-modal-close">Close</a>
+
+                            </div>
+                            <div class="row wow fadeInUp" data-wow-delay="1.40s">
+                                <div class="col-lg-6 col-lg-offset-3 col-md-7 col-md-offset-2 col-sm-offset-2 col-sm-8">
+                                    <a style="display: inline-block" class="btn btn-primary btn-joy btn-joy-transparent btn-uppercase hvr-fade m-t"><span class="fa fa-2x fa-phone"></span>Have a question? Call us on +2347087364312</a>
+                                </div>
+                            </div>
+                            <div class="cd-modal">
+                                <div class="cd-modal-content">
+                                    <!-- get started dialog -->
+                                    <div class="col-sm-12" id="process">
+                                        <div class="tile-progress tile-white">
+                                            <div class="tile-header" style="color: black">
+                                                <div class="md-input" id="step1">
+                                                    <h3>Tell us what you need</h3>
+                                                    <textarea class="md-form-control" id="info1" style="margin-top:10px" ng-model="info" placeholder="Write here..."></textarea>
+                                                    <h3>What category best describes it?</h3>
+                                                    <tags-input class=" bootstrap" id="info2" display-property="name" min-length="1" replace-spaces-with-dashes="false" ng-model="tags" placeholder="Start typing... eg: Photographer" on-tag-added="tagAdded($tag);" on-tag-removed="tagRemoved($tag);" add-from-autocomplete-only="true">
+                                                        <auto-complete source="loadTags($query)" min-length="0" debounce-delay="0" max-results-to-show="30"></auto-complete>
+                                                    </tags-input>
+                                                </div>
+                                                <div id="budgetArea" style="opacity: 0;display:none;">
+                                                    <h3 class="m-t m-b" style="color: black">Whats your budget</h3>
+                                                    <% include partials/budget.ejs %>
+                                                </div>
+                                                <div class="md-input" id="step2" style="opacity: 0;display:none; color: black">
+                                                    <h3>When is your wedding?</h3>
+                                                    <input class="md-form-control" ng-bind="weddingDate" placeholder="Select date" value="" id="date-input" required="" style="background-color: transparent;" type="text" />
+                                                </div>
+                                                <div class="md-input" id="step3" style="opacity: 0;display:none; color: black">
+                                                    <h3>Wedding location?</h3>
+                                                    <select class="md-form-control" value="" id="location-input" required="" style="background-color: transparent;">
+                                                            <option ng-repeat="option in states" value="{{option.id}}">{{option.name}}</option>
+                                                    </select>
+                                                </div>
+
+                                                <span style="float: left; color:black" class="pointer" ng-show="prev" id="prev"><span class="fa fa-arrow-left"></span> Prev </span>
+                                                <span style="float: right; color: black" class="pointer" ng-show="next" id="next">Next <span class="fa fa-arrow-right"></span></span>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- get started dialog ends -->
+
+                                </div>
+                                <!-- cd-modal-content -->
+                            </div>
+                            <!-- cd-modal -->
+                        </section>
+                        <!-- cd-modal -->
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+        <!-- end of hero slider -->
+        </section>
+        <section class="wedding-couple-section" id="couple" style="background-color: #fff;">
+            <div class="container">
+                <div class="block text-center p-b-0 p-t-lg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1 class="m-b"> Forever-After Starts Here </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block text-center p-t-0 joy-block-hero-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 p-t p-x-md">
+                                <img src="images/icons/joy-details-hero.png" class="m-b img-responsive blend center">
+                                <h3 class="m-t-0 m-b">The Details</h3>
+                                <p>From your wedding schedule to hotel and shuttle listings - Let GetWeded organize it all for you and your guests.</p>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 p-t p-x-md">
+                                <img src="images/tuts/1.jpg" class="m-b img-responsive center">
+                                <h3 class="m-t-0 m-b">Tell us your wedding vision</h3>
+                                <p>Describe your wedding here or call us on +2347087364312. We'll gladly discuss details with you.</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6 p-t-lg p-x-md">
+                                <img src="images/tuts/2.jpg" class="m-b img-responsive center">
+                                <h3 class="m-t-0 m-b">Receive verified matched vendors</h3>
+                                <p>You will receive two to three suitable vendor profiles within 48 hours. In addition, you can get to know the vendors personally. </p>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 p-t-lg p-x-md">
+                                <img src="images/tuts/1.jpg" class="m-b img-responsive blend center">
+                                <h3 class="m-t-0 m-b">Focus on Love</h3>
+                                <p>You can focus on your love and we ensure your dream weddding is delivered beautifully without hassle.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-lg-offset-3 col-sm-12 p-t-lg p-x-md">
+                                <h3 class="m-t m-b">Budget Calculator</h3>
+                                <p>Make use of our free budget calculator to help you stay organised.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Wedding inspirations -->
+    <% if(!isMobile) { %>
+        <% include partials/inspirations.ejs %>
+            <% } else {%>
+                <% include partials/inspirations-mobile %>
+                    <% } %>
+
+
+                        <!-- Wedding inspirations end -->
+                        <!-- Wedding inspiration mobile starts -- >
+                        <!-- wedding inspiration mobile end -->
+                        <section class="wedding-couple-section" id="couple" style="background-color: #fff;">
+                            <div class="container">
+                                <div class="block text-center">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2 fadeInUp animated">
+                                                <h1 class="m-t-0 m-b">GetWeded patners with only the best Event Planners</h1>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/event.jpg" class="m-b img-responsive blend center">
+                                            </div>
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/event.jpg" class="m-b img-responsive blend center">
+                                            </div>
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/event.jpg" class="m-b img-responsive blend center">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="wedding-couple-section" id="couple" style="background-color: #F5F5F5;">
+                            <div class="container">
+                                <div class="block text-center" style="padding-top: 40px;padding-bottom: 40px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2 fadeInUp animated">
+                                                <h1 class="m-t-0 m-b">Stay Organized</h1>
+                                                <p>We want you to stay organized and on track. Download our free checklist to make your wedding planning a breeze.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <a class="btn btn-primary m-t-lg text-uppercase">Download Wedding Checklist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="wedding-couple-section" id="couple" style="background-color: #fff;">
+                            <div class="container">
+                                <div class="block text-center" style="padding-top: 40px;padding-bottom: 40px;">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2 fadeInUp animated">
+                                                <h1 class="m-t-0 m-b">As seen on</h1>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/launch-pad.png" class="m-b img-responsive blend center">
+                                            </div>
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/tonyelumelufoundation.png" class="m-b img-responsive blend center">
+                                            </div>
+                                            <div class=" col-xs-4">
+                                                <img src="images/icons/business-day-logo.jpg" class="m-b img-responsive blend center">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="global-footer">
+                            <div class="grid-container -layout-wide">
+
+                                <hr class="global-footer__separator">
+                                <div class="global-footer__container">
+                                    <div class="global-footer-company-links">
+                                        <ul class="global-footer-company-links__list" style="font-weight:400">
+                                            <li class="global-footer-company-links__list-item">
+                                                <a class="global-footer__text-link -opacity-full" href="/">Blog</a>
+                                            </li>
+                                            <li class="global-footer-company-links__list-item">
+                                                <a class="global-footer__text-link -opacity-full" href="/">Budget Tool</a>
+                                            </li>
+                                            <li class="global-footer-company-links__list-item">
+                                                <a class="global-footer__text-link -opacity-full" href="/">Get Started</a>
+                                            </li>
+                                        </ul>
+
+                                        <hr class="global-footer__separator is-hidden-tablet-and-above h-mt3">
+
+                                        <small class="global-footer-company-links__price-disclaimer">
+                   
+                                        </small>
+
+                                        <small style="font-weight:400" class="global-footer-company-links__copyright">
+                                        © 2017 GetWeded Ltd. Trademarks and brands are the property of their respective owners.
+                                        </small>
+                                    </div>
+
+                                    <div class="global-footer-social">
+                                        <ul>
+                                            <li class="global-footer-social__list-item">
+                                                <a class="global-footer__icon-link" rel="nofollow" href="/">
+                                                    <img class="global-footer-social__icon" alt="Twitter" title="Twitter" src="https://public-assets.envato-static.com/assets/header-footer/social/twitter-0ebe984d9b2b8c78b67126b285558581951a217bdd4dededf36127a2fdfcb371.svg">
+                                                </a>
+                                            </li>
+                                            <li class="global-footer-social__list-item">
+                                                <a class="global-footer__icon-link" rel="nofollow" href="/">
+                                                    <img class="global-footer-social__icon" alt="Facebook" title="Facebook" src="https://public-assets.envato-static.com/assets/header-footer/social/facebook-1f1edee9e1cd28cd2df88ff3a916f5f67f39fa61031a2276a81406d5ec264d08.svg">
+                                                </a>
+                                            </li>
+                                            <li class="global-footer-social__list-item">
+                                                <a class="global-footer__icon-link" rel="nofollow" href="/">
+                                                    <img class="global-footer-social__icon" alt="YouTube" title="YouTube" src="https://public-assets.envato-static.com/assets/header-footer/social/youtube-6e2be9a9ee897454619f4a137cbe6e5e17be834536a4ea74a5638e2d8f6b9649.svg">
+                                                </a>
+                                            </li>
+                                            <li class="global-footer-social__list-item">
+                                                <a class="global-footer__icon-link" rel="nofollow" href="/">
+                                                    <img class="global-footer-social__icon" alt="Instagram" title="Instagram" src="https://public-assets.envato-static.com/assets/header-footer/social/instagram-7527061010a48c8afcf551be64441f1e32396592b1fdb7bb71572ca65e46e877.svg">
+                                                </a>
+                                            </li>
+                                            <li class="global-footer-social__list-item">
+                                                <a class="global-footer__icon-link" rel="nofollow" href="/">
+                                                    <img class="global-footer-social__icon" alt="Pinterest" title="Pinterest" src="https://public-assets.envato-static.com/assets/header-footer/social/pinterest-bab0087092edff09204c4954d3ef72c5805281d8f10cca6b51955235722e530b.svg">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- Modal -->
+                        <div id="loginModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Give us your details <span style="font-size: 14px;font-weight: 300;">(Instantly receive bids & best quote from verified vendors that will deliver your weddding on your budget and style)</span></h4>
+                                    </div>
+                                    <form method="post" id="regForm" name="loginForm" novalidate>
+                                        <div class="alert alert-danger alert-dismissable fade in" ng-if="codeError">
+                                            <button class="close" style="opacity: 1; color: white" data-dismiss="alert">&times;</button>
+                                            <p>
+                                                {{codeError}}
+                                            </p>
+                                        </div>
+                                        <div class="alert alert-success alert-dismissable fade in" ng-if="codeMessage">
+                                            <button class="close" style="opacity: 1; color: white" data-dismiss="alert">&times;</button>
+                                            <p>
+                                                {{codeMessage}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Full Name</p>
+                                            <input class="form-control" value="" ng-model="name" ng-disabled="disableInput" id="name" required name="name" type="text">
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.name.$dirty && loginForm.name.$invalid">Please enter a valid name</span>
+                                            <p>Email</p>
+                                            <input class="form-control" value="" ng-model="email" ng-disabled="disableInput" required id="email" name="email" type="email">
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">Please enter a valid email</span>
+                                            <p>Phone (Eg:080XXX. A verification code will be sent to this number) </p>
+                                            <input class="form-control" value="" id="phone" ng-disabled="vCode" minlength="11" ng-model="phone" required name="phone" type="text">
+                                            <span style="font-size: 14px;font-weight: 300;color : red" ng-show="loginForm.phone.$dirty && loginForm.phone.$invalid">Please enter a valid phone number</span>
+                                            <p ng-if="vCode">Enter Verification code</p>
+                                            <input class="form-control" value="" ng-if="vCode" id="code" name="code" ng-model="verCode" type="text" required>
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.code.$dirty && loginForm.code.$invalid">Enter verifiction code</span>
+                                            <span style="font-size: 14px;font-weight: 300; " class="pointer" ng-class="(timer) ? 'default' : 'resend'" ng-click="resend();" ng-if="vCode">Edit number and try </span><span ng-show="timer && vCode">in: {{timer}}seconds</span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="button button--rounded" ng-click="save();" ng-disabled="loginForm.$invalid" style="background-color: #7bcad1; color: white" id="save"><i ng-hide="spinner" class="fa fa-spinner fa-2x fa-spin" style="top: 5px;position: relative;"></i>Save</button>
+                                            <button type="button" class="button button--rounded" style="background-color: #dde1e5; color: black" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="mainLoginModal" class="modal fade" ng-controller="loginCtrl" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Login into your account</h4>
+                                    </div>
+                                    <form method="post" name="loginForm" novalidate>
+                                        <div class="alert alert-danger  fade in" ng-if="codeError">
+                                            <p>
+                                                {{codeError}}
+                                            </p>
+                                        </div>
+                                        <div class="alert alert-success alert-dismissable fade in" ng-if="codeMessage">
+                                            <button class="close" style="opacity: 1; color: white" data-dismiss="alert">&times;</button>
+                                            <p>
+                                                {{codeMessage}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Email:</p>
+                                            <input class="form-control" value="" ng-model="email" required id="emailLog" name="email" type="email">
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">Please enter a valid email</span>
+                                            <p>Password:</p>
+                                            <input class="form-control" value="" id="password" ng-model="password" required name="password" type="password">
+                                            <p ng-if="vCode">Enter Verification code sent to {{data.phone}}</p>
+                                            <input class="form-control" value="" ng-if="vCode" id="vCode" name="code" ng-model="verCode" type="text" required>
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.code.$dirty && loginForm.code.$invalid">Enter verifiction code</span>
+                                            <!--<div> <span style="font-size: 14px;font-weight: 300; " class="pointer" ng-class="(timer) ? 'default' : 'resend'" ng-click="resend();" ng-if="vCode"> Try </span><span ng-show="timer && vCode">in: {{timer}}seconds</span></div>-->
+                                            <span style="font-size: 14px;font-weight: 300; " ng-click="reset();" class="pointer resend">Forgot password</span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="button button--rounded" ng-click="login();" ng-disabled="loginForm.$invalid" style="background-color: #7bcad1; color: white"><i ng-show="spin" class="fa fa-spinner fa-2x fa-spin" style="top: 5px;position: relative;"></i>Login</button>
+                                            <button type="button" class="button button--rounded" style="background-color: #dde1e5; color: black" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="editAmountModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Edit Amount</h4>
+                                    </div>
+                                    <form method="post" id="regForm">
+                                        <div class="alert alert-danger fade in" ng-if="errorEdit">
+                                            <p>
+                                                {{errorEdit}}
+                                            </p>
+                                        </div>
+                                        <div class="alert alert-success alert-dismissable fade in" ng-if="success">
+                                            <button class="close" style="opacity: 1; color: white" data-dismiss="alert">&times;</button>
+                                            <p>
+                                                {{success}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Edit {{vendorType}} amount</p>
+                                            <input class="form-control" value="" id="updateBox" ng-model="editItem" type="text">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="button button--rounded" ng-click="saveItem();" style="background-color: #7bcad1; color: white">Update</button>
+                                            <button type="button" class="button button--rounded" style="background-color: #dde1e5; color: black" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="editMinModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Update budget</h4>
+                                    </div>
+                                    <form method="post" id="regForm">
+                                        <div class="alert alert-danger fade in" ng-if="errorMinDiv">
+                                            <p>
+                                                {{errorMin}}
+                                            </p>
+                                        </div>
+                                        <div class="alert alert-success alert-dismissable fade in" ng-if="success">
+                                            <button class="close" style="opacity: 1; color: white" data-dismiss="alert">&times;</button>
+                                            <p>
+                                                {{successMin}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Enter budget amount (Currently: {{min}})</p>
+                                            <input class="form-control" value="" id="minNew" ng-model="minNew" type="text">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="button button--rounded" ng-click="updateMin();" style="background-color: #7bcad1; color: white">Update</button>
+                                            <button type="button" class="button button--rounded" style="background-color: #dde1e5; color: black" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- All JavaScript files
+    ================================================== -->
+                        <script src="/js/dynamic-number.min.js"></script>
+                        <script src="/js/angucomplete-alt.min.js"></script>
+                        <script src="/js/moment.min.js"></script>
+                        <script src="/js/bootstrap-material-datetimepicker.js"></script>
+                        <script src="/js/ng-tags-input.min.js"></script>
+                        <script src="/js/velocity.min.js"></script>
+                        <script src="/js/main.js"></script>
+                        <!-- Resource jQuery -->
+                        <!-- Plugins for this template -->
+                        <script src="/js/jquery.webui-popover.min.js"></script>
+                        <script src="/js/jquery-plugin-collection.js"></script>
+                        <script src="/js/spirit.js"></script>
+                        <script src="/js/spin.min.js"></script>
+                        <!-- Custom script for this template 
+                        <script src="/js/app.js"></script> -->
+
+                        <script src="/js/socket.io.js"></script>
+                        <script src="/js/socket.io.slim.js"></script>
+                        <script src="/js/script.js"></script>
+
+</body>
+
+</html>

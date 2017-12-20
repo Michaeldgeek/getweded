@@ -1,0 +1,201 @@
+<div id="board">
+    <div class="clearfix nservice-cancel-wrapper">
+        <div class="right">
+
+        </div>
+    </div>
+
+    <div class="nservice-header-wrapper">
+        <div class="nservice-header-title"><span ng-bind="ServiceName" class="ng-binding"></span></div>
+
+    </div>
+    <div class="module" style="position: relative">
+        <div ng-show="saving || addItemError" class="row notice" id="tween-element">
+            <div class="col-xs-4">
+                <a class="pull-left btn btn-primary testing-add-a-todo" ng-class="(addItemError) ? 'saving-error normal-btn' : 'saving'">
+                    <span ng-if="saving"> Saving</span>
+                    <span ng-if="addItemError">{{addItemError}}</span>
+                </a>
+            </div>
+        </div>
+        <div ng-show="deleting || deleteItemError" class="row notice" id="tween-element">
+            <div class="col-xs-4">
+                <a class="pull-left btn btn-primary testing-add-a-todo saving-error">
+                    <span ng-if="deleting">Deleting</span>
+                    <span ng-if="deleteItemError">{{deleteItemError}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="row section" id="js-checklist-header">
+            <div class="col-xs-12">
+                <h1 class="h3">Checklist</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12" style="position: relative">
+                <div id="sticky-action-bar" class="affix-top" style="display: inline-block; width: 100%" data-spy="affix" data-offset-top="197">
+                    <div class="row" id="tween-element">
+                        <div class="col-xs-4">
+                            <a class="pull-left btn btn-primary testing-add-a-todo" id="add">
+                                <i class="fa fa-plus"></i> &nbsp;Add a To-Do </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-xs-12">
+                            <div class="checklist-item-form add-todo" style="margin-top: 8px; display: none">
+                                <div class="panel">
+                                    <div class="well clearfix">
+                                        <form class="form-horizontal" novalidate name="AddItem">
+                                            <div class="row">
+                                                <div class="col-xs-12"></div>
+                                            </div>
+                                            <div class="row form-padding">
+                                                <div class="col-xs-11">
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-xs-7">
+                                                                <input class="form-control testing-item-name" ng-disabled="saving" required ng-model="name" minlength="5" name="name" placeholder="Item Name" value="" type="text">
+                                                                <span style="font-size: 14px;font-weight: 300; color : red" ng-show="AddItem.name.$dirty && AddItem.name.$invalid">Please give this checklist a name</span>
+                                                            </div>
+                                                            <div class="col-xs-1">
+                                                                <label class="control-label due pull-right">Due</label>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <div class="input-group date_calendar">
+                                                                    <input class="form-control testing-datepicker date_calendar" ng-disabled="saving" ng-bind="reminderDate" id="date-input" value="" placeholder="(Optional)" readonly>
+                                                                    <span class="input-group-btn" id="dateLabel">
+                                                                        <label class="btn btn-link" style="border: 1.5px solid #ddd;">
+                                                                            <i class="fa fa-calendar text-muted"></i>
+                                                                        </label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group has-feedback has-feedback-left">
+                                                            <div class="col-xs-7">
+                                                                <i class="fa fa-file-text-o text-muted form-control-feedback"></i>
+                                                                <input class="comments-text form-control testing-comments-text" ng-disabled="saving" name="note" minlength="10" required ng-model="note" placeholder="Add a note..." value="" type="text">
+                                                                <span style="font-size: 14px;font-weight: 300; color : red" ng-show="AddItem.note.$dirty && AddItem.note.$invalid">Write something that can help you understand this checklist.</span>
+                                                            </div>
+                                                            <div class="col-xs-3 col-xs-offset-2">
+                                                                <div class="pull-right">
+                                                                    <input class="btn btn-primary testing-save-item" ng-click="addItem();" ng-disabled="AddItem.$invalid ||saving" value="Save To-Do" type="submit">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-1">
+                                                    <i aria-hidden="true" aria-label="Close" class="fa fa-times fa-padding fa-lg text-muted testing-cancel-item pointer" type="button"></i>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown" style="float: right;  top: 0px;  position: absolute;  right: 18px;">
+                    <a class="pull-left btn btn-primary testing-add-a-todo" type="button" data-toggle="dropdown">{{filterText}} </a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <li ng-click="completedTask()"><a class="pointer">Completed Task</a></li>
+                        <li ng-click="uncompletedTask()"><a class="pointer">Uncompleted Task</a></li>
+                        <li ng-click="allTask()"><a class="pointer">ALL</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col col-xs-12">
+                <div class="panel-group" id="accordion">
+                    <input class="form-control testing-datepicker date_calendar" ng-model="reminderEditDate" type="hidden" id="date-edit-input" value="">
+                    <ul data-as-sortable="board.dragControlListeners" data-ng-model="items">
+                        <li data-ng-repeat="item in items" data-as-sortable-item style="margin-bottom: 10px">
+                            <div data-as-sortable-item-handle="dragControlListeners">
+                                <div class="panel panel-default vertical flip">
+                                    <div>
+                                        <div data-toggle="collapse" data-parent="#accordion" class="pointer" ng-click="open($event);">
+                                            <div class="panel-heading">
+                                                <span class="fa fa-chevron-right ellipse-h "></span>
+                                                <h4 class="panel-title" style="display: inline-block">
+                                                    <a>{{item.name}}</a>
+                                                </h4>
+
+                                            </div>
+                                        </div>
+                                        <span class="fa fa-2x fa-ellipsis-h ellipse dropdown pointer" ng-click="dropdown($event)" style="color: #19b5bc;">
+                                         <span class="dropdown-toggle"  data-toggle="dropdown"> </span>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="menu in item.menu" ng-click="menuOption($event,menu,item)">
+                                                <a> {{menu.name}}</a>
+                                            </li>
+                                        </ul>
+                                        </span>
+                                        <div class="pretty p-default" ng-click="doneItem($event,item)" style="float: right;margin-top: -27px;">
+                                            <input type="checkbox" ng-checked="{{item.completed}}" />
+                                            <div class="state p-info toggle-div">
+                                                <label></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-collapse collapse">
+                                        <div class="panel-body">{{item.note}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="alert-messages">
+                    <div role="alert" class="alert-dismissable alert alert-danger" ng-if="checklistErrorMsg && items.length ==0">
+                        <p style="text-align: center">{{checklistErrorMsg}}</p>
+                    </div>
+                </div>
+                <div id="spinner-wrapper">
+                    <div id="spinner" style="min-height: 40px;">
+
+                    </div>
+                    <p style="text-align: center"> Fetching checklist...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="editModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Checklist</h4>
+                </div>
+                <form method="post" name="editForm" novalidate>
+                    <div class="alert alert-danger fade in" ng-if="errorEdit">
+                        <p>
+                            {{errorEdit}}
+                        </p>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Item Name</p>
+                        <input class="form-control" value="" ng-model="nameEdit" name="nameEdit" required minlength="10" type="text">
+                        <span style="font-size: 14px;font-weight: 300; color : red" ng-show="editForm.nameEdit.$dirty && editForm.nameEdit.$invalid">Please give this checklist a name</span>
+                        <p>Item Note</p>
+                        <input class="form-control" value="" ng-model="noteEdit" name="noteEdit" required minlength="10" type="text">
+                        <span style="font-size: 14px;font-weight: 300; color : red" ng-show="editForm.noteEdit.$dirty && editForm.noteEdit.$invalid">Write something that can help you understand this checklist.</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="button button--rounded" ng-click="updateCheckList();" ng-disabled="editForm.$invalid" style="background-color: #7bcad1; color: white"><i ng-show="spinning" class="fa fa-spinner fa-2x fa-spin" style="top: 5px;position: relative;"></i>Update</button>
+                        <button type="button" class="button button--rounded" style="background-color: #dde1e5; color: black" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
