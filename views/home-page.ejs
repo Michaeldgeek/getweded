@@ -19,24 +19,24 @@
     <link href="images/favicon/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Icon fonts -->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/flaticon.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/flaticon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Plugins for this template -->
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
-    <link href="css/slick.css" rel="stylesheet">
-    <link href="css/slick-theme.css" rel="stylesheet">
-    <link href="css/owl.transitions.css" rel="stylesheet">
-    <link href="css/jquery.fancybox.css" rel="stylesheet">
-    <link href="css/magnific-popup.css" rel="stylesheet">
-    <link href="css/pretty-checkbox.min.css" rel="stylesheet">
-    <link href="css/bootstrap-material-datetimepicker.css" rel="stylesheet">
-    <link href="css/jquery.webui-popover.min.css" rel="stylesheet">
-    <link href="css/ng-tags-input.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.css" rel="stylesheet">
+    <link href="/css/slick.css" rel="stylesheet">
+    <link href="/css/slick-theme.css" rel="stylesheet">
+    <link href="/css/owl.transitions.css" rel="stylesheet">
+    <link href="/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <link href="/css/pretty-checkbox.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="/css/jquery.webui-popover.min.css" rel="stylesheet">
+    <link href="/css/ng-tags-input.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bundle.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -459,6 +459,9 @@
                                             <p>Email</p>
                                             <input class="form-control" value="" ng-model="email" ng-disabled="disableInput" required id="email" name="email" type="email">
                                             <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">Please enter a valid email</span>
+                                            <p>Password</p>
+                                            <input class="form-control" value="" ng-model="password" ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" ng-disabled="disableInput" required id="password" name="password" type="password">
+                                            <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">Allowed pattern: an uppercase, a number,a lowercase, and at least 8 characters</span>
                                             <p>Phone (Eg:080XXX. A verification code will be sent to this number) </p>
                                             <input class="form-control" value="" id="phone" ng-disabled="vCode" minlength="11" ng-model="phone" required name="phone" type="text">
                                             <span style="font-size: 14px;font-weight: 300;color : red" ng-show="loginForm.phone.$dirty && loginForm.phone.$invalid">Please enter a valid phone number</span>
@@ -499,10 +502,10 @@
                                         </div>
                                         <div class="modal-body">
                                             <p>Email:</p>
-                                            <input class="form-control" value="" ng-model="email" required id="emailLog" name="email" type="email">
+                                            <input class="form-control" value="" ng-model="emailL" required id="emailLog" name="email" type="email">
                                             <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">Please enter a valid email</span>
                                             <p>Password:</p>
-                                            <input class="form-control" value="" id="password" ng-model="password" required name="password" type="password">
+                                            <input class="form-control" value="" ng-model="passwordL" required name="password" type="password">
                                             <p ng-if="vCode">Enter Verification code sent to {{data.phone}}</p>
                                             <input class="form-control" value="" ng-if="vCode" id="vCode" name="code" ng-model="verCode" type="text" required>
                                             <span style="font-size: 14px;font-weight: 300; color : red" ng-show="loginForm.code.$dirty && loginForm.code.$invalid">Enter verifiction code</span>

@@ -396,7 +396,8 @@
                 var data = {
                     name: $('#name').val(),
                     email: $('#email').val(),
-                    phone: $('#phone').val()
+                    phone: $('#phone').val(),
+                    password: $('#password').val()
                 };
                 if ($scope.sending) {
                     return;
@@ -428,7 +429,7 @@
                             $('#loginDialog').modal('hide');
                             $scope.codeMessage = "Thank you so much. We will get back to you";
                             $scope.smsSent = false;
-                            window.location.href = '/user/home/';
+                            window.location.href = data.url;
                         } else {
                             $scope.codeError = data.error;
                             $scope.vCode = true;
@@ -496,7 +497,7 @@
         $scope.login = function() {
             if ($scope.loginForm.$valid) {
                 var email = $('#emailLog').val();
-                var password = $('#password').val();
+                var password = $scope.passwordL;
                 var user = new User();
                 user.setEmail(email).setPassword(password);
                 $scope.spin = true;
@@ -507,9 +508,21 @@
                 if ($scope.vCode) {
                     var promise = Util.verifyCode($http, { email: email, code: $('#vCode').val() });
                     promise.then(function(success) {
-                        console.log(success.data);
+                        $scope.logging = false;
+                        $scope.spin = false;
+                        var data = success.data;
+                        if (data.status == config.DONE) {
+                            $scope.codeError - undefined;
+                            $scope.codeMessage = "Login successful. Redirecting...";
+                            window.location.href = data.url;
+                            return;
+                        } else {
+                            $scope.codeError = data.error;
+                        }
                     }, function(error) {
-
+                        $scope.codeError = "Network error";
+                        $scope.logging = false;
+                        $scope.spin = false;
                     });
                     return;
                 }
@@ -517,7 +530,7 @@
                 var promise = User.loginUser(user, $http);
                 promise.then(function(success) {
                     var data = success.data;
-                    if (data.status == "success") {
+                    if (data.status == config.DONE) {
                         $scope.codeMessage = "Login successful. Redirecting...";
                         window.location.href = data.url;
                         return;
@@ -543,7 +556,7 @@
                     $scope.logging = false;
                     $scope.spin = false;
                 }, function(err) {
-                    $scope.codeError = err;
+                    $scope.codeError = "Network error";
                     $scope.logging = false;
                     $scope.spin = false;
                 });
@@ -570,7 +583,7 @@
     }]);
     var app2 = angular.module('userApp', ['as.sortable']);
     app2.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
-        //
+
     }]).controller('CheckListCtrl', ['$scope', '$http', function($scope, $http) {
         $scope.filterText = "FILTER";
         $scope.dropdown = function($event) {

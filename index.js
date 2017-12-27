@@ -18,36 +18,72 @@ var Jusibe = require('jusibe');
 var util = require('util');
 var moment = require('moment-timezone');
 var session = require('express-session');
-var FileStore = require('session-file-store')(session);
-
+var LokiStore = require('connect-loki')(session);
+const UIDGenerator = require('uid-generator');
+const uidgen = new UIDGenerator(256);
 var jusibe = new Jusibe("08d3f2931fc4e993f0bd3f79e381e23f", "9b5631452bdad9c0741400801cd70e5c");
 
 app.use(compression());
 /**
  * Dont minify already minified files
  */
+app.use(session({
+    store: new LokiStore({ ttl: 0 }),
+    resave: true,
+    saveUninitialized: true,
+    secret: 'keyboard cat'
+}));
+
+app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
     if (/\.min\.(css|js)$/.test(req.url)) {
         res.minifyOptions = res.minifyOptions || {};
         res.minifyOptions.minify = false;
     }
+    if (req.url.includes("/user/")) {
+        if (util.isNullOrUndefined(req.session.user)) {
+            if (req.method == "GET") {
+                res.redirect('/');
+                return;
+            } else {
+                res.send({ error: "Session expired. Login again" });
+                return;
+            }
+        } else {
+            Util.verifyToken(req.session.user, function(response) {
+                if (response == false) {
+                    if (req.method == "GET") {
+                        res.redirect('/');
+                        return;
+                    } else {
+                        res.send({ error: "Session expired. Login again" });
+                        return;
+                    }
+                } else {
+                    req.body.user = response.email;
+                    req.body.user_name_ = response.name;
+                    next();
+                }
+            }, connection);
+        }
+    } else {
+        next();
+    }
+
+});
+app.use(function(req, res, next) {
     next();
 });
 
-app.use(session({
-    store: new FileStore(),
-    resave: false,
-    saveUninitialized: true,
-    secret: 'keyboard cat'
-}));
-
-app.use(minify());
+//app.use(minify()); 
 app.use('/', express.static(__dirname + '/public'));
 app.use(redirect({
     "/login": "/login/",
     "/register": "/register/",
     "/user/home": "/user/home/",
-    "/user/checklist": "/user/checklist/"
+    "/user/checklist": "/user/checklist/",
+    "/logout": "/logout/"
 }, 301));
 app.use(checkMobile());
 
@@ -68,13 +104,14 @@ app.get('/register/', function(req, res) {
 });
 app.get('/user/home/', function(req, res) {
     var data = {};
-    data.user = req.session.views;
-
+    data.user = req.session.user;
+    data.name = req.body.user_name_;
     res.render('user-home', data);
 });
 app.get('/user/checklist/', function(req, res) {
     var data = {};
-    data.user = req.session.views;
+    data.user = req.session.user;
+    data.name = req.body.user_name_;
     res.render('checklist', data);
 });
 app.post('/user/checklist/add/', jsonParser, function(req, res) {
@@ -315,12 +352,33 @@ app.post('/verify-sms-code/', jsonParser, function(req, res) {
     var code = req.body.code;
     Util.verifyCode(connection, { email: email, code: code }, function(response) {
         if (util.isObject(response)) {
-            res.send({ status: config.VALID });
+            Util.updateSmsStatus(email, function(response) {
+                var token = uidgen.generateSync();
+                Util.issueNewToken(connection, token, email, function(response) {
+                    req.session.user = token;
+                    res.send({ status: config.DONE, url: "/user/home/" });
+                });
+            }, connection);
+
+        } else {
+            res.send({ error: "Verification code does not match" });
         }
     });
 });
+
+app.post('/logout/', jsonParser, function(req, res) {
+    var data = req.body;
+    req.session.user = undefined;
+    Util.logout(connection, data.email, function(response) {
+        res.send({ status: config.DONE, url: '/' });
+    });
+
+});
+
+
 app.post('/login/', jsonParser, function(req, res) {
     var data = req.body;
+    var email = data.email;
     Util.loginUser(connection, { email: data.email, password: data.password }, function(response) {
         var data = {};
         if (util.isObject(response)) {
@@ -328,13 +386,18 @@ app.post('/login/', jsonParser, function(req, res) {
                 data.error = config.UN_VERIFIED;
                 data.phone = response.phone;
                 data.email = response.email;
-                sendVerificationCodes(data.phone, data.email, function(response) {
+                Util.sendVerificationCodes(data.phone, data.email, function(response) {
                     if (util.isObject(response) && response.status == config.SENT) {
                         res.send(data);
                     }
-                });
+                }, connection);
             } else {
-                req.session.views = data.email;
+                var token = uidgen.generateSync();
+                Util.issueNewToken(connection, token, email, function(response) {
+                    req.session.user = token;
+                    res.send({ status: config.DONE, url: '/user/home/' });
+                });
+
             }
 
         } else {
@@ -345,134 +408,18 @@ app.post('/login/', jsonParser, function(req, res) {
 
 });
 
-function getRandomInt() {
-    return Math.floor(Math.random() * 89999 + 10000);
-}
-
-function isNewUser(email, callback, connection) {
-    connection.query("SELECT * from `users` where `email` = '" + email + "'",
-        function(error, results, fields) {
-            if (error) {
-                return;
-            }
-            if (results.length === 0) {
-                return callback(true);
-            } else {
-                return callback(results[0]);
-            }
-        });
-}
-
-function isUserVerified(email, callback, connection) {
-    connection.query("SELECT * from `smscodes` where `user` = '" + email + "'",
-        function(error, results, fields) {
-            if (error) {
-                return;
-            }
-            if (results.length === 0) {
-                return callback(true);
-            } else {
-                return callback(results[0]);
-            }
-        });
-}
-
-function saveNewUser(user, callback, connection) {
-    connection.query("insert into `users` SET ?", user, function(err, results) {
-        if (results.affectedRows === 1) {
-            callback(true);
-        } else {
-            callback(false);
-        }
-    });
-}
-
-function updatePhoneNumber(email, phone, callback) {
-    connection.query("update `users` set `phone` = '" + phone + "' where `user` = '" + email + "'",
-        function(err, results) {
-            if (err) {
-                callback(undefined);
-                return;
-            }
-            if (results.affectedRows > 0) {
-                callback(true);
-            } else {
-                // log error
-                callback(false);
-            }
-        });
-}
-
-function saveSmsCodes(smscodes, callback, connection) {
-    connection.query("insert into `smscodes` SET ?", smscodes, function(err, results) {
-        if (results.affectedRows === 1) {
-            callback(true);
-        } else {
-            callback(false);
-        }
-    });
-}
-
-function sendVerificationCodes(phone, email, callback, smscodes) {
-    var code = smscodes || getRandomInt();
-    var payload = {
-        to: phone,
-        from: 'GetWeded',
-        message: 'Verification code: ' + code
-    };
-    var obj = {
-        code: code,
-        status: "sent"
-    };
-    jusibe.sendSMS(payload)
-        .then(resp => {
-            if (resp.body.status == "Sent") {
-                var obj = {
-                    status: "sent",
-                    code: code
-                };
-                if (smscodes) {
-                    callback(obj);
-                } else {
-                    saveSmsCodes({ code: code, user: email, status: config.UN_VERIFIED }, function(response) {
-                        if (true) {
-                            callback(obj);
-                        }
-                    }, connection);
-                }
-            }
-        })
-        .catch(err => {
-            var obj = {
-                status: "error"
-            };
-            callback(obj);
-            console.log(err);
-        });
-
-}
 
 var jsonParser = bodyParser.json();
 app.post('/verify-phone/', jsonParser, function(req, res) {
     var data = req.body;
     if (data.resend == true) {
-        updatePhoneNumber(data.email, data.phone, function(reponse) {
-            isUserVerified(data.email, function(response) {
-                if (response === true) {
+        Util.updatePhoneNumber(data.email, data.phone, function(reponse) {
+            Util.isUserVerified(data.email, function(response) {
+                if (response === false) {
                     // not verified. code has not been sent before
-                    sendVerificationCodes(data.phone, data.email, function(response) {
+                    Util.sendVerificationCodes(data.phone, data.email, function(response) {
                         res.send(response);
-                    });
-                } else if (response.status == config.UN_VERIFIED) {
-                    sendVerificationCodes(data.phone, data.email, function(response) {
-                        res.send(response);
-                    }, response.code);
-
-                } else if (response.status == config.VERIFIED) {
-                    var obj = {
-                        error: "User already exist"
-                    };
-                    res.send(obj);
+                    }, connection);
                 } else {
                     var obj = {
                         error: "User already exist"
@@ -480,38 +427,28 @@ app.post('/verify-phone/', jsonParser, function(req, res) {
                     res.send(obj);
                 }
             }, connection);
-        });
+        }, connection);
 
     } else {
-        isNewUser(data.email, function(response) {
+        Util.isNewUser(data.email, function(response) {
             if (response === true) {
                 // new user.  save user
-                saveNewUser({ name: data.name, email: data.email, phone: data.phone }, function(response) {
+                Util.saveNewUser({ name: data.name, email: data.email, phone: data.phone, password: data.password, token: uidgen.generateSync() }, function(response) {
                     if (response) {
-                        sendVerificationCodes(data.phone, data.email, function(response) {
+                        Util.sendVerificationCodes(data.phone, data.email, function(response) {
                             res.send(response);
-                        });
+                        }, connection);
                     }
 
                 }, connection);
             } else {
                 // not a new user. is phone number verified?
-                isUserVerified(data.email, function(response) {
-                    if (response === true) {
+                Util.isUserVerified(data.email, function(response) {
+                    if (response === false) {
                         // not verified. code has not been sent before
-                        sendVerificationCodes(data.phone, data.email, function(response) {
+                        Util.sendVerificationCodes(data.phone, data.email, function(response) {
                             res.send(response);
-                        });
-                    } else if (response.status == config.UN_VERIFIED) {
-                        sendVerificationCodes(data.phone, data.email, function(response) {
-                            res.send(response);
-                        }, response.code);
-
-                    } else if (response.status == config.VERIFIED) {
-                        var obj = {
-                            error: "User already exist"
-                        };
-                        res.send(obj);
+                        }, connection);
                     } else {
                         var obj = {
                             error: "User already exist"
@@ -525,71 +462,68 @@ app.post('/verify-phone/', jsonParser, function(req, res) {
 });
 var jsonParser = bodyParser.json();
 app.post('/verify-code/', jsonParser, function(req, res) {
-    function updateSmsStatus(email, callback) {
-        console.log(email);
-        connection.query("update `smscodes` set `status` = '" + config.VERIFIED + "' where `user` = '" + email + "'",
-            function(err, results) {
-                if (results.affectedRows > 0) {
-                    Util.updatePhoneStatus(connection, email, function(response) {
-                        if (response) {
-                            callback(true);
-                        } else {
-                            callback(false);
-                        }
-                    });
-
-                } else {
-                    // log error
-                    callback(false);
-                }
-            });
-    }
-
     var code = req.body.code;
     var email = req.body.email;
-    isUserVerified(email, function(response) {
-        if (!util.isBoolean(response)) {
-            if (code == response.code) {
-                updateSmsStatus(email, function(response) {
-                    if (response) {
-                        var order = {};
-                        var selection = req.body.order;
-                        order.info = selection.info;
-                        order.location = selection.userLocation;
-                        order.timeOfWedding = selection.time;
-                        order.budgetMin = req.body.min;
-                        order.budget = JSON.stringify(req.body.vendors);
-                        order.user = email;
-                        order.time = new Date().getTime();
-                        Util.createOrder(connection, order, function(response) {
-                            if (typeof response == "undefined") {
-                                var obj = {
-                                    status: "done"
-                                };
-                                req.session.views = email;
-                            } else {
-                                var obj = {
-                                    error: "An internal error occured."
-                                };
-                            }
-                            res.send(obj);
-                        });
+    Util.isUserVerified(email, function(response) {
+        if (response == false) {
+            Util.getUnusedCodes(email, function(response) {
+                if (code == response.code) {
+                    Util.updateSmsStatus(email, function(response) {
+                        if (response) {
+                            var order = {};
+                            var selection = req.body.order;
+                            order.info = selection.info;
+                            order.location = selection.userLocation;
+                            order.timeOfWedding = moment(selection.time).tz('Africa/Lagos').unix();
+                            order.budgetMin = req.body.min;
+                            order.budget = JSON.stringify(req.body.vendors);
+                            order.user = email;
+                            order.time = moment().tz('Africa/Lagos').unix();
+                            Util.createOrder(connection, order, function(response) {
+                                if (typeof response == "undefined") {
+                                    var obj = {
+                                        status: "done",
+                                        url: "/user/home/"
+                                    };
+                                    Util.getToken(email, function(token) {
+                                        if (util.isBoolean(token)) {
+                                            //log error;
+                                        } else {
+                                            req.session.user = token;
+                                        }
+                                        console.log(token);
+                                        res.send(obj);
+                                    }, connection);
 
-                    } else {
-                        var obj = {
-                            error: "Details alredy existing"
-                        };
-                        res.send(obj);
-                    }
-                });
-            } else {
-                var obj = {
-                    error: "Verification code does not match"
-                };
-                res.send(obj);
-            }
+                                } else {
+                                    var obj = {
+                                        error: "An internal error occured."
+                                    };
+                                    res.send(obj);
+                                }
+
+                            }, connection);
+
+                        } else {
+                            var obj = {
+                                error: "Details alredy existing"
+                            };
+                            res.send(obj);
+                        }
+                    }, connection);
+                } else {
+                    var obj = {
+                        error: "Verification code does not match"
+                    };
+                    res.send(obj);
+                }
+            }, connection);
+
         } else {
-            // user somehow got deleted
+            var obj = {
+                error: "Tis account has been blocked. Contact suport"
+            };
+            res.send(obj);
         }
     }, connection);
 });

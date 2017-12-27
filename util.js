@@ -15,6 +15,12 @@ class Util {
         });
     }
 
+    static getRandomInt() {
+        return Math.floor(Math.random() * 89999 + 10000);
+    }
+
+
+
     static addChecklist(connection, checklist, callback) {
         connection.query("insert into `checklist` SET ?", checklist, function(err, results) {
             if (err) {
@@ -104,6 +110,7 @@ class Util {
                     return;
                 }
                 if (results.length === 0) {
+                    console.log(user);
                     return callback(true);
                 } else {
                     return callback(results[0]);
@@ -318,6 +325,38 @@ class Util {
                 }
             });
     }
+
+    static issueNewToken(connection, token, user, callback) {
+        connection.query("update `users` set `token` = '" + token + "' where (`email` = '" + user + "')",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
+    static logout(connection, user, callback) {
+        connection.query("update `users` set `token` = '" + null + "' where `email` = '" + user + "'",
+            function(err, results) {
+                if (err) {
+                    console.log(err);
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
     static setCheckListReminder(connection, checklist, callback) {
         connection.query("update `checklist` set `reminder` = '" + checklist.reminder + "' where (`user` = '" + checklist.user + "'and `id` = '" + checklist.id + "')",
             function(err, results) {
@@ -332,5 +371,187 @@ class Util {
                 }
             });
     }
+    static isNewUser(email, callback, connection) {
+        connection.query("SELECT * from `users` where `email` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(true);
+                } else {
+                    return callback(results[0]);
+                }
+            });
+    }
+
+    static verifyToken(token, callback, connection) {
+        connection.query("SELECT * from `users` where `token` = '" + token + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(false);
+                } else {
+                    return callback(results[0]);
+                }
+            });
+    }
+
+    static saveNewUser(user, callback, connection) {
+        connection.query("insert into `users` SET ?", user, function(err, results) {
+            if (results.affectedRows === 1) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        });
+    }
+    static getUnusedCodes(email, callback, connection) {
+        connection.query("SELECT * from `smscodes` where `user` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(true);
+                } else {
+                    return callback(results[0]);
+                }
+            });
+    }
+    static getToken(email, callback, connection) {
+        connection.query("SELECT * from `users` where `email` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(true);
+                } else {
+                    return callback(results[0].token);
+                }
+            });
+    }
+
+    static isUserVerified(email, callback, connection) {
+        connection.query("SELECT * from `users` where `email` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return;
+                }
+                if (results.length === 0) {
+                    return callback(false);
+                } else {
+                    if (results[0].isPhoneVerified == config.YES) {
+                        return callback(true);
+                    } else {
+                        return callback(false);
+                    }
+                }
+            });
+    }
+    static updateSmsStatus(email, callback, connection) {
+        connection.query("delete from `smscodes`  where `user` = '" + email + "'",
+            function(err, results) {
+                if (results.affectedRows > 0) {
+                    Util.updatePhoneStatus(connection, email, function(response) {
+                        if (response) {
+                            callback(true);
+                        } else {
+                            callback(false);
+                        }
+                    });
+
+                } else {
+                    // log error
+                    callback(false);
+                }
+            });
+    }
+    static sendVerificationCodes(phone, email, callback, connection) {
+        Util.getUnusedCodes(email, function(response) {
+            if (util.isBoolean(response)) {
+                var code = Util.getRandomInt();
+            } else {
+                var code = response.code;
+            }
+            var payload = {
+                to: phone,
+                from: 'GetWeded',
+                message: 'Verification code: ' + code
+            };
+            var obj = {
+                code: code,
+                status: "sent"
+            };
+            //tweak
+            if (!util.isBoolean(response)) {
+                callback(obj);
+            } else {
+                Util.saveSmsCodes({ code: code, user: email, status: config.UN_VERIFIED }, function(response) {
+                    if (true) {
+                        callback(obj);
+                    }
+                }, connection);
+            }
+            //tweak
+            /** jusibe.sendSMS(payload)
+                .then(resp => {
+                    if (resp.body.status == "Sent") {
+                        var obj = {
+                            status: "sent",
+                            code: code
+                        };
+                        if (!util.isBoolean(response)) {
+                            callback(obj);
+                        } else {
+                            saveSmsCodes({ code: code, user: email, status: config.UN_VERIFIED }, function(response) {
+                                if (true) {
+                                    callback(obj);
+                                }
+                            }, connection);
+                        }
+                    }
+                })
+                .catch(err => {
+                    var obj = {
+                        status: "error"
+                    };
+                    callback(obj);
+                    console.log(err);
+                });
+
+**/
+        }, connection);
+
+
+    }
+    static saveSmsCodes(smscodes, callback, connection) {
+        connection.query("insert into `smscodes` SET ?", smscodes, function(err, results) {
+            if (results.affectedRows === 1) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        });
+    }
+    static updatePhoneNumber(email, phone, callback, connection) {
+        connection.query("update `users` set `phone` = '" + phone + "' where `user` = '" + email + "'",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows > 0) {
+                    callback(true);
+                } else {
+                    // log error
+                    callback(false);
+                }
+            });
+    }
 }
+
 module.exports = Util;
