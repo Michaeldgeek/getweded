@@ -1,4 +1,4 @@
-<div id="auth-homepage-header" style="">
+<div id="auth-homepage-header">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -13,7 +13,13 @@
                             <h1 class="profile-title " style="color: white;">Hello,
                                 <%= name %>
                             </h1>
-                            <p style="color: white;">17 days until you say i do!</p>
+                            <p style="color: white;">
+                                <% if( _timeOfWedding_ ==  false) { %>
+                                    Congrats!
+                                    <%  } else { %>
+                                        <%= _timeOfWedding_ %> until you say I do!
+                                            <%  }  %>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -581,7 +581,7 @@
             }
         };
     }]);
-    var app2 = angular.module('userApp', ['as.sortable']);
+    var app2 = angular.module('userApp', []);
     app2.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
 
     }]).controller('CheckListCtrl', ['$scope', '$http', function($scope, $http) {
@@ -973,5 +973,7 @@
                 var y = b[key];
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
-        }
+        };
+    }]).controller('NavCtrl', ['$scope', function($scope) {
+
     }]);

@@ -385,6 +385,20 @@ class Util {
             });
     }
 
+    static getUserOrderandDetails(email, callback, connection) {
+        connection.query("SELECT `orders`.info as info,`orders`.budgetMin as min,`orders`.budget as budget,`orders`.timeOfWedding as timeOfWedding,`orders`.time as orderTime,`orders`.location as location,`orders`.status as orderStatus, `users`.name as name,`users`.email as email,`users`.phone as phone from `orders` inner join `users` on `orders`.user = `users`.email where `email` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(true);
+                } else {
+                    return callback(results[0]);
+                }
+            });
+    }
+
     static verifyToken(token, callback, connection) {
         connection.query("SELECT * from `users` where `token` = '" + token + "'",
             function(error, results, fields) {

@@ -27,6 +27,18 @@ app.use(compression());
 /**
  * Dont minify already minified files
  */
+//app.use(minify()); 
+app.use('/', express.static(__dirname + '/public'));
+
+app.use(redirect({
+    "/login": "/login/",
+    "/register": "/register/",
+    "/user/home": "/user/home/",
+    "/user/checklist": "/user/checklist/",
+    "/user/messages": "/user/messages/",
+    "/logout": "/logout/"
+}, 301));
+
 app.use(session({
     store: new LokiStore({ ttl: 0 }),
     resave: true,
@@ -62,7 +74,7 @@ app.use(function(req, res, next) {
                     }
                 } else {
                     req.body.user = response.email;
-                    req.body.user_name_ = response.name;
+                    req.user_name_ = response.name;
                     next();
                 }
             }, connection);
@@ -73,18 +85,23 @@ app.use(function(req, res, next) {
 
 });
 app.use(function(req, res, next) {
-    next();
+    if (req.url.includes("/user/") && req.method == "GET") {
+        Util.getUserOrderandDetails(req.body.user, function(response) {
+            if (util.isObject(response)) {
+                if (response.timeOfWedding > moment().tz("Africa/Lagos").unix()) {
+                    req._timeOfWedding_ = moment.unix(response.timeOfWedding).fromNow(true);
+                } else {
+                    req._timeOfWedding_ = false;
+                }
+            }
+            next();
+        }, connection);
+    } else {
+        next();
+    }
+
 });
 
-//app.use(minify()); 
-app.use('/', express.static(__dirname + '/public'));
-app.use(redirect({
-    "/login": "/login/",
-    "/register": "/register/",
-    "/user/home": "/user/home/",
-    "/user/checklist": "/user/checklist/",
-    "/logout": "/logout/"
-}, 301));
 app.use(checkMobile());
 
 app.set('view engine', 'ejs');
@@ -105,14 +122,23 @@ app.get('/register/', function(req, res) {
 app.get('/user/home/', function(req, res) {
     var data = {};
     data.user = req.session.user;
-    data.name = req.body.user_name_;
+    data.name = req.user_name_;
+    data._timeOfWedding_ = req._timeOfWedding_;
     res.render('user-home', data);
 });
 app.get('/user/checklist/', function(req, res) {
     var data = {};
     data.user = req.session.user;
-    data.name = req.body.user_name_;
+    data.name = req.user_name_;
+    data._timeOfWedding_ = req._timeOfWedding_;
     res.render('checklist', data);
+});
+app.get('/user/messages/', function(req, res) {
+    var data = {};
+    data.user = req.session.user;
+    data.name = req.user_name_;
+    data._timeOfWedding_ = req._timeOfWedding_;
+    res.render('messages', data);
 });
 app.post('/user/checklist/add/', jsonParser, function(req, res) {
     var checklist = req.body;
@@ -120,9 +146,9 @@ app.post('/user/checklist/add/', jsonParser, function(req, res) {
     var data = {};
     if (checklist.name.trim().length < 5) {
         data.error = "Please give this checklist a name";
-    } else if (checklist.note.trim().length < 10) {
-        data.error = "Write something that can help you understand this checklist.";
-    }
+    } //else if (checklist.note.trim().length < 10) {
+    //data.error = "Write something that can help you understand this checklist.";
+    // }
     if (util.isNullOrUndefined(data.error)) {
         if (!util.isNullOrUndefined(checklist.reminder)) {
             checklist.reminder = moment(checklist.reminder).tz('Africa/Lagos').unix();
@@ -374,7 +400,15 @@ app.post('/logout/', jsonParser, function(req, res) {
     });
 
 });
+app.get('/user/logout/:user_id', jsonParser, function(req, res) {
+    Util.verifyToken(req.params.user_id, function(response) {
+        req.session.user = undefined;
+        Util.logout(connection, response.email, function(response) {
+            res.redirect('/');
+        });
+    }, connection);
 
+});
 
 app.post('/login/', jsonParser, function(req, res) {
     var data = req.body;
@@ -491,7 +525,6 @@ app.post('/verify-code/', jsonParser, function(req, res) {
                                         } else {
                                             req.session.user = token;
                                         }
-                                        console.log(token);
                                         res.send(obj);
                                     }, connection);
 

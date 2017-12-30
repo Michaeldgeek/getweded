@@ -76,7 +76,7 @@
                                                         <div class="form-group has-feedback has-feedback-left">
                                                             <div class="col-xs-7">
                                                                 <i class="fa fa-file-text-o text-muted form-control-feedback"></i>
-                                                                <input class="comments-text form-control testing-comments-text" ng-disabled="saving" name="note" minlength="10" required ng-model="note" placeholder="Add a note..." value="" type="text">
+                                                                <input class="comments-text form-control testing-comments-text" ng-disabled="saving" name="note" ng-model="note" placeholder="Add a note... (Optional)" value="" type="text">
                                                                 <span style="font-size: 14px;font-weight: 300; color : red" ng-show="AddItem.note.$dirty && AddItem.note.$invalid">Write something that can help you understand this checklist.</span>
                                                             </div>
                                                             <div class="col-xs-3 col-xs-offset-2">

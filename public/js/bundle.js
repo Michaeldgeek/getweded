@@ -792,7 +792,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         };
     }]);
-    var app2 = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('userApp', ['as.sortable']);
+    var app2 = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('userApp', []);
     app2.controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
 
     }]).controller('CheckListCtrl', ['$scope', '$http', function($scope, $http) {
@@ -1184,7 +1184,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var y = b[key];
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
-        }
+        };
+    }]).controller('NavCtrl', ['$scope', function($scope) {
+
     }]);
 
 /***/ }),

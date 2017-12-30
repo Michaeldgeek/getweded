@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="userApp">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#5e9a8e">
+    <meta name="theme-color" content="#5e9a8e">
+    <!-- Page Title -->
+    <title> GetWeded </title>
+
+    <!-- Favicon and Touch Icons -->
+    <link href="/images/favicon/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="/images/favicon/apple-icon.png" rel="apple-touch-icon">
+    <!--<link href="images/favicon/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+        <link href="images/favicon/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+        <link href="images/favicon/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Icon fonts -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Plugins for this template -->
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/message.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bundle.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $(window).on('load', function() {
+            if ($('.preloader').length) {
+                $('.preloader').delay(100).fadeOut(500, function() {});
+            }
+        });
+    </script>
+    <style>
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 101 !important;
+            background-color: white;
+            box-shadow: 0 1px 4px -1px rgba(32, 37, 37, 0.3);
+        }
+        
+        nav.affix li.global-nav__item a {
+            color: black;
+        }
+        
+        nav.affix-top a#secondLogo {
+            display: none;
+        }
+        
+        nav.affix a#firstLogo {
+            display: none;
+        }
+        
+        .navbar {
+            margin-bottom: 0px;
+        }
+        
+        .affix~.container-fluid {
+            position: relative;
+            top: 50px;
+        }
+        
+        a#user-menu:hover {
+            color: #19B5BC;
+        }
+    </style>
+
+</head>
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+
+    <div class="page-wrapper">
+        <!-- start preloader  -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <% include partials/nav.ejs %>
+            <!-- end of header -->
+            <!-- section -->
+            <section class="wedding-couple-section" ng-controller="UserCtrl" style="background-color: #F5F5F5;position: relative;" id="couple">
+                <% include partials/banner.ejs %>
+                    <div class="nservice-wrapper" style="padding-top: 180px;">
+                        <div class="row">
+
+                        </div>
+
+                    </div>
+            </section>
+            <!-- section ends -->
+            <!-- footer starts -->
+            <% include partials/footer.ejs %>
+                <!-- footer ends -->
+                <script src="/js/moment.min.js"></script>
+
+</body>
+
+</html>

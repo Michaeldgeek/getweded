@@ -1,4 +1,4 @@
-<nav class="global-nav global-nav--transparent affix nsite-header">
+<nav class="global-nav global-nav--transparent affix nsite-header" ng-controller="NavCtrl">
     <div class="container">
         <div class="global-nav__left">
             <a class="global-nav__logo" href="/">
@@ -6,15 +6,30 @@
             </a>
         </div>
         <div class="global-nav__right">
-            <ul class="global-nav__menu">
-                <li class="global-nav__item"><a href="/">Blog</a></li>
-                <li class="global-nav__item"><a class="pointer" data-toggle='modal' data-target="#mainLoginModal">Login</a></li>
-                <li class="global-nav__button" style=" color:white;">
-                    <a class="button button--rounded pointer getStarted" style="background-color: #7bcad1;">
-                           Get Started
-                     </a>
-                    <span class="cd-modal-bg"></span>
+            <ul class="global-nav__menu dropdown dropdown-hover">
+                <li class="global-nav__item  dropdown-toggle" data-toggle="dropdown">
+                    <a id="user-menu" class="pointer">
+                        <i class="fa fa-user"></i>
+                        <span class="core-ellipsis navbar-user-name"> <%= name %> </span>
+                    </a>
                 </li>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/user/home/">Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="inline-cnt" href="/user/messages/">Messages</a>
+                    </li>
+                    <li>
+                        <a href="/user/profile/">Profile</a>
+                    </li>
+                    <li>
+                        <a href="/user/settings/">Settings</a>
+                    </li>
+                    <li>
+                        <a rel="nofollow" href="/user/logout/<%= user %>">Logout</a>
+                    </li>
+                </ul>
             </ul>
             <div class="global-mobile-nav">
                 <div class="global-mobile-nav__trigger" id="mobile-nav-trigger">
