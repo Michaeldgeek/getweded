@@ -24,14 +24,19 @@
     <!-- Plugins for this template -->
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/message.css" rel="stylesheet">
+    <link href="/css/messages.css" rel="stylesheet">
+    <link href="/css/nprogress.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/nprogress.js"></script>
+    <script src="/js/socket.io.js"></script>
+    <script src="/js/socket.io.slim.js"></script>
     <script src="/js/bundle.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script>
         $(window).on('load', function() {
             if ($('.preloader').length) {
                 $('.preloader').delay(100).fadeOut(500, function() {});
+
             }
         });
     </script>
@@ -72,7 +77,7 @@
 
 </head>
 
-<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'" style="height: auto;">
 
     <div class="page-wrapper">
         <!-- start preloader  -->
@@ -89,11 +94,8 @@
             <!-- section -->
             <section class="wedding-couple-section" ng-controller="UserCtrl" style="background-color: #F5F5F5;position: relative;" id="couple">
                 <% include partials/banner.ejs %>
-                    <div class="nservice-wrapper" style="padding-top: 180px;">
-                        <div class="row">
-
-                        </div>
-
+                    <div class="nservice-wrapper" style="padding-top: 252px;">
+                        <% include partials/messages.ejs %>
                     </div>
             </section>
             <!-- section ends -->

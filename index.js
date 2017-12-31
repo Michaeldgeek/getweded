@@ -19,7 +19,10 @@ var util = require('util');
 var moment = require('moment-timezone');
 var session = require('express-session');
 var LokiStore = require('connect-loki')(session);
+var cookieParser = require('cookie-parser');
 const UIDGenerator = require('uid-generator');
+
+
 const uidgen = new UIDGenerator(256);
 var jusibe = new Jusibe("08d3f2931fc4e993f0bd3f79e381e23f", "9b5631452bdad9c0741400801cd70e5c");
 
@@ -39,14 +42,24 @@ app.use(redirect({
     "/logout": "/logout/"
 }, 301));
 
-app.use(session({
+app.use(cookieParser());
+
+var Session = session({
     store: new LokiStore({ ttl: 0 }),
     resave: true,
     saveUninitialized: true,
     secret: 'keyboard cat'
-}));
+});
+
+io.use(function(socket, next) {
+    Session(socket.request, socket.request.res, next);
+});
+
+app.use(Session);
 
 app.use(bodyParser.json());
+
+var users = [];
 
 app.use(function(req, res, next) {
     if (/\.min\.(css|js)$/.test(req.url)) {
@@ -75,6 +88,8 @@ app.use(function(req, res, next) {
                 } else {
                     req.body.user = response.email;
                     req.user_name_ = response.name;
+                    var uid = response.email;
+                    req.body.uid = uid;
                     next();
                 }
             }, connection);
@@ -429,7 +444,14 @@ app.post('/login/', jsonParser, function(req, res) {
                 var token = uidgen.generateSync();
                 Util.issueNewToken(connection, token, email, function(response) {
                     req.session.user = token;
-                    res.send({ status: config.DONE, url: '/user/home/' });
+                    var set_online = {
+                        query: "update users set online='Y' where token='" + token + "'",
+                        connection: connection
+                    }
+                    connection.query(set_online.query, function(err, result_online) {
+                        res.send({ status: config.DONE, url: '/user/home/' });
+                    });
+
                 });
 
             }
@@ -554,19 +576,206 @@ app.post('/verify-code/', jsonParser, function(req, res) {
 
         } else {
             var obj = {
-                error: "Tis account has been blocked. Contact suport"
+                error: "This account has been blocked. Contact suport"
             };
             res.send(obj);
         }
     }, connection);
 });
 
+app.post('/user/get_msgs', function(req, res) {
+    /*
+        Calling 'getMsgs' to get messages
+    */
+    Util.getMsgs(req.body, connection, function(result) {
+        res.send(result);
+    });
+});
+
+/*
+    post to handle get_recent_chats request
+*/
+app.post('/user/get_recent_chats', function(req, res) {
+    /*
+        Calling 'getUserChatList' to get user chat list
+    */
+    Util.getUserChatList(req.body.user, connection, function(dbUsers) {
+        res.send(dbUsers);
+    });
+});
+
+/*
+    post to handle get_users_to_chats request
+*/
+app.post('/user/get_users_to_chats', function(req, res) {
+    /*
+        Calling 'getUsersToChat' to get user chat list
+    */
+    Util.getUsersToChat(req.body.uid, connection, function(dbUsers) {
+        /*
+            Calling 'mergeUsers' to merge online and offline users
+        */
+        Util.mergeUsers(users, dbUsers, 'yes', function(mergedUsers) {
+            res.send(mergedUsers);
+        });
+    });
+});
+
+app.post('/user/get_userinfo', function(req, res) {
+    var data = {
+        query: "select `token`,`name`, `photo`,`online` from `users` where `email`='" + req.body.uid + "'"
+    };
+    connection.query(data.query, function(err, result) {
+        if (result.length > 0) {
+            var user_info = "";
+            result.forEach(function(element, index, array) {
+                user_info = element;
+            });
+            result_send = {
+                is_logged: true,
+                data: user_info,
+                msg: "OK"
+            };
+        } else {
+            result_send = {
+                is_logged: false,
+                data: null,
+                msg: "BAD"
+            };
+        }
+        res.send(result_send);
+    });
+});
 
 io.on('connection', function(socket) {
-    // socket.emit('news', { hello: 'world' });
-    //socket.on('my other event', function(data) {
-    //  console.log(data);
-    // });
+
+    var uIdSocket = socket.request.session.uid;
+
+    //Storing users into array as an object
+    socket.on('userInfo', function(userinfo) {
+        /*
+            Adding Single socket user into 'uesrs' array
+        */
+        var should_add = true;
+        if (users.length == 0) {
+            userinfo.socketId = socket.id;
+            users.push(userinfo);
+        } else {
+            users.forEach(function(element, index, array) {
+                if (element.token == userinfo.token) {
+                    should_add = false;
+                }
+            });
+            if (should_add) {
+                userinfo.socketId = socket.id;
+                users.push(userinfo);
+            };
+        }
+
+        var data = {
+            query: "update users set online='Y' where token='" + userinfo.token + "'",
+            connection: connection
+        }
+        connection.query(data.query, function(err, result) {
+            /*
+                Sending list of users to all users
+            */
+            users.forEach(function(element, index, array) {
+                if (element.token == userinfo.token) {
+                    users[index].online = 'Y';
+                }
+                Util.getUserChatList(element.id, connection, function(dbUsers) {
+                    if (dbUsers === null) {
+                        io.to(element.socketId).emit('userEntrance', users);
+                    } else {
+                        Util.mergeUsers(users, dbUsers, 'no', function(mergedUsers) {
+                            io.to(element.socketId).emit('userEntrance', mergedUsers);
+                        });
+                    }
+                });
+            });
+        });
+        should_add = true;
+    });
+
+    /*
+     'sendMsg' will save the messages into DB.
+    */
+    socket.on('sendMsg', function(data_server) {
+
+        /*
+            calling saveMsgs to save messages into DB.
+        */
+        Util.saveMsgs(data_server, moment().tz('Africa/Lagos').unix(), connection, function(result) {
+
+            /*
+                Chechking users is offline or not
+            */
+            if (data_server.socket_id == null) {
+
+                /*
+                    If offline update the Chat list of Sender. 
+                */
+                var singleUser = users.find(function(element) {
+                    return element.id == data_server.from_id;
+                });
+                /*
+                    Calling 'getUserChatList' to get user chat list
+                */
+                Util.getUserChatList(singleUser.id, connection, function(dbUsers) {
+                    if (dbUsers === null) {
+                        io.to(singleUser.socketId).emit('userEntrance', users);
+                    } else {
+                        /*
+                            Calling 'mergeUsers' to merge online and offline users
+                        */
+                        Util.mergeUsers(users, dbUsers, 'no', function(mergedUsers) {
+                            io.to(singleUser.socketId).emit('userEntrance', mergedUsers);
+                        });
+                    }
+                });
+            } else {
+                /*
+                    If Online send message to receiver.
+                */
+                io.to(data_server.socket_id).emit('getMsg', result);
+            }
+        });
+    });
+
+
+    /*
+        Sending Typing notification to user.
+    */
+    socket.on('setTypingNotification', function(data_server) {
+        io.to(data_server.data_socket_fromid).emit('getTypingNotification', data_server);
+    });
+
+    /*
+        Removig user when user logs out
+    */
+    socket.on('disconnect', function() {
+        var spliceId = "";
+        if (users.length > 0) {
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].id == uIdSocket) {
+                    if (users[i].socketId == socket.id) {
+                        var data = {
+                            query: "update users set online='N' where token='" + users[i].token + "'",
+                            connection: connection
+                        }
+                        spliceId = i;
+                        connection.query(data.query, function(err, result) {
+                            users.splice(spliceId, 1); //Removing single user
+                            io.emit('exit', users[spliceId]);
+                        });
+                    }
+                }
+            }
+        }
+    });
 });
+
+
 
 server.listen(port)

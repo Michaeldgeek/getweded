@@ -1,95 +1,90 @@
-<div id="board">
-    <div class="clearfix nservice-cancel-wrapper">
-        <div class="right">
+<div id="app" class="app" ng-controller="MessageCtrl">
+    <div id="content" class="app-content box-shadow-0" role="main">
+        <div class="content-main d-flex flex" id="content-main">
+            <div class="d-flex flex" data-plugin="chat">
+                <div class="fade aside aside-sm" id="content-aside">
+                    <div class="d-flex flex-column w-xl b-r white modal-dialog" id="chat-nav">
+                        <div class="navbar box-shadow" style="border: none">
+                            <div class="input-group flex">
+                                <input class="form-control px-0 no-bg no-border no-shadow search ser" style="color: #0f0902" placeholder="Search" required="" type="text">
+                                <span class="input-group-btn">
+                                         <button class="btn no-bg no-border no-shadow" type="button">
+                                             <i class="fa fa-search text-muted"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="scrollable hover">
+                            <div class="list inset">
+                                <div class="p-2 px-3 text-muted text-sm">Messages</div>
+                                <div class="list-item pointer" ng-repeat="user in userlist">
+                                    <span class="w-40 avatar circle cyan">
+                                            <i class=" b-white avatar-right" ng-class="(user.online == 'N') ? 'away' : 'on'"></i> 
+                                            <img ng-src="{{user.photo}}" alt="{{user.name}}">
+                                        </span>
+                                    <div class="list-body">
+                                        <a href="javascript:;" class="item-title _500">{{user.name}}</a>
+                                        <div class="item-except text-sm text-muted h-1x">It's been a Javascript kind of day</div>
+                                        <div class="item-tag tag"></div>
+                                    </div>
+                                    <div><span class="item-meta text-xs badge badge-sm badge-pill lt">5</span></div>
+                                </div>
 
+                            </div>
+                            <div class="no-result hide">
+                                <div class="p-4 text-center">No Results</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="d-flex flex" id="content-body">
+                    <div class="d-flex flex-column flex" id="chat-list">
+                        <div class="navbar flex-nowrap white lt box-shadow">
+                            <span class="text-md text-ellipsis flex" style="color: rgba(70, 90, 110, .85) !important">Chat with Robot</span>
+                        </div>
+                        <div class="scrollable hover msg-container hide chat_box">
+                            <div class="p-3">
+                                <div class="chat-list">
+                                    <div class="chat-item" data-class="null">
+                                        <a href="#" class="avatar w-40"><img src="/images/random.jpg" alt="."></a>
+                                        <div class="chat-body">
+                                            <div class="chat-content rounded msg">Hi John, What's up...</div>
+                                            <div class="chat-content rounded msg">hmm...</div>
+                                            <div class="chat-date date">1 day ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-item" data-class="alt">
+                                        <a href="#" class="avatar w-40"><img class="image" src="/images/random.jpg" alt="."></a>
+                                        <div class="chat-body">
+                                            <div class="chat-content rounded msg">Lorem ipsum dolor soe rooke..</div>
+                                            <div class="chat-content rounded msg">Thanks Nouvelle.</div>
+                                            <div class="chat-date date">6 hrs ago</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="min-height: 350px" class="chat_box">
+                            <p class="text-muted center" style="margin-top: 140px; font-size: 16px"> Select conversation on the left to open</p>
+                        </div>
+                        <div class="a c lt d f" id="chat-form">
+                            <div class="o">
+                                <input class="t" placeholder="Say something" id="newField" type="text">
+                                <span class="u">
+                                        <button class="s c p h" type="button" id="newBtn">
+                                            <i class="fa fa-send l"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="nservice-header-wrapper">
-        <div class="nservice-header-title"><span ng-bind="ServiceName"></span></div>
 
     </div>
-    <div class="module" style="position: relative">
-        <ul class="list-unstyled" id="inbox">
-            <li>
-                <a href="javascript:;" class="active">
-                    <div class="media">
-                        <div class="media-left thumb thumb-sm">
-                            <img alt="" class="media-object br-5" src="/images/random-avatar1.jpg"> </div>
-                        <div class="media-body">
-                            <p>
-                                <span class="strong chat-name">Hrithik Roshan</span>
-                                <span class="badge bg-lightred">2</span>
-                                <small class="text-muted pull-right">16:54, 24.11.2016</small>
-                            </p>
-                            <div class="chat-actions pull-right hide">
-                                <span class="mark-readed">
-                                    <i class="fa fa-circle-o"></i>
-                                </span>
-                                <span class="archive">
-                                    <i class="fa fa-times"></i>
-                                </span>
-                            </div>
-                            <small class="text-muted message">Commodo sunt minim incid id unt ipsum dolore veniam nulla Lorem reprehenderit officia. Ut esse cillum quis
-                                deserunt.</small>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="active">
-                    <div class="media">
-                        <div class="media-left thumb thumb-sm">
-                            <img class="media-object br-5" src="/images/random-avatar1.jpg" alt=""> </div>
-                        <div class="media-body">
-                            <p class="media-heading">
-                                <span>Ranveer Kapur</span>
-                                <small class="text-muted pull-right">15:29, 24.11.2016</small>
-                            </p>
-                            <div class="chat-actions pull-right hide">
-                                <span class="mark-readed">
-                                    <i class="fa fa-circle-o"></i>
-                                </span>
-                                <span class="archive">
-                                    <i class="fa fa-times"></i>
-                                </span>
-                            </div>
-                            <small class="text-muted message">Sit nulla sint exadipisicing sint velit quis irure cillum.</small>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;" class="active">
-                    <div class="media">
-                        <div class="media-left thumb thumb-sm">
-                            <img alt="" class="media-object br-5" src="/images/random-avatar1.jpg"> </div>
-                        <div class="media-body">
-                            <p class="media-heading">
-                                <span class="text-strong">Ranveer Singh</span>
-                                <span class="badge bg-lightred">1</span>
-                                <small class="text-muted pull-right">14:18, 24.11.2016</small>
-                            </p>
-                            <div class="chat-actions pull-right hide">
-                                <span class="mark-readed">
-                                    <i class="fa fa-circle-o"></i>
-                                </span>
-                                <span class="archive">
-                                    <i class="fa fa-times"></i>
-                                </span>
-                            </div>
-                            <small class="text-muted message">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                                in some form,</small>
-                        </div>
-                    </div>
-                </a>
-            </li>
-
-
-
-
-
-        </ul>
-    </div>
-
 </div>
