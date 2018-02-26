@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="plannerApp">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#5e9a8e">
+    <meta name="theme-color" content="#5e9a8e">
+    <!-- Page Title -->
+    <title> GetWeded </title>
+
+    <!-- Favicon and Touch Icons -->
+    <link href="images/favicon/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="images/favicon/apple-icon.png" rel="apple-touch-icon">
+    <!--<link href="images/favicon/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+        <link href="images/favicon/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+        <link href="images/favicon/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Icon fonts -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/flaticon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Plugins for this template -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.css" rel="stylesheet">
+    <link href="/css/slick.css" rel="stylesheet">
+    <link href="/css/slick-theme.css" rel="stylesheet">
+    <link href="/css/owl.transitions.css" rel="stylesheet">
+    <link href="/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="/css/magnific-popup.css" rel="stylesheet">
+    <link href="/css/pretty-checkbox.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="/css/jquery.webui-popover.min.css" rel="stylesheet">
+    <link href="/css/ng-tags-input.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/planner-reg.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bundle.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+        .affix {
+            top: 0;
+            width: 100%;
+            z-index: 101 !important;
+            background-color: white;
+            box-shadow: 0 1px 4px -1px rgba(32, 37, 37, 0.3);
+        }
+        
+        nav.affix li.global-nav__item a {
+            color: black;
+        }
+        
+        nav.affix-top a#secondLogo {
+            display: none;
+        }
+        
+        nav.affix a#firstLogo {
+            display: none;
+        }
+        
+        .navbar {
+            margin-bottom: 0px;
+        }
+        
+        .affix~.container-fluid {
+            position: relative;
+            top: 50px;
+        }
+    </style>
+</head>
+
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <div class="page-wrapper">
+
+        <!-- Start header -->
+        <nav class="global-nav global-nav--transparent" data-spy="affix" data-offset-top="97">
+            <div class="container">
+                <div class="global-nav__left">
+                    <a class="global-nav__logo" href="/" id="firstLogo">
+                        <img src="/images/icons/logo-white.png" style="height: 30px" alt="GetWeded">
+                    </a>
+                    <a class="global-nav__logo" href="/" id="secondLogo">
+                        <img src="/images/icons/logo.png" style="height: 30px" alt="GetWeded">
+                    </a>
+                </div>
+                <div class="global-nav__right">
+                    <ul class="global-nav__menu">
+                        <li class="global-nav__item"><a href="/">Blog</a></li>
+                        <li class="global-nav__item"><a class="pointer" data-toggle='modal' data-target="#mainLoginModal">Login</a></li>
+                        <li class="global-nav__button" style=" color:white;">
+                            <a class="button button--rounded pointer getStarted" style="background-color: #7bcad1;">
+                                   Get Started
+                             </a>
+                            <span class="cd-modal-bg"></span>
+                        </li>
+                    </ul>
+                    <div class="global-mobile-nav">
+                        <div class="global-mobile-nav__trigger" id="mobile-nav-trigger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul class="global-mobile-nav-menu" id="mobile-nav-menu" style="display: none;">
+                            <div class="row">
+                                <div class="col col-xs-7">
+                                    <li class="global-mobile-nav-menu__label">COUPLE KITS</li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Budget Tool</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Checklist</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Inspirations</a>
+                                    </li>
+                                </div>
+                                <div class="col col-xs-5">
+                                    <li class="global-mobile-nav-menu__label">ACCOUNT</li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a href="/">Log In</a>
+                                    </li>
+                                    <li class="global-mobile-nav-menu__item">
+                                        <a class="pointer getStarted" data-type="modal-trigger">Get Started</a>
+                                        <span class="cd-modal-bg"></span>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- end of header -->
+        <!-- main section -->
+        <div class="tp-page-head">
+            <!-- page header -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="page-header text-center">
+                            <div class="icon-circle">
+                                <div class="inner">
+                                    <span class="icon"><i class="fi flaticon-two"></i></span>
+                                </div>
+                            </div>
+                            <h1>Are you an Event Planner - Start Business</h1>
+                            <p>GetWeded works with thousands of event planners.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tp-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li class="active">Sing Up Vendor</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="well-box">
+                            <form>
+                                <h2>Event Planner Registration</h2>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="control-label" for="name">User Name<span class="required">*</span></label>
+                                    <input id="name" name="name" placeholder="User name" class="form-control input-md" required="" type="text">
+                                </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="control-label" for="email">E-mail<span class="required">*</span></label>
+                                    <input id="email" name="email" placeholder="E-Mail" class="form-control input-md" required="" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Name<span class="required">*</span></label>
+                                    <input id="email" name="email" placeholder="Name" class="form-control input-md" required="" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Phone<span class="required">*</span></label>
+                                    <input id="email" name="email" placeholder="Phone" class="form-control input-md" required="" type="text">
+                                </div>
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <button name="submit" class="btn btn-primary btn-lg">create an account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="feature-block feature-left">
+                                    <div class="well-box">
+                                        <div class="feature-icon">
+                                            <i style="color: #00aeaf" class="fa fa-dashboard fa-3x "></i>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h3>Reach new customers </h3>
+                                            <p>Sign up and have access to couples bids...</p>
+                                            <a href="#" class="btn btn-default btn-sm">Find out more</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="feature-block feature-left">
+                                    <div class="well-box">
+                                        <div class="feature-icon">
+                                            <i style="color: #00aeaf" class="fa fa-exchange fa-3x "></i>
+                                        </div>
+                                        <div class="feature-content">
+                                            <h3>Reach new customers </h3>
+                                            <p>Sign up and have access to couples bids...</p>
+                                            <a href="#" class="btn btn-default btn-sm">Find out more</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main section ends -->
+    <!-- footer starts -->
+    <% include ../partials/footer.ejs %>
+        <!-- footer ends -->
+
+
+</body>
+
+</html>

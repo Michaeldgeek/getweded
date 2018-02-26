@@ -13,3 +13,4 @@ class Chat {
         return promise;
     }
 }
+export default Chat;

@@ -4,6 +4,8 @@
     import selection from './classes/Selections';
     import User from './classes/User';
     import CheckList from './classes/CheckList';
+    import Chat from './classes/Chat';
+    import Profile from './classes/Profile';
     import config from '../../config';
 
     var app = angular.module('mainApp', ['dynamicNumber', 'angucomplete-alt', 'ngTagsInput']);
@@ -974,8 +976,6 @@
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
         };
-    }]).controller('NavCtrl', ['$scope', function($scope) {
-
     }]).factory('socket', function($rootScope) {
         var socket = io.connect();
         return {
@@ -998,7 +998,7 @@
                 })
             }
         };
-    }).controller('MessageCtrl', ['$scope', '$window', '$sce', '$timeout', 'socket', function($scope, $window, $sce, $timeout, socket) {
+    }).controller('MessageCtrl', ['$scope', '$window', '$sce', '$timeout', 'socket', '$http', function($scope, $window, $sce, $timeout, socket, $http) {
 
         $scope.show_userinfo = ""; //To contain user information.
         $scope.userlist = ""; //To contain list of users.
@@ -1023,10 +1023,10 @@
                         uid: uid
                     }
                 };
-                runajax.runajax_function(data, function(userdata) {
-                    $scope.show_userinfo = userdata;
-                    callback(userdata);
-                });
+                //runajax.runajax_function(data, function(userdata) {
+                //  $scope.show_userinfo = userdata;
+                //callback(userdata);
+                // });
             },
 
             getUsersToChats: function(callback) {
@@ -1038,21 +1038,21 @@
                         uid: uid
                     }
                 };
-                runajax.runajax_function(data, function(userdata) {
-                    callback(userdata);
-                });
+                //  runajax.runajax_function(data, function(userdata) {
+                //    callback(userdata);
+                //});
             },
             getMsg: function(msgs_userinfo, callback) {
                 var data = {
-                    url: '/user/get_msgs',
-                    data_server: {
-                        uid: $scope.uid,
-                        from_id: msgs_userinfo.id
+                        url: '/user/get_msgs',
+                        data_server: {
+                            uid: $scope.uid,
+                            from_id: msgs_userinfo.id
+                        }
                     }
-                }
-                runajax.runajax_function(data, function(userdata) {
-                    callback(userdata);
-                });
+                    // runajax.runajax_function(data, function(userdata) {
+                    //   callback(userdata);
+                    //});
             },
             scrollDiv: function() {
                 var scrollDiv = angular.element(document.querySelector('.msg-container'));
@@ -1112,9 +1112,12 @@
         /*
             Function To get 'chat list' 
         */
-        $scope.getRecentChatList = function($scope.user) {
+        var promise = Chat.getRecentChatList({ user: $scope.user }, $http);
+        promise.then(function(success) {
 
-        }
+        }, function(error) {
+
+        });
 
         /*
             Function To get 'start new chat list' 
@@ -1254,4 +1257,176 @@
         /*---------------------------------------------------------------------------------
           Socket on event Ends
         ---------------------------------------------------------------------------------*/
+    }]).controller('ProfileCtrl', ['$scope', '$http', function($scope, $http) {
+        $scope.states = Util.geListOfStates();
+        var user = new User();
+        user.setToken($scope.user);
+        $scope.updateName = function(name) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setName(name);
+            var promise = Profile.updateName(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm.$setPristine();
+                var data = success.data;
+                if (data.status == config.DONE) {
+                    $scope.$parent.name = user.getName();
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+
+        $scope.updateEmail = function(email) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setEmail(email);
+            var promise = Profile.updateEmail(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm1.$setPristine();
+                var data = success.data;
+                if (data.status == config.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm1.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+        $scope.updatePhone = function(phone) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setPhone(phone);
+            var promise = Profile.updatePhone(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm2.$setPristine();
+                var data = success.data;
+                if (data.status == config.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm2.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+
+        $scope.updateLocation = function(location) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setLocation(location);
+            var promise = Profile.updateLocation(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm4.$setPristine();
+                var data = success.data;
+                if (data.status == config.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm4.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
     }]);
+    var app3 = angular.module('plannerApp', []);

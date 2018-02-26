@@ -1,4 +1,4 @@
-<nav class="global-nav global-nav--transparent affix nsite-header" ng-controller="NavCtrl">
+<nav class="global-nav global-nav--transparent affix nsite-header">
     <div class="container">
         <div class="global-nav__left">
             <a class="global-nav__logo" href="/">
@@ -10,7 +10,7 @@
                 <li class="global-nav__item  dropdown-toggle" data-toggle="dropdown">
                     <a id="user-menu" class="pointer">
                         <i class="fa fa-user"></i>
-                        <span class="core-ellipsis navbar-user-name"> <%= name %> </span>
+                        <span class="core-ellipsis navbar-user-name" ng-init="name='<%= name %>'"> {{ name}} </span>
                     </a>
                 </li>
                 <ul class="dropdown-menu">

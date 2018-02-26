@@ -207,8 +207,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__classes_Selections__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__classes_User__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__classes_CheckList__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__config___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__config__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__classes_Chat__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__classes_Profile__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__config___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__config__);
+    
+    
     
     
     
@@ -678,10 +682,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     $scope.vCode = true;
                     $scope.smsSent = true;
                     if ($scope.vCode) {
-                        $scope.timer = __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT;
+                        $scope.timer = __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT;
                         $interval(function() {
                             $scope.timer--;
-                        }, 1000, __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT).then(function(done) {
+                        }, 1000, __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT).then(function(done) {
                             $scope.timer = undefined;
                         });
                     } else {
@@ -722,7 +726,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $scope.logging = false;
                         $scope.spin = false;
                         var data = success.data;
-                        if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                        if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                             $scope.codeError - undefined;
                             $scope.codeMessage = "Login successful. Redirecting...";
                             window.location.href = data.url;
@@ -741,19 +745,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var promise = __WEBPACK_IMPORTED_MODULE_4__classes_User__["a" /* default */].loginUser(user, $http);
                 promise.then(function(success) {
                     var data = success.data;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $scope.codeMessage = "Login successful. Redirecting...";
                         window.location.href = data.url;
                         return;
-                    } else if (data.error == __WEBPACK_IMPORTED_MODULE_6__config___default.a.UN_VERIFIED) {
+                    } else if (data.error == __WEBPACK_IMPORTED_MODULE_8__config___default.a.UN_VERIFIED) {
                         $scope.codeError = "Please verify your phone number";
                         $scope.vCode = true;
                         $scope.data = data;
                         if ($scope.vCode) {
-                            $scope.timer = __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT;
+                            $scope.timer = __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT;
                             $interval(function() {
                                 $scope.timer--;
-                            }, 1000, __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT).then(function(done) {
+                            }, 1000, __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT).then(function(done) {
                                 $scope.timer = undefined;
                             });
 
@@ -775,11 +779,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     if (typeof $scope.timer == "undefined" && $scope.vCode) {
                         var promise = __WEBPACK_IMPORTED_MODULE_1__classes_Util__["a" /* default */].sendSmsCode($http, data.phone);
                         promise.then(function(success) {
-                            if (success.data == __WEBPACK_IMPORTED_MODULE_6__config___default.a.SENT) {
-                                $scope.timer = __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT;
+                            if (success.data == __WEBPACK_IMPORTED_MODULE_8__config___default.a.SENT) {
+                                $scope.timer = __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT;
                                 $interval(function() {
                                     $scope.timer--;
-                                }, 1000, __WEBPACK_IMPORTED_MODULE_6__config___default.a.TIMER_DEFAULT).then(function(done) {
+                                }, 1000, __WEBPACK_IMPORTED_MODULE_8__config___default.a.TIMER_DEFAULT).then(function(done) {
                                     $scope.timer = undefined;
                                 });
                             }
@@ -817,7 +821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     spinner.stop();
                     $('#spinner-wrapper').hide();
                     var data = success.data;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $scope.items = data.checklist;
                         $scope.$broadcast('done', $scope.items);
                         $scope.filterText = "Completed Task";
@@ -844,7 +848,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     spinner.stop();
                     $('#spinner-wrapper').hide();
                     var data = success.data;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $scope.items = data.checklist;
                         $scope.$broadcast('done', $scope.items);
                         $scope.filterText = "Uncompleted Task";
@@ -871,7 +875,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     spinner.stop();
                     $('#spinner-wrapper').hide();
                     var data = success.data;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $scope.items = data.checklist;
                         $scope.filterText = "ALL";
                         $scope.$broadcast('done', $scope.items);
@@ -905,7 +909,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
         $scope.menuOption = function($event, menu, item) {
             $event.stopPropagation();
-            if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DELETE) {
+            if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DELETE) {
                 if (confirm('Are you sure. This action cant be undone')) {
                     var checklist = new __WEBPACK_IMPORTED_MODULE_5__classes_CheckList__["a" /* default */]($scope.user);
                     checklist.setId(item.id);
@@ -914,7 +918,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     promise.then(function(success) {
                         var data = success.data;
                         $scope.deleting = false;
-                        if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                        if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                             $($scope.items).each(function(index, element) {
                                 if (element.id == item.id) {
                                     $scope.items.splice(index, 1);
@@ -930,7 +934,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         $scope.deleteItemError = 'Network error. Try again';
                     });
                 }
-            } else if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_6__config___default.a.EDIT) {
+            } else if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_8__config___default.a.EDIT) {
                 $scope.nameEdit = item.name;
                 $scope.noteEdit = item.note;
                 $('#editModal').modal('show');
@@ -950,7 +954,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         promise.then(function(success) {
                             var data = success.data;
                             $scope.spinning = false;
-                            if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                            if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                                 $($scope.items).each(function(index, element) {
                                     if (element.id == item.id) {
                                         $scope.items[index].note = checklist.getNote();
@@ -967,7 +971,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         });
                     }
                 };
-            } else if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_6__config___default.a.SET_REMINDER) {
+            } else if (menu.name.trim().toLowerCase() == __WEBPACK_IMPORTED_MODULE_8__config___default.a.SET_REMINDER) {
                 $('#date-edit-input').bootstrapMaterialDatePicker({ format: 'YYYY-MM-DD HH:mm', minDate: new Date(), time: true, triggerEvent: 'calendar', weekStart: 0 });
                 $('#date-edit-input').on('change', function(e, date) {
                     $scope.saving = true;
@@ -980,7 +984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     promise.then(function(success) {
                         var data = success.data;
                         $scope.saving = false;
-                        if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                        if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                             $($scope.items).each(function(index, element) {
                                 if (element.id == item.id) {
                                     $scope.items[index].reminder = data.checklist.reminder;
@@ -988,7 +992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                             });
 
                             $scope.$broadcast('done', $scope.items);
-                            menu.name = __WEBPACK_IMPORTED_MODULE_6__config___default.a.VIEW_REMINDER;
+                            menu.name = __WEBPACK_IMPORTED_MODULE_8__config___default.a.VIEW_REMINDER;
                         } else {
                             $scope.addItemError = data.error;
                         }
@@ -1013,7 +1017,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 promise.then(function(success) {
                     var data = success.data;
                     $scope.saving = false;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $(element).attr('checked', true);
                         item.completed = "true";
                         item.reminder = data.checklist.reminder;
@@ -1041,7 +1045,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 promise.then(function(success) {
                     var data = success.data;
                     $scope.saving = false;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $(element).prop('checked', false);
                         item.completed = "false";
                         item.reminder = data.checklist.reminder;
@@ -1080,7 +1084,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 promise.then(function(success) {
                     var data = success.data;
                     $scope.saving = false;
-                    if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+                    if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                         $scope.items.push(data.checklist);
                         $('div.add-todo').toggle('hide');
                         $scope.$broadcast('done', $scope.items);
@@ -1110,7 +1114,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             spinner.stop();
             $('#spinner-wrapper').hide();
             var data = success.data;
-            if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+            if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                 $scope.items = data.checklist;
                 $scope.newItems = $scope.items.filter(function(element) {
                     if (__WEBPACK_IMPORTED_MODULE_0_angular___default.a.isString(element.reminder)) {
@@ -1170,7 +1174,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var promise = __WEBPACK_IMPORTED_MODULE_5__classes_CheckList__["a" /* default */].getUserCheckList($http, { user: $scope.user });
         promise.then(function(success) {
             var data = success.data;
-            if (data.status == __WEBPACK_IMPORTED_MODULE_6__config___default.a.DONE) {
+            if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
                 $scope.items = data.checklist;
                 $scope.$emit('done', $scope.items);
 
@@ -1185,8 +1189,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
         };
-    }]).controller('NavCtrl', ['$scope', function($scope) {
-
     }]).factory('socket', function($rootScope) {
         var socket = io.connect();
         return {
@@ -1209,17 +1211,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 })
             }
         };
-    }).service('runajax', ['$http', function($http) {
-        this.runajax_function = function(request, callback) {
-            var url = request.url;
-            var data_server = request.data_server;
-            $http.post(url, data_server).then(function(success) {
-                callback(success.data);
-            }, function(err) {
-                callback(err);
-            });
-        };
-    }]).controller('MessageCtrl', ['$scope', '$window', '$sce', '$timeout', 'socket', 'runajax', function($scope, $window, $sce, $timeout, socket, runajax) {
+    }).controller('MessageCtrl', ['$scope', '$window', '$sce', '$timeout', 'socket', '$http', function($scope, $window, $sce, $timeout, socket, $http) {
 
         $scope.show_userinfo = ""; //To contain user information.
         $scope.userlist = ""; //To contain list of users.
@@ -1244,24 +1236,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         uid: uid
                     }
                 };
-                runajax.runajax_function(data, function(userdata) {
-                    $scope.show_userinfo = userdata;
-                    callback(userdata);
-                });
+                //runajax.runajax_function(data, function(userdata) {
+                //  $scope.show_userinfo = userdata;
+                //callback(userdata);
+                // });
             },
-            getRecentChats: function(callback) {
-                var uid = $scope.user;
-                $scope.uid = $scope.user;
-                var data = {
-                    url: '/user/get_recent_chats',
-                    data_server: {
-                        uid: uid
-                    }
-                };
-                runajax.runajax_function(data, function(userdata) {
-                    callback(userdata);
-                });
-            },
+
             getUsersToChats: function(callback) {
                 var uid = $scope.user;
                 $scope.uid = $scope.user;
@@ -1271,21 +1251,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         uid: uid
                     }
                 };
-                runajax.runajax_function(data, function(userdata) {
-                    callback(userdata);
-                });
+                //  runajax.runajax_function(data, function(userdata) {
+                //    callback(userdata);
+                //});
             },
             getMsg: function(msgs_userinfo, callback) {
                 var data = {
-                    url: '/user/get_msgs',
-                    data_server: {
-                        uid: $scope.uid,
-                        from_id: msgs_userinfo.id
+                        url: '/user/get_msgs',
+                        data_server: {
+                            uid: $scope.uid,
+                            from_id: msgs_userinfo.id
+                        }
                     }
-                }
-                runajax.runajax_function(data, function(userdata) {
-                    callback(userdata);
-                });
+                    // runajax.runajax_function(data, function(userdata) {
+                    //   callback(userdata);
+                    //});
             },
             scrollDiv: function() {
                 var scrollDiv = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.element(document.querySelector('.msg-container'));
@@ -1345,11 +1325,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         /*
             Function To get 'chat list' 
         */
-        $scope.get_recent_chats = function() {
-            $scope.self.getRecentChats(function(offlineUsers) {
-                $scope.RecentUserList = offlineUsers;
-            });
-        };
+        var promise = __WEBPACK_IMPORTED_MODULE_6__classes_Chat__["a" /* default */].getRecentChatList({ user: $scope.user }, $http);
+        promise.then(function(success) {
+
+        }, function(error) {
+
+        });
 
         /*
             Function To get 'start new chat list' 
@@ -1489,7 +1470,179 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         /*---------------------------------------------------------------------------------
           Socket on event Ends
         ---------------------------------------------------------------------------------*/
+    }]).controller('ProfileCtrl', ['$scope', '$http', function($scope, $http) {
+        $scope.states = __WEBPACK_IMPORTED_MODULE_1__classes_Util__["a" /* default */].geListOfStates();
+        var user = new __WEBPACK_IMPORTED_MODULE_4__classes_User__["a" /* default */]();
+        user.setToken($scope.user);
+        $scope.updateName = function(name) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setName(name);
+            var promise = __WEBPACK_IMPORTED_MODULE_7__classes_Profile__["a" /* default */].updateName(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm.$setPristine();
+                var data = success.data;
+                if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
+                    $scope.$parent.name = user.getName();
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+
+        $scope.updateEmail = function(email) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setEmail(email);
+            var promise = __WEBPACK_IMPORTED_MODULE_7__classes_Profile__["a" /* default */].updateEmail(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm1.$setPristine();
+                var data = success.data;
+                if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm1.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+        $scope.updatePhone = function(phone) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setPhone(phone);
+            var promise = __WEBPACK_IMPORTED_MODULE_7__classes_Profile__["a" /* default */].updatePhone(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm2.$setPristine();
+                var data = success.data;
+                if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm2.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
+
+        $scope.updateLocation = function(location) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            user.setLocation(location);
+            var promise = __WEBPACK_IMPORTED_MODULE_7__classes_Profile__["a" /* default */].updateLocation(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                $scope.ProfileForm4.$setPristine();
+                var data = success.data;
+                if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
+                    $.toast({
+                        text: 'Changes saved',
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.ProfileForm4.$setPristine();
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+
+        };
     }]);
+    var app3 = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('plannerApp', []);
 
 /***/ }),
 /* 2 */
@@ -35706,10 +35859,47 @@ class User {
         return this.password;
     }
 
+    getToken() {
+        return this.token;
+    }
+
     setEmail(email) {
         this.email = email;
         return this;
     }
+
+    getName() {
+        return this.name;
+    }
+
+    setName(name) {
+        this.name = name;
+        return this;
+    }
+
+    getPhone() {
+        return this.phone;
+    }
+
+    setPhone(phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    getLocation() {
+        return this.location;
+    }
+
+    setLocation(location) {
+        this.location = location;
+        return this;
+    }
+
+    setToken(token) {
+        this.token = token;
+        return this;
+    }
+
     setPassword(password) {
         this.password = password;
         return this;
@@ -35863,6 +36053,77 @@ class CheckList {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Chat {
+
+    constructor() {
+
+    }
+
+    static getRecentChatList(user, $http) {
+        var promise = $http({
+            url: "/user/get_recent_chats",
+            method: "POST",
+            data: user
+        });
+        return promise;
+    }
+}
+/* harmony default export */ __webpack_exports__["a"] = (Chat);
+
+/***/ }),
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Profile {
+
+    constructor() {
+
+    }
+
+    static updateName(user, $http) {
+        var promise = $http({
+            url: "/user/profile/update-name/",
+            method: "POST",
+            data: user
+        });
+        return promise;
+    }
+
+    static updateEmail(user, $http) {
+        var promise = $http({
+            url: "/user/profile/update-email/",
+            method: "POST",
+            data: user
+        });
+        return promise;
+    }
+
+    static updatePhone(user, $http) {
+        var promise = $http({
+            url: "/user/profile/update-phone/",
+            method: "POST",
+            data: user
+        });
+        return promise;
+    }
+
+    static updateLocation(user, $http) {
+        var promise = $http({
+            url: "/user/profile/update-location/",
+            method: "POST",
+            data: user
+        });
+        return promise;
+    }
+}
+/* harmony default export */ __webpack_exports__["a"] = (Profile);
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports) {
 
 var config = {

@@ -1,0 +1,3647 @@
+/*** uncss> filename: style.css ***/
+
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+Theme Name: 	
+Version:        1.0.0
+Author:         themexriver
+URL:            http://themeforest.net/user/themexriver
+-------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#0.1	Theme Reset Style
+#0.2	Global Elements
+#0.3	header
+#0.4	hero-slider
+#0.5	footer
+#0.6	wedding-couple-section
+#0.7	count-down-section 
+#0.8	story-section
+#0.9	cta
+#1.0	events-section
+#1.1	inportant-people-section
+#1.2	gallery-section
+#1.3	rsvp-section
+#1.4	getting-there-section
+#1.5	gift-registration-section
+
+----------------------------------------------------------------*/
+
+
+/*---------------------------
+	Fonts
+----------------------------*/
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 100;
+    src: url('/fonts/proxima-nova_thin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 300;
+    src: url('/fonts/proxima-nova_light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 400;
+    src: url('/fonts/proxima-nova_regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 700;
+    src: url('/fonts/proxima-nova_bold.woff') format('woff');
+}
+
+
+/*--------------------------------------------------------------
+#0.1    Theme Reset Style
+--------------------------------------------------------------*/
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: "proxima-nova", sans-serif;
+    background-color: #fff;
+    font-size: 18px;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+@media (max-width: 1199px) {
+    body {
+        font-size: 17px;
+        font-style: 0.94444rem;
+    }
+}
+
+@media (max-width: 991px) {
+    body {
+        font-size: 16px;
+        font-style: 0.88889rem;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
+#0.2    Global Elements
+--------------------------------------------------------------*/
+
+
+/** for popup image ***/
+
+
+/*** for fancybox video ***/
+
+
+/*** validate rsvp form ***/
+
+
+/*** music box ***/
+
+
+/*** scrollbar style for chrome ***/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #7bcad1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+/*** spirit-header ***/
+
+
+/*sidebar*/
+
+
+/*--------------------------------------------------------------
+#0.3	header
+--------------------------------------------------------------*/
+
+
+/*** header style 1 ****/
+
+
+/*** header style 2 ****/
+
+
+/*--------------------------------------------------------------
+#0.4	hero slider
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+	#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+.global-nav {
+    border-bottom: solid 0px rgba(255, 255, 255, 0.055);
+    height: 60px;
+    left: 0;
+    padding-top: 10px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 102;
+    color: #576f7f;
+    line-height: 1.15;
+}
+
+.global-nav__left {
+    float: left;
+}
+
+.global-nav__logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.global-nav__right {
+    float: right;
+}
+
+ul {
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.global-nav__item {
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.global-nav__item a {
+    display: inline-block;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.global-nav__item {
+    color: white;
+    display: inline-block;
+    position: relative;
+}
+
+.global-nav__item a {
+    display: inline-block;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.global-nav__button {
+    display: inline-block;
+    padding-right: 0;
+    position: relative;
+}
+
+.button--rounded {
+    border-radius: 100px;
+}
+
+.button {
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    position: relative;
+    text-decoration: none;
+    -webkit-transition-duration: 250ms;
+    transition-duration: 250ms;
+    -webkit-transition-property: background, box-shadow, color, transform;
+    transition-property: background, box-shadow, color, transform;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.global-mobile-nav {
+    display: none;
+    float: right;
+}
+
+@media screen and (max-width: 687px) {
+    .global-nav__menu {
+        display: none;
+    }
+    .global-mobile-nav {
+        display: block;
+    }
+}
+
+.global-mobile-nav__trigger {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin: 10px 5px;
+}
+
+.global-mobile-nav__trigger span {
+    background-color: white;
+    display: block;
+    height: 0.125em;
+    margin-bottom: .250em;
+    position: relative;
+    top: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 1.25em;
+}
+
+.global-mobile-nav-menu {
+    animation: fade-in 1s;
+    -webkit-animation: fade-in 1s;
+    background: rgb(31, 54, 75);
+    border-radius: 3px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.05);
+    display: none;
+    left: 20px;
+    padding: 10px 30px 30px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+}
+
+.global-mobile-nav-menu__label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    margin: 30px 0 10px;
+}
+
+.global-mobile-nav-menu__item a {
+    color: white;
+    display: block;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important
+    }
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot");
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot?#iefix") format("embedded-opentype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2") format("woff2"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff") format("woff"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf") format("truetype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg#glyphicons_halflingsregular") format("svg")
+}
+
+@-ms-viewport {
+    width: device-width
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regular-1ce6101bfaef8641aa6b8d77a7ca19b0456982ab972126d039ba6ec531ae3aa1.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-6626a8a0719a9535a8fa001f1012295578f64d3a36646fc3ac2e0b16889ca264.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-66bf97e5fe8c3a52cbc0a61371227efcce5831a5b627b6a15c357f9fdfc45a87.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-31ee30ef08c40f3982ef98867c5261c40c1959a2c89496a5727f1cbe53ff22d4.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regularit-2646bdb7dba6e83de82c4fa19aeba886e1ef7562de365f7001373020a73acd3c.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-192d151a02e5ff47bb80e05f429a207ae37191af16582249b5a998dfed0db3dd.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-b2cdc0b7f64139d559f2f6e9571cb5de62c55068760c79041e9fd39c7184815e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-ddd6d526fa3084d58ce112b3b8ede3439aa4f80e7b51a033ed674328d8a44869.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/light-49e7b1ee1574cae34489863396ec70816a067aaabc9bccca6e1a74a364811854.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-9001702577e5848b408f4ef6a8618a1d2a8e0d08737600f2f7fdc706db86902c.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/light-74a4921cf78dcf708ef32cca9cf41f0b96009206c691149d61a718369a9c2483.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-58073c7df8e674c415da3aa6c0181740e0664f168a42df651187791bb666a036.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/lightit-4171a4d23f71a57f54c8727f2a9039b217c9fd0d0c78a5fd86ad9f055b698abf.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-e2540680cfb3f28a726bac9f0b04d998177b96a64e8dd199835a8295ca4e321b.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-216293ed8441a8ce5067c4386d4bd2e1ae3418dee10dd1c86b4bd86413a0906e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-32273cc6e912fed54d1815e082e1424b37405ed5a6fb1faddcc2c1d7f139c791.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/bold-f223b1ae9b9d3fd43843614c99ebee828162a7d43f846b7385a83e7774213f9f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-f6e7417011a3803fac832cb56504b1985e8990abbef5ed5b99ed096630668a24.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-e0030cfc26498186963e3698c1adeb5b6122d8f84e6a6eab3bc1a6dfceb630b4.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-5907a4dc7bf5a018af292d6af9ee491d95f8ada527c087cc3c7e92af82f1c5c3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/boldit-9ae2409de7852b9967487cda0b2b75f38f1f1410e1370712e2f7d540019082b9.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-c975a9f370e9697d568c32908e1176babe14b1c6a567e41e6633ae46b5a83056.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-d7d8f74a6ccc1dc457875aa11db15a03e5379cb468e429cbb40a721da3a54efa.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-70ed3c1f9000e82e877101eb0078cd1658b8582fe60ced2cf00bd4ed6d00ebc3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-book-40761d31e24d9948a2ed6e11df7d66e3f82f717a182a1e7df394332f58a5e300.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-book-7d59ed3eb3928a5669e94b9f0dbbd0bfd5774ff7c266e4c87892817d30c7a8f5.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-book-999f29e486cef0758823bf38fadb18fbd6b1a7469232aa8c02c719d31d048e75.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-book-45730c2a675a4a1042435e19b1341ea9d25c3e7744d6e936cb603cf0a70adf7d.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-medium-8700634d91fd3a8abed4588f6d94fe860702461046104e7a8d5a6bb59fae1989.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-f99d681bcdbccca892f06d6e35da5197ce5150495f67b5a43f5d3087964f5538.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-medium-2a8c22713ca973ac967e8a4593d4532ff51773a1a16b2fe7ca367e4d67f05b20.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-acd203831db757e6b5ea40e6a10102f3730086e40587aeb195eff9459dad1ea9.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: GothamLight;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-light-b8d91e0bb836fd1858cdf68a52d34c7d29a23ec3ceb9a8f74d7d10bbe62369a7.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-light-c2625368a954774eadc37bcd0b079ff8bae838f3875b35735f735bd7c2c9cb5f.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.svg#GothamLight) format("svg")
+}
+
+@font-face {
+    font-family: "weddingwire";
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot);
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/weddingwire-64c5500fa7a94826027e8033ae755e5491ecff3cca9e45b24c76eb7a207511c6.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/weddingwire-bedd9ea309f5aeb6cd9a675a7abb9dc2498c35fc19db601e77f4cd84e7c4f02a.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "weddingwire";
+        src: url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg")
+    }
+}
+
+
+/*!
+        * Font Awesome 4.7.0 by @davegandy - http: //fontawesome.io - @fontawesome
+        * License - http: //fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+        * /@font-face{font-family:'FontAwesome';src:url("/ / wwcdn.weddingwire.com / assets / fontawesome - webfont - 7 bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot ");src:url(" //wwcdn.weddingwire.com/assets/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?#iefix") format("embedded-opentype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2") format("woff2"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff") format("woff"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8.ttf") format("truetype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ad6157926c1622ba4e1d03d478f1541368524bfc46f51e42fe0d945f7ef323e4.svg#fontawesomeregular") format("svg");font-weight:normal;font-style:normal}/*!
+        * font - awesome - animation - v0.0.10 * https: //github.com/l-lin/font-awesome-animation
+        * License: MIT * //*!
+        * Datepicker
+        for Bootstrap v1.6.4(https: //github.com/eternicode/bootstrap-datepicker)
+            *
+            * Copyright 2012 Stefan Petre * Improvements by Andrew Rowls * Licensed under the Apache License v2.0(http: //www.apache.org/licenses/LICENSE-2.0)
+                * //*!
+                * Datetimepicker
+                for Bootstrap 3 * version: 4.17.47 * https: //github.com/Eonasdan/bootstrap-datetimepicker/
+                * //*! nouislider - 10.1.0 - 2017-07-28 13:09:54 */
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@media screen and (max-width: 1190px) {}
+
+
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+nav {
+    display: block
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+
+a:active,
+a:hover {
+    outline-width: 0
+}
+
+img {
+    border-style: none
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #545454
+}
+
+@media (max-width: 1024px) {
+    html {
+        height: 100%
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        height: 100%
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@-moz-document url-prefix() {}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__header::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__header::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+@supports (background-blend-mode: overlay) {}
+
+@supports (background-blend-mode: multiply) {}
+
+.page__off-canvas--left::-webkit-scrollbar:vertical,
+.page__off-canvas--right::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.page__off-canvas--left::-webkit-scrollbar:horizontal,
+.page__off-canvas--right::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+@font-face {
+    font-family: "marketplace-glyphs";
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot");
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot?#iefix") format("embedded-opentype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-64029e2246150344cb3e745dc0d0480ac188790d1de65a6ee042326187c7889f.woff") format("woff"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-3508ceb4de37fa2c22995e5f3b311246e77c61d25fc4bb4284b82cccef55a728.ttf") format("truetype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-6e279f112295fb0b863e0f0174110fa0e1be53766818d33d4ad8e77e18f75128.svg#marketplace-glyphs") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+/** Dialog beggins **/
+
+.cd-modal-bg {
+    z-index: 10003 !important;
+}
+
+
+/** Dialog ends **/
+
+
+/** get Started Dialog **/
+
+
+/** get Started Dialog  ends**/
+
+
+/** Calculator begins**/
+
+
+/* Features  */
+
+
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+
+@import url(//fonts.googleapis.com/css?family=Titillium+Web:300,600);
+@import url(//fonts.googleapis.com/css?family=Lato:300,400);
+a:hover,
+a:focus {
+    text-decoration: none
+}
+
+::selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-webkit-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+
+/** Calculator ends**/
+
+
+/** Intercom dialog **/
+
+
+/** Intercom dialkog ends **/
+
+li.global-nav__item a,
+li.global-nav__button a {
+    color: white;
+}
+
+li.global-nav__item a:hover,
+li.global-nav__button a:hover {
+    color: #e5b8b7;
+    text-decoration: none;
+}
+
+
+/* navbar */
+
+
+/* header block */
+
+
+/* iphone block */
+
+
+/* code block */
+
+
+/* pull quote block */
+
+
+/* brand ribbon block */
+
+
+/* marketing grid block */
+
+
+/* price plan block */
+
+
+/* footer block */
+
+
+/* general block overrrides */
+
+
+/* general inverse overrides */
+
+
+/* general btn overrides */
+
+
+/* ie10+ */
+
+
+/***** ICONS *****/
+
+
+/***** OVERRIDES *****/
+
+body {
+    font-family: "proxima-nova", "Work sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+
+/***** Mobile Overrides ****/
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+
+/***** END Mobile ****/
+
+
+/* 1280+ */
+
+
+/* Ultra Large Displays */
+
+a {
+    color: #E8B0B3;
+}
+
+a:hover {
+    color: #E8B0B3;
+    text-decoration: underline;
+}
+
+
+/* Tried adding this to change nav bar breakpoints, but it's not tested */
+
+
+/*@media (min-width: 768px) and (max-width: 1000px) {*/
+
+
+/*.navbar-header {*/
+
+
+/*float: none;*/
+
+
+/*}*/
+
+
+/*.navbar-collapse.collapse {*/
+
+
+/*display: none !important;*/
+
+
+/*}*/
+
+
+/*.navbar-toggle {*/
+
+
+/*display: block;*/
+
+
+/*}*/
+
+
+/*}*/
+
+
+/*Added bc at medium width screens, the nav bar was getting pushed below the logo*/
+
+
+/********* Mouse Indicator *********/
+
+
+/********** Floating-Button ***********/
+
+
+/********** Common ***********/
+
+
+/********* Carousel *********/
+
+
+/*@media screen and (min-width: 768px) {
+  .carousel-indicators {
+      bottom: 20px;
+  }
+}*/
+
+
+/** login dialog **/
+
+
+/** login dialog ends **/
+
+
+/** user home page **/
+
+
+/** user home page ends **/
+
+
+/*** uncss> filename: style.css ***/
+
+
+/* CSS Document */
+
+
+/*
+
+Template: Wedding Vendor | Vendor Directory HTML Template
+Author: Jitu Chauhan
+Version: 1.0.0
+Description:Wedding Vendor | Vendor Directory HTML Template for All Vendor Listing and Details.
+
+/* Table of Content
+==================================================
+01. - General CSS
+02. - Home Page 
+03. - Listing Page
+04. - Details Page.
+  4.1 - Simple Details
+  4.2 - Tabbed Details Page
+05. - About Us
+06. - Blog Page
+07. - Blog Details Page
+08. - Pricing Page
+09. - Faq/ Help Page
+10. - Contact us Page
+11. - Singup / Login Pages
+12. - 404 Error Page
+13. - Shortcodes
+14. - Most Used / Repetable CSS
+15. - Woo-Shopping Page
+16. - Custom Used CSS
+17. - Media Query - For Mobile Device
+*/
+
+
+/*-----------------------------
+  01 - General CSS - Basic setup Typography and Template CSS
+------------------------------*/
+
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #faf9f5;
+    color: #706a68;
+    /*-webkit-font-smoothing: antialiased;*/
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0px 0 10px 0px;
+    color: #3c3634;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+p:last-child {
+    margin-bottom: 0px;
+}
+
+a {
+    color: #00aeaf;
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-font-smoothing: antialiased;
+}
+
+a:focus,
+a:hover {
+    color: #f9a630;
+    text-decoration: none;
+}
+
+
+/*--------------------
+  Form Field 
+---------------------*/
+
+input.form-control {
+    height: 48px;
+    background-color: #fdfdfb;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: 1px solid #e9e6e0;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, .075);
+}
+
+label.control-label {
+    font-size: 13px;
+    color: #706a68;
+    font-weight: normal;
+}
+
+label {
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+button {
+    -webkit-font-smoothing: antialiased;
+}
+
+button.btn-primary {
+    height: 48px;
+}
+
+.required {
+    color: red;
+}
+
+::selection {
+    background: #00aeaf;
+    color: #fff;
+}
+
+button {
+    background: #ffa405;
+    color: #fff;
+    border-radius: 4px;
+}
+
+
+/*-----------------------------------
+space css class
+-----------------------------------*/
+
+
+/*----------------
+margin space
+-----------------*/
+
+
+/*----------------
+margin space use for negative space
+-----------------*/
+
+
+/*---------------
+padding space
+-----------------*/
+
+
+/*---------------
+ Section Space
+ 
+ * Section space help to create top bottom space. 
+ *
+-----------------*/
+
+
+/*-----------------------------------------
+ background & block color 
+------------------------------------------*/
+
+
+/*------- Section Color CSS --------*/
+
+
+/*------- Bullet Point CSS --------*/
+
+
+/*------------------------
+  Template Buttons 
+--------------------------*/
+
+.btn {
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    border: transparent;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.btn-default {
+    background-color: #00aeaf;
+    color: #fff;
+}
+
+.btn-default:hover {
+    background-color: #27c0c1;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #f48f00;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #ffa422;
+    color: #fff;
+}
+
+.btn-lg {
+    padding: 14px 30px;
+    font-size: 16px;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+
+/*--------------------
+  Main Container 
+----------------------*/
+
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+
+/*--------------------
+  Content + Left Sidebar 
+----------------------*/
+
+
+/*------------------------
+   02. Home Page 
+--------------------------*/
+
+
+/*------ Top Bar -------*/
+
+
+/*------ Template Navigation -------*/
+
+
+/*#navigation > ul > li.has-sub > a:after {position: absolute; top: 22px; right: 11px; width: 8px; height: 2px;
+ display: block; background: #dddddd; content: '';}*/
+
+
+/*#navigation > ul > li.has-sub:hover > a:before {top: 23px; height: 0;}*/
+
+
+/*----- Homepage Template Slider --------*/
+
+
+/*---------- Home Page Finder Section ---------*/
+
+
+/*------- Top Location ------------*/
+
+
+/*--------Testimonial ---------*/
+
+
+/*------- Call To Action ----------*/
+
+
+/*---------Template Footer ----------*/
+
+
+/* ----- Template Tiny Footer -------*/
+
+
+/*-----------------------
+  03. Listing Page 
+------------------------*/
+
+
+/*---- Venue Thumbnail -------*/
+
+
+/*-------Thumbnail Label------*/
+
+
+/*------- Vendor Thumbnail Simple --------*/
+
+
+/*--------- Vendor Thumbnail 2 ---------
+New Updated css v.1.0.2
+-----------------*/
+
+
+/*------------Listing Map + Row  ----------*/
+
+
+/*----------------------------
+  04. Venue Details Page
+------------------------------*/
+
+
+/*-------------------
+  Tabbed Detils Page 
+--------------------*/
+
+
+/*------- Thumbnail Slider----------*/
+
+
+/*------ Vendor Profile Sidebar-----------*/
+
+
+/*------- Page sidebar --------*/
+
+
+/*--------Custom Review -----------*/
+
+
+/*****Left Arrow*****/
+
+
+/*Outline effect style*/
+
+
+/*Background color effect*/
+
+
+/*****Right Arrow*****/
+
+
+/*Outline effect style*/
+
+
+/*Background color effect*/
+
+
+/*------- Write A Review ----------*/
+
+
+/*-------------------
+   05. - About us page 
+---------------------*/
+
+
+/*---------  How it works --------*/
+
+
+/*---------------------- 
+  History Timeline section
+-----------------------*/
+
+
+/** timeline box structure **/
+
+
+/** timeline panels **/
+
+
+/** panel arrows **/
+
+
+/** timeline circle icons **/
+
+
+/** timeline content **/
+
+
+/** media queries **/
+
+@media (max-width:700px) {
+    .page-header h1 {
+        font-size: 1.8em;
+    }
+}
+
+
+/*------ Team Section ---------*/
+
+
+/*-------------------------
+  06. - Blog Page 
+---------------------------*/
+
+
+/*--------- Wordpress Default Blog Image Class -------------*/
+
+
+/*---- Default Wordpress End -----*/
+
+
+/* ----------- Blog Meta ------*/
+
+
+/*----- Blog Sidebar --------*/
+
+
+/*------Secondary Sidebar ----------*/
+
+
+/*------------------------------
+  07. - Blog Single Page 
+--------------------------------*/
+
+
+/*---------Post author ----------*/
+
+
+/*-------------------------
+  08. - Pricing Page 
+---------------------------*/
+
+
+/*-----------------------------
+  09. - Help - FAQ Page  
+--------------------------------*/
+
+
+/*----------------------
+  10.- Contact us  
+-----------------------*/
+
+
+/*--------------------------------------
+  11. - Signup & Login Couple Page 
+--------------------------------------*/
+
+
+/*------- Social login button --------*/
+
+
+/*---------------------------
+  12. - 404 Error Page
+----------------------------*/
+
+
+/*-------------------------------
+    13. - Shortcodes 
+--------------------------------*/
+
+
+/*--------- Accordion ---------*/
+
+
+/*------ Pagination---------*/
+
+
+/*---------- Tabs --------*/
+
+
+/*------ Call To Action ---*/
+
+
+/*------------------------------------------
+  14. - Most Used / Repeatable Page CSS 
+------------------------------------------*/
+
+
+/*------ Page Header ------------*/
+
+.tp-page-head {
+    background: linear-gradient(rgba(6, 63, 63, 0.8), rgba(6, 63, 63, 0.8)), rgba(6, 63, 63, 0.8) url(../images/page-header-img.jpg) no-repeat center;
+    background-size: cover;
+    color: #fff;
+}
+
+.tp-page-head .page-header {
+    border: none;
+    margin: 60px 0 40px;
+}
+
+.tp-page-head .page-header h1 {
+    color: #fff;
+}
+
+
+/*----- Breadcrumb --------*/
+
+.tp-breadcrumb {
+    border-bottom: 1px solid #e9e6e0;
+}
+
+.tp-breadcrumb .breadcrumb {
+    background: transparent;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    padding: 5px 0px;
+    font-weight: 500;
+}
+
+.tp-breadcrumb .breadcrumb>.active {
+    color: #9e9795;
+}
+
+
+/*-------- Filter Box ---------*/
+
+
+/*------Sidebar Filter  ------*/
+
+
+/*---- White Box class------*/
+
+.well-box {
+    background-color: #fff;
+    padding: 28px;
+    border: 1px solid #e9e6e0;
+    margin-bottom: 30px;
+}
+
+
+/*-----------------------------------
+ Features blocks
+ -----------------------------------*/
+
+.feature-block {}
+
+.feature-icon {
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+
+/*----- Feature ------*/
+
+
+/*----- Feature Regular -----*/
+
+
+/*----- Feature Center -----*/
+
+
+/*----- Feature Icon Left -----*/
+
+.feature-left {}
+
+.feature-left .feature-icon {
+    float: left;
+}
+
+.feature-left .feature-content {
+    padding-left: 100px;
+}
+
+
+/*-------------- font icon used template---------*/
+
+.icon {}
+
+.icon-size-60 {
+    font-size: 60px;
+}
+
+.icon-default {
+    color: #00aeaf;
+}
+
+.icon-white {
+    color: #fff;
+}
+
+.icon-circle {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px auto;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+
+/*------- Sidebar affix -------*/
+
+
+/*----------- Woo Parallux Section----------------*/
+
+
+/*---------- parallax caption ----------*/
+
+
+/*--------------------------------
+  15. - Custom Used CSS - Creative checkbox and Listing Effect CSS
+----------------------------------*/
+
+
+/*----- checkbox and radio button css ----------*/
+
+
+/*---------Creative Listing Effect --------*/
+
+
+/*
+.grid {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
+}
+*/
+
+
+/* Common style */
+
+
+/* Anchor will cover the whole item by default */
+
+
+/* For some effects it will show as a button */
+
+
+/*---------------*/
+
+
+/***** Bubba *****/
+
+
+/*---------------*/
+
+
+/*------------------------------------
+    Dashboard Pages
+  -------------------------------------*/
+
+
+/*------ Page Header ------------*/
+
+
+/*----------------------------*
+     add-listing-dashboard
+  ------------------------------*/
+
+
+/*---------------------------
+    my-listing-dashboard
+  -----------------------------*/
+
+
+/*----------------------------
+    Couple Dashboard
+  ----------------------------*/
+
+
+/*---------------------------
+  Wishlist Dashboard
+  ---------------------------*/
+
+
+/*---------------------------
+  Coming soon Dashboard
+  ---------------------------*/
+
+
+/*-----------------------
+    Vendor Profile
+  -------------------------*/
+
+
+/*------------------------------------
+    Couple Planning Tools
+  --------------------------------------*/
+
+
+/*-----------------------------------
+   Couple Todo Create page
+   -----------------------------------*/
+
+
+/*-----------------------------------
+   Couple Budget Page
+   -----------------------------------*/
+
+
+/*-----------------------------------
+  Couple Dashboard
+  -----------------------------------*/
+
+
+/*-----------------------------------
+   Home page 2 
+  -------------------------------------*/
+
+
+/*--------- Real Weddings -------------*/
+
+
+/*--------- Real Wedding single -------------*/
+
+
+/*------------------------------------
+    17. - @media query css template 
+  --------------------------------------*/
+
+@media (max-width:767px) {
+    /*------------- Vendor Profile ----------*/
+    /*------------ woo commerce --------*/
+}
+
+
+/* Custom sizes (768px to 1024px) */
+
+
+/*----------------- Guideline -----------*/
+
+
+/*----------------------------
+   Calendar Component
+  ----------------------------*/
+
+
+/*
+  .default-range .ui-widget.ui-widget-content{}
+  .default-range .ui-widget-header{background-color: #00aeaf;}
+  .default-range .ui-widget.ui-widget-content{ border: 1px solid #dad9d4;}
+  .default-range .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  border: 1px solid #e9e6e0!important;
+  background: #faf9f5!important;
+  font-weight: normal;
+  color: #454545;  outline: none;
+  }
+  .default-range .ui-state-active,
+  .default-range .ui-widget-content .ui-state-active,
+  .default-range .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #008485;
+    background: #019e9f;
+    font-weight: normal;
+    color: #ffffff;
+  }
+  */
+
+
+/*** uncss> filename: style.css ***/
+
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+Theme Name: 	
+Version:        1.0.0
+Author:         themexriver
+URL:            http://themeforest.net/user/themexriver
+-------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#0.1	Theme Reset Style
+#0.2	Global Elements
+#0.3	header
+#0.4	hero-slider
+#0.5	footer
+#0.6	wedding-couple-section
+#0.7	count-down-section 
+#0.8	story-section
+#0.9	cta
+#1.0	events-section
+#1.1	inportant-people-section
+#1.2	gallery-section
+#1.3	rsvp-section
+#1.4	getting-there-section
+#1.5	gift-registration-section
+
+----------------------------------------------------------------*/
+
+
+/*---------------------------
+	Fonts
+----------------------------*/
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 100;
+    src: url('/fonts/proxima-nova_thin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 300;
+    src: url('/fonts/proxima-nova_light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 400;
+    src: url('/fonts/proxima-nova_regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 700;
+    src: url('/fonts/proxima-nova_bold.woff') format('woff');
+}
+
+
+/*--------------------------------------------------------------
+#0.1    Theme Reset Style
+--------------------------------------------------------------*/
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: "proxima-nova", sans-serif;
+    background-color: #fff;
+    font-size: 18px;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+@media (max-width: 1199px) {
+    body {
+        font-size: 17px;
+        font-style: 0.94444rem;
+    }
+}
+
+@media (max-width: 991px) {
+    body {
+        font-size: 16px;
+        font-style: 0.88889rem;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+
+/*--------------------------------------------------------------
+#0.2    Global Elements
+--------------------------------------------------------------*/
+
+
+/** for popup image ***/
+
+
+/*** for fancybox video ***/
+
+
+/*** validate rsvp form ***/
+
+
+/*** music box ***/
+
+
+/*** scrollbar style for chrome ***/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #7bcad1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+/*** spirit-header ***/
+
+
+/*sidebar*/
+
+
+/*--------------------------------------------------------------
+#0.3	header
+--------------------------------------------------------------*/
+
+
+/*** header style 1 ****/
+
+
+/*** header style 2 ****/
+
+
+/*--------------------------------------------------------------
+#0.4	hero slider
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+	#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+ul {
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important
+    }
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot");
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot?#iefix") format("embedded-opentype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2") format("woff2"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff") format("woff"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf") format("truetype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg#glyphicons_halflingsregular") format("svg")
+}
+
+@-ms-viewport {
+    width: device-width
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regular-1ce6101bfaef8641aa6b8d77a7ca19b0456982ab972126d039ba6ec531ae3aa1.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-6626a8a0719a9535a8fa001f1012295578f64d3a36646fc3ac2e0b16889ca264.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-66bf97e5fe8c3a52cbc0a61371227efcce5831a5b627b6a15c357f9fdfc45a87.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-31ee30ef08c40f3982ef98867c5261c40c1959a2c89496a5727f1cbe53ff22d4.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regularit-2646bdb7dba6e83de82c4fa19aeba886e1ef7562de365f7001373020a73acd3c.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-192d151a02e5ff47bb80e05f429a207ae37191af16582249b5a998dfed0db3dd.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-b2cdc0b7f64139d559f2f6e9571cb5de62c55068760c79041e9fd39c7184815e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-ddd6d526fa3084d58ce112b3b8ede3439aa4f80e7b51a033ed674328d8a44869.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/light-49e7b1ee1574cae34489863396ec70816a067aaabc9bccca6e1a74a364811854.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-9001702577e5848b408f4ef6a8618a1d2a8e0d08737600f2f7fdc706db86902c.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/light-74a4921cf78dcf708ef32cca9cf41f0b96009206c691149d61a718369a9c2483.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-58073c7df8e674c415da3aa6c0181740e0664f168a42df651187791bb666a036.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/lightit-4171a4d23f71a57f54c8727f2a9039b217c9fd0d0c78a5fd86ad9f055b698abf.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-e2540680cfb3f28a726bac9f0b04d998177b96a64e8dd199835a8295ca4e321b.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-216293ed8441a8ce5067c4386d4bd2e1ae3418dee10dd1c86b4bd86413a0906e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-32273cc6e912fed54d1815e082e1424b37405ed5a6fb1faddcc2c1d7f139c791.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/bold-f223b1ae9b9d3fd43843614c99ebee828162a7d43f846b7385a83e7774213f9f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-f6e7417011a3803fac832cb56504b1985e8990abbef5ed5b99ed096630668a24.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-e0030cfc26498186963e3698c1adeb5b6122d8f84e6a6eab3bc1a6dfceb630b4.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-5907a4dc7bf5a018af292d6af9ee491d95f8ada527c087cc3c7e92af82f1c5c3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/boldit-9ae2409de7852b9967487cda0b2b75f38f1f1410e1370712e2f7d540019082b9.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-c975a9f370e9697d568c32908e1176babe14b1c6a567e41e6633ae46b5a83056.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-d7d8f74a6ccc1dc457875aa11db15a03e5379cb468e429cbb40a721da3a54efa.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-70ed3c1f9000e82e877101eb0078cd1658b8582fe60ced2cf00bd4ed6d00ebc3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-book-40761d31e24d9948a2ed6e11df7d66e3f82f717a182a1e7df394332f58a5e300.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-book-7d59ed3eb3928a5669e94b9f0dbbd0bfd5774ff7c266e4c87892817d30c7a8f5.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-book-999f29e486cef0758823bf38fadb18fbd6b1a7469232aa8c02c719d31d048e75.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-book-45730c2a675a4a1042435e19b1341ea9d25c3e7744d6e936cb603cf0a70adf7d.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-medium-8700634d91fd3a8abed4588f6d94fe860702461046104e7a8d5a6bb59fae1989.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-f99d681bcdbccca892f06d6e35da5197ce5150495f67b5a43f5d3087964f5538.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-medium-2a8c22713ca973ac967e8a4593d4532ff51773a1a16b2fe7ca367e4d67f05b20.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-acd203831db757e6b5ea40e6a10102f3730086e40587aeb195eff9459dad1ea9.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: GothamLight;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-light-b8d91e0bb836fd1858cdf68a52d34c7d29a23ec3ceb9a8f74d7d10bbe62369a7.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-light-c2625368a954774eadc37bcd0b079ff8bae838f3875b35735f735bd7c2c9cb5f.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.svg#GothamLight) format("svg")
+}
+
+@font-face {
+    font-family: "weddingwire";
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot);
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/weddingwire-64c5500fa7a94826027e8033ae755e5491ecff3cca9e45b24c76eb7a207511c6.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/weddingwire-bedd9ea309f5aeb6cd9a675a7abb9dc2498c35fc19db601e77f4cd84e7c4f02a.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "weddingwire";
+        src: url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg")
+    }
+}
+
+
+/*!
+        * Font Awesome 4.7.0 by @davegandy - http: //fontawesome.io - @fontawesome
+        * License - http: //fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+        * /@font-face{font-family:'FontAwesome';src:url("/ / wwcdn.weddingwire.com / assets / fontawesome - webfont - 7 bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot ");src:url(" //wwcdn.weddingwire.com/assets/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?#iefix") format("embedded-opentype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2") format("woff2"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff") format("woff"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8.ttf") format("truetype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ad6157926c1622ba4e1d03d478f1541368524bfc46f51e42fe0d945f7ef323e4.svg#fontawesomeregular") format("svg");font-weight:normal;font-style:normal}/*!
+        * font - awesome - animation - v0.0.10 * https: //github.com/l-lin/font-awesome-animation
+        * License: MIT * //*!
+        * Datepicker
+        for Bootstrap v1.6.4(https: //github.com/eternicode/bootstrap-datepicker)
+            *
+            * Copyright 2012 Stefan Petre * Improvements by Andrew Rowls * Licensed under the Apache License v2.0(http: //www.apache.org/licenses/LICENSE-2.0)
+                * //*!
+                * Datetimepicker
+                for Bootstrap 3 * version: 4.17.47 * https: //github.com/Eonasdan/bootstrap-datetimepicker/
+                * //*! nouislider - 10.1.0 - 2017-07-28 13:09:54 */
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@media screen and (max-width: 1190px) {}
+
+
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+footer {
+    display: block
+}
+
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+
+a:active,
+a:hover {
+    outline-width: 0
+}
+
+small {
+    font-size: 80%
+}
+
+img {
+    border-style: none
+}
+
+hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #545454
+}
+
+@media (max-width: 1024px) {
+    html {
+        height: 100%
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        height: 100%
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.h-mt3 {
+    margin-top: 24px !important
+}
+
+@media (min-width: 569px) {
+    .is-hidden-tablet-and-above {
+        display: none !important
+    }
+}
+
+@-moz-document url-prefix() {}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__header::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__header::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+.grid-container {
+    *zoom: 1;
+    max-width: 1004px;
+    _width: 1004px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.grid-container:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.grid-container.-layout-wide {
+    max-width: 1152px
+}
+
+@supports (background-blend-mode: overlay) {}
+
+@supports (background-blend-mode: multiply) {}
+
+.page__off-canvas--left::-webkit-scrollbar:vertical,
+.page__off-canvas--right::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.page__off-canvas--left::-webkit-scrollbar:horizontal,
+.page__off-canvas--right::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+@font-face {
+    font-family: "marketplace-glyphs";
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot");
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot?#iefix") format("embedded-opentype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-64029e2246150344cb3e745dc0d0480ac188790d1de65a6ee042326187c7889f.woff") format("woff"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-3508ceb4de37fa2c22995e5f3b311246e77c61d25fc4bb4284b82cccef55a728.ttf") format("truetype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-6e279f112295fb0b863e0f0174110fa0e1be53766818d33d4ad8e77e18f75128.svg#marketplace-glyphs") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+.global-footer {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    background-color: #1a1a1a;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 13px;
+    padding-bottom: 32px;
+    padding-top: 32px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.3) {
+    .global-footer {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+    }
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 13 / 10) {
+    .global-footer {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+only screen and (min-resolution: 120dpi) {
+    .global-footer {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+    }
+}
+
+.global-footer__container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 32px
+}
+
+@media (max-width: 1024px) {
+    .global-footer__container {
+        -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+        padding-top: 16px
+    }
+}
+
+@media (min-width: 569px) and (max-width: 1024px) {
+    .global-footer__container:last-child {
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row
+    }
+}
+
+.global-footer__separator {
+    background-color: #262626;
+    border: none;
+    display: block;
+    height: 2px;
+    margin: 0 auto;
+    padding: 0
+}
+
+.global-footer__text-link {
+    display: inline-block;
+    position: relative;
+    -webkit-transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: opacity 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
+}
+
+.global-footer__text-link:after {
+    background-color: white;
+    content: "";
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+    -webkit-transition: 0.15s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: 0.15s all cubic-bezier(0.39, 0.575, 0.565, 1);
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform;
+    width: 100%
+}
+
+.global-footer__text-link:hover:after {
+    opacity: 1;
+    -webkit-transform: translateY(-3px) translateZ(0);
+    transform: translateY(-3px) translateZ(0)
+}
+
+.global-footer__text-link:active {
+    color: gray
+}
+
+.global-footer__text-link:active:after {
+    opacity: 0.2;
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px)
+}
+
+.global-footer__text-link:link,
+.global-footer__text-link:visited {
+    color: white;
+    opacity: 0.5;
+    text-decoration: none
+}
+
+.global-footer__text-link:active,
+.global-footer__text-link:hover {
+    opacity: 1
+}
+
+.global-footer__text-link.-opacity-full:link,
+.global-footer__text-link.-opacity-full:visited {
+    opacity: 1
+}
+
+.global-footer__icon-link {
+    display: inline-block;
+    -webkit-transition: 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: opacity, transform;
+    transition-property: opacity, transform, -webkit-transform
+}
+
+.global-footer__icon-link:hover,
+.global-footer__icon-link:active {
+    opacity: 0.8;
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px)
+}
+
+.global-footer-company-links {
+    margin-right: 32px
+}
+
+@media (max-width: 1024px) {
+    .global-footer-company-links {
+        margin-top: 8px
+    }
+}
+
+@media (max-width: 568px) {
+    .global-footer-company-links {
+        margin-top: 16px;
+        margin-right: 0;
+        text-align: center
+    }
+}
+
+.global-footer-company-links__list-item {
+    display: inline-block
+}
+
+.global-footer-company-links__list-item:not(:first-child) {
+    margin-left: 24px
+}
+
+.global-footer-company-links__copyright,
+.global-footer-company-links__price-disclaimer {
+    display: block;
+    color: #999999;
+    font-size: inherit;
+    margin-top: 12px
+}
+
+@media (min-width: 569px) and (max-width: 1024px) {
+    .global-footer-company-links__copyright,
+    .global-footer-company-links__price-disclaimer {
+        max-width: 380px
+    }
+}
+
+@media (max-width: 568px) {
+    .global-footer-company-links__copyright,
+    .global-footer-company-links__price-disclaimer {
+        margin-top: 24px
+    }
+}
+
+.global-footer-social {
+    margin-left: auto;
+    margin-top: 8px
+}
+
+@media (min-width: 569px) and (max-width: 1024px) {
+    .global-footer-social {
+        white-space: nowrap
+    }
+}
+
+@media (max-width: 568px) {
+    .global-footer-social {
+        -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+        margin-bottom: 8px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 16px
+    }
+}
+
+.global-footer-social__list-item {
+    display: inline-block
+}
+
+.global-footer-social__list-item:not(:first-child) {
+    margin-left: 16px
+}
+
+.global-footer-social__icon {
+    display: inline-block;
+    height: 32px;
+    width: 32px
+}
+
+
+/** Dialog beggins **/
+
+
+/** Dialog ends **/
+
+
+/** get Started Dialog **/
+
+
+/** get Started Dialog  ends**/
+
+
+/** Calculator begins**/
+
+
+/* Features  */
+
+
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+
+@import url(//fonts.googleapis.com/css?family=Titillium+Web:300,600);
+@import url(//fonts.googleapis.com/css?family=Lato:300,400);
+a:hover,
+a:focus {
+    text-decoration: none
+}
+
+::selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-webkit-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+
+/** Calculator ends**/
+
+
+/** Intercom dialog **/
+
+
+/** Intercom dialkog ends **/
+
+
+/* navbar */
+
+
+/* header block */
+
+
+/* iphone block */
+
+
+/* code block */
+
+
+/* pull quote block */
+
+
+/* brand ribbon block */
+
+
+/* marketing grid block */
+
+
+/* price plan block */
+
+
+/* footer block */
+
+
+/* general block overrrides */
+
+
+/* general inverse overrides */
+
+
+/* general btn overrides */
+
+
+/* ie10+ */
+
+
+/***** ICONS *****/
+
+
+/***** OVERRIDES *****/
+
+body {
+    font-family: "proxima-nova", "Work sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+
+/***** Mobile Overrides ****/
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+
+/***** END Mobile ****/
+
+
+/* 1280+ */
+
+
+/* Ultra Large Displays */
+
+a {
+    color: #E8B0B3;
+}
+
+a:hover {
+    color: #E8B0B3;
+    text-decoration: underline;
+}
+
+
+/* Tried adding this to change nav bar breakpoints, but it's not tested */
+
+
+/*@media (min-width: 768px) and (max-width: 1000px) {*/
+
+
+/*.navbar-header {*/
+
+
+/*float: none;*/
+
+
+/*}*/
+
+
+/*.navbar-collapse.collapse {*/
+
+
+/*display: none !important;*/
+
+
+/*}*/
+
+
+/*.navbar-toggle {*/
+
+
+/*display: block;*/
+
+
+/*}*/
+
+
+/*}*/
+
+
+/*Added bc at medium width screens, the nav bar was getting pushed below the logo*/
+
+
+/********* Mouse Indicator *********/
+
+
+/********** Floating-Button ***********/
+
+
+/********** Common ***********/
+
+
+/********* Carousel *********/
+
+
+/*@media screen and (min-width: 768px) {
+  .carousel-indicators {
+      bottom: 20px;
+  }
+}*/
+
+
+/** login dialog **/
+
+
+/** login dialog ends **/
+
+
+/** user home page **/
+
+
+/** user home page ends **/
+
+
+/*** uncss> filename: style.css ***/
+
+
+/*------------------------------------------------------------------
+[Master Stylesheet]
+Theme Name: 	
+Version:        1.0.0
+Author:         themexriver
+URL:            http://themeforest.net/user/themexriver
+-------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#0.1	Theme Reset Style
+#0.2	Global Elements
+#0.3	header
+#0.4	hero-slider
+#0.5	footer
+#0.6	wedding-couple-section
+#0.7	count-down-section 
+#0.8	story-section
+#0.9	cta
+#1.0	events-section
+#1.1	inportant-people-section
+#1.2	gallery-section
+#1.3	rsvp-section
+#1.4	getting-there-section
+#1.5	gift-registration-section
+
+----------------------------------------------------------------*/
+
+
+/*---------------------------
+	Fonts
+----------------------------*/
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 100;
+    src: url('/fonts/proxima-nova_thin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 300;
+    src: url('/fonts/proxima-nova_light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 400;
+    src: url('/fonts/proxima-nova_regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'proxima-nova';
+    font-weight: 700;
+    src: url('/fonts/proxima-nova_bold.woff') format('woff');
+}
+
+
+/*--------------------------------------------------------------
+#0.1    Theme Reset Style
+--------------------------------------------------------------*/
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: "proxima-nova", sans-serif;
+    background-color: #fff;
+    font-size: 18px;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+@media (max-width: 1199px) {
+    body {
+        font-size: 17px;
+        font-style: 0.94444rem;
+    }
+}
+
+@media (max-width: 991px) {
+    body {
+        font-size: 16px;
+        font-style: 0.88889rem;
+    }
+}
+
+
+/*--------------------------------------------------------------
+#0.2    Global Elements
+--------------------------------------------------------------*/
+
+.fi:before {
+    margin: 0;
+}
+
+
+/** for popup image ***/
+
+
+/*** for fancybox video ***/
+
+
+/*** validate rsvp form ***/
+
+
+/*** music box ***/
+
+
+/*** scrollbar style for chrome ***/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #7bcad1;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+}
+
+
+/*** spirit-header ***/
+
+.preloader {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.preloader .inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.preloader .icon {
+    display: block;
+    width: 90px;
+    height: 90px;
+    position: relative;
+}
+
+.preloader .icon:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 5px solid #f1f1f1;
+    border-top: 5px solid #7bcad1;
+    border-radius: 50%;
+    -webkit-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+}
+
+.preloader .icon i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.preloader .icon i:before {
+    font-size: 55px;
+    font-size: 3.05556rem;
+    color: #7bcad1;
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate3d(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate3d(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+/*sidebar*/
+
+
+/*--------------------------------------------------------------
+#0.3	header
+--------------------------------------------------------------*/
+
+
+/*** header style 1 ****/
+
+
+/*** header style 2 ****/
+
+
+/*--------------------------------------------------------------
+#0.4	hero slider
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+	#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*--------------------------------------------------------------
+#0.5	footer
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.6	wedding-couple-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.7	count-down-section 
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.8	story-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#0.9	cta
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.0	events-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.1	inportant-people-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.2	gallery-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.3	rsvp-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.4	getting-there-section
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#1.5	gift-registration-section
+--------------------------------------------------------------*/
+
+
+/*------------------------------------------------------
+===== Blog Page =====
+------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#2.1    blog-main
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#Blog details page
+----------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+#13.0 	blog-details-post
+----------------------------------------------------------------*/
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important
+    }
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot");
+    src: url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-13634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot?#iefix") format("embedded-opentype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2") format("woff2"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-a26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff") format("woff"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-e395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf") format("truetype"), url("//wwcdn.weddingwire.com/assets/bootstrap/glyphicons-halflings-regular-42f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg#glyphicons_halflingsregular") format("svg")
+}
+
+@-ms-viewport {
+    width: device-width
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regular-1ce6101bfaef8641aa6b8d77a7ca19b0456982ab972126d039ba6ec531ae3aa1.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-6626a8a0719a9535a8fa001f1012295578f64d3a36646fc3ac2e0b16889ca264.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-66bf97e5fe8c3a52cbc0a61371227efcce5831a5b627b6a15c357f9fdfc45a87.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regular-31ee30ef08c40f3982ef98867c5261c40c1959a2c89496a5727f1cbe53ff22d4.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/regularit-2646bdb7dba6e83de82c4fa19aeba886e1ef7562de365f7001373020a73acd3c.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-192d151a02e5ff47bb80e05f429a207ae37191af16582249b5a998dfed0db3dd.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-b2cdc0b7f64139d559f2f6e9571cb5de62c55068760c79041e9fd39c7184815e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/regularit-ddd6d526fa3084d58ce112b3b8ede3439aa4f80e7b51a033ed674328d8a44869.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/light-49e7b1ee1574cae34489863396ec70816a067aaabc9bccca6e1a74a364811854.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-9001702577e5848b408f4ef6a8618a1d2a8e0d08737600f2f7fdc706db86902c.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/light-74a4921cf78dcf708ef32cca9cf41f0b96009206c691149d61a718369a9c2483.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/light-58073c7df8e674c415da3aa6c0181740e0664f168a42df651187791bb666a036.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 300;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/lightit-4171a4d23f71a57f54c8727f2a9039b217c9fd0d0c78a5fd86ad9f055b698abf.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-e2540680cfb3f28a726bac9f0b04d998177b96a64e8dd199835a8295ca4e321b.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-216293ed8441a8ce5067c4386d4bd2e1ae3418dee10dd1c86b4bd86413a0906e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/lightit-32273cc6e912fed54d1815e082e1424b37405ed5a6fb1faddcc2c1d7f139c791.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/bold-f223b1ae9b9d3fd43843614c99ebee828162a7d43f846b7385a83e7774213f9f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-f6e7417011a3803fac832cb56504b1985e8990abbef5ed5b99ed096630668a24.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-e0030cfc26498186963e3698c1adeb5b6122d8f84e6a6eab3bc1a6dfceb630b4.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/bold-5907a4dc7bf5a018af292d6af9ee491d95f8ada527c087cc3c7e92af82f1c5c3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: ProximaNova;
+    font-style: italic;
+    font-weight: 700;
+    src: url(//wwcdn.weddingwire.com/assets/proximanova/boldit-9ae2409de7852b9967487cda0b2b75f38f1f1410e1370712e2f7d540019082b9.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-c975a9f370e9697d568c32908e1176babe14b1c6a567e41e6633ae46b5a83056.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-d7d8f74a6ccc1dc457875aa11db15a03e5379cb468e429cbb40a721da3a54efa.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/proximanova/boldit-70ed3c1f9000e82e877101eb0078cd1658b8582fe60ced2cf00bd4ed6d00ebc3.svg#ProximaNova) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-book-40761d31e24d9948a2ed6e11df7d66e3f82f717a182a1e7df394332f58a5e300.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-book-7d59ed3eb3928a5669e94b9f0dbbd0bfd5774ff7c266e4c87892817d30c7a8f5.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-book-999f29e486cef0758823bf38fadb18fbd6b1a7469232aa8c02c719d31d048e75.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-book-45730c2a675a4a1042435e19b1341ea9d25c3e7744d6e936cb603cf0a70adf7d.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: bold;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-medium-8700634d91fd3a8abed4588f6d94fe860702461046104e7a8d5a6bb59fae1989.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-f99d681bcdbccca892f06d6e35da5197ce5150495f67b5a43f5d3087964f5538.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-medium-2a8c22713ca973ac967e8a4593d4532ff51773a1a16b2fe7ca367e4d67f05b20.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-medium-acd203831db757e6b5ea40e6a10102f3730086e40587aeb195eff9459dad1ea9.svg#Gotham) format("svg")
+}
+
+@font-face {
+    font-family: GothamLight;
+    font-style: normal;
+    font-weight: normal;
+    src: url(//wwcdn.weddingwire.com/assets/gotham-light-b8d91e0bb836fd1858cdf68a52d34c7d29a23ec3ceb9a8f74d7d10bbe62369a7.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/gotham-light-c2625368a954774eadc37bcd0b079ff8bae838f3875b35735f735bd7c2c9cb5f.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/gotham-light-d8f6d665d589384f16ac87b1af84de7fe6e23f73691b0174e611fe978b28454e.svg#GothamLight) format("svg")
+}
+
+@font-face {
+    font-family: "weddingwire";
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot);
+    src: url(//wwcdn.weddingwire.com/assets/weddingwire-020c8b956d5dafeb48db39583a47bf989f16f1238595b0fdafab617725c36b5f.eot?#iefix) format("embedded-opentype"), url(//wwcdn.weddingwire.com/assets/weddingwire-64c5500fa7a94826027e8033ae755e5491ecff3cca9e45b24c76eb7a207511c6.woff) format("woff"), url(//wwcdn.weddingwire.com/assets/weddingwire-bedd9ea309f5aeb6cd9a675a7abb9dc2498c35fc19db601e77f4cd84e7c4f02a.ttf) format("truetype"), url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "weddingwire";
+        src: url(//wwcdn.weddingwire.com/assets/weddingwire-61434f7da901475df56182c5bbb6a8950463a506b715a3da3b4973202b5da498.svg#weddingwire) format("svg")
+    }
+}
+
+
+/*!
+        * Font Awesome 4.7.0 by @davegandy - http: //fontawesome.io - @fontawesome
+        * License - http: //fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+        * /@font-face{font-family:'FontAwesome';src:url("/ / wwcdn.weddingwire.com / assets / fontawesome - webfont - 7 bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot ");src:url(" //wwcdn.weddingwire.com/assets/fontawesome-webfont-7bfcab6db99d5cfbf1705ca0536ddc78585432cc5fa41bbd7ad0f009033b2979.eot?#iefix") format("embedded-opentype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2") format("woff2"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ba0c59deb5450f5cb41b3f93609ee2d0d995415877ddfa223e8a8a7533474f07.woff") format("woff"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-aa58f33f239a0fb02f5c7a6c45c043d7a9ac9a093335806694ecd6d4edc0d6a8.ttf") format("truetype"),url("//wwcdn.weddingwire.com/assets/fontawesome-webfont-ad6157926c1622ba4e1d03d478f1541368524bfc46f51e42fe0d945f7ef323e4.svg#fontawesomeregular") format("svg");font-weight:normal;font-style:normal}/*!
+        * font - awesome - animation - v0.0.10 * https: //github.com/l-lin/font-awesome-animation
+        * License: MIT * //*!
+        * Datepicker
+        for Bootstrap v1.6.4(https: //github.com/eternicode/bootstrap-datepicker)
+            *
+            * Copyright 2012 Stefan Petre * Improvements by Andrew Rowls * Licensed under the Apache License v2.0(http: //www.apache.org/licenses/LICENSE-2.0)
+                * //*!
+                * Datetimepicker
+                for Bootstrap 3 * version: 4.17.47 * https: //github.com/Eonasdan/bootstrap-datetimepicker/
+                * //*! nouislider - 10.1.0 - 2017-07-28 13:09:54 */
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+.wedding-layout #hero .dec-jan-kohls-registry .btn:not(:hover),
+.wedding-layout #hero .jan-madison-james .btn:not(:hover) {
+    border-color: #333333 !important;
+    color: #333333 !important
+}
+
+@media screen and (max-width: 1190px) {}
+
+
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #545454
+}
+
+@media (max-width: 1024px) {
+    html {
+        height: 100%
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        height: 100%
+    }
+}
+
+@-moz-document url-prefix() {}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__header::-webkit-scrollbar:vertical,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.e-modal__section.-height-scroll::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__header::-webkit-scrollbar:horizontal,
+.-height-scroll.e-modal__footer::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.modal__body.-height-scroll::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+@supports (background-blend-mode: overlay) {}
+
+@supports (background-blend-mode: multiply) {}
+
+.page__off-canvas--left::-webkit-scrollbar:vertical,
+.page__off-canvas--right::-webkit-scrollbar:vertical {
+    width: 11px
+}
+
+.page__off-canvas--left::-webkit-scrollbar:horizontal,
+.page__off-canvas--right::-webkit-scrollbar:horizontal {
+    height: 11px
+}
+
+@font-face {
+    font-family: "marketplace-glyphs";
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot");
+    src: url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-d9546530260a5daa961125d605f7c65f9504b69b0c9a052b015e6f68c8a6487f.eot?#iefix") format("embedded-opentype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-64029e2246150344cb3e745dc0d0480ac188790d1de65a6ee042326187c7889f.woff") format("woff"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-3508ceb4de37fa2c22995e5f3b311246e77c61d25fc4bb4284b82cccef55a728.ttf") format("truetype"), url("https://public-assets.envato-static.com/assets/marketplace-glyphs/marketplace-glyphs-6e279f112295fb0b863e0f0174110fa0e1be53766818d33d4ad8e77e18f75128.svg#marketplace-glyphs") format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+
+/** Dialog beggins **/
+
+
+/** Dialog ends **/
+
+
+/** get Started Dialog **/
+
+
+/** get Started Dialog  ends**/
+
+
+/** Calculator begins**/
+
+
+/* Features  */
+
+
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+
+@import url(//fonts.googleapis.com/css?family=Titillium+Web:300,600);
+@import url(//fonts.googleapis.com/css?family=Lato:300,400);
+::selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-webkit-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #dab066;
+    color: #0f0902;
+    text-shadow: none;
+}
+
+
+/** Calculator ends**/
+
+
+/** Intercom dialog **/
+
+
+/** Intercom dialkog ends **/
+
+
+/* navbar */
+
+
+/* header block */
+
+
+/* iphone block */
+
+
+/* code block */
+
+
+/* pull quote block */
+
+
+/* brand ribbon block */
+
+
+/* marketing grid block */
+
+
+/* price plan block */
+
+
+/* footer block */
+
+
+/* general block overrrides */
+
+
+/* general inverse overrides */
+
+
+/* general btn overrides */
+
+
+/* ie10+ */
+
+
+/***** ICONS *****/
+
+.icon {
+    width: 2ex;
+    height: 2ex;
+    margin-right: 1ex;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/***** OVERRIDES *****/
+
+body {
+    font-family: "proxima-nova", "Work sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+
+/***** Mobile Overrides ****/
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+
+/***** END Mobile ****/
+
+
+/* 1280+ */
+
+
+/* Ultra Large Displays */
+
+
+/* Tried adding this to change nav bar breakpoints, but it's not tested */
+
+
+/*@media (min-width: 768px) and (max-width: 1000px) {*/
+
+
+/*.navbar-header {*/
+
+
+/*float: none;*/
+
+
+/*}*/
+
+
+/*.navbar-collapse.collapse {*/
+
+
+/*display: none !important;*/
+
+
+/*}*/
+
+
+/*.navbar-toggle {*/
+
+
+/*display: block;*/
+
+
+/*}*/
+
+
+/*}*/
+
+
+/*Added bc at medium width screens, the nav bar was getting pushed below the logo*/
+
+
+/********* Mouse Indicator *********/
+
+
+/********** Floating-Button ***********/
+
+
+/********** Common ***********/
+
+
+/********* Carousel *********/
+
+
+/*@media screen and (min-width: 768px) {
+  .carousel-indicators {
+      bottom: 20px;
+  }
+}*/
+
+
+/** login dialog **/
+
+
+/** login dialog ends **/
+
+
+/** user home page **/
+
+
+/** user home page ends **/
+
+[class^="flaticon-"]::before,
+[class*=" flaticon-"]::before,
+[class^="flaticon-"]::after,
+[class*=" flaticon-"]::after {
+    font-family: Flaticon;
+    font-size: 80px;
+    font-style: normal;
+    margin-left: 20px;
+    top: -23px;
+    position: relative;
+    left: -48px;
+}

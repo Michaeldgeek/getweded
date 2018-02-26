@@ -1,0 +1,132 @@
+<div class="main-container" ng-controller="ProfileCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dashboard-page-head">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div>
+                                <h2>Account Details <small>Change your personal profile and wedding details</small></h2>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 profile-dashboard">
+                <div class="row">
+                    <div class="col-md-7 dashboard-form calender">
+
+                        <div class="bg-white pinside40 mb30">
+                            <!-- Form Name -->
+                            <div class="form-horizontal">
+                                <h2 class="form-title">Upload Profile Photo</h2>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <div class="photo-upload"><img class="img-responsive img-circle" width="120px" src="<%= profile.photo %>" alt="<%= profile.name %>"></div>
+                                    </div>
+                                    <div class="col-md-8 upload-file">
+                                        <input id="filebutton" name="filebutton" class="input-file" type="file">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <h2 class="form-title">Pesonal Infomations</h2>
+                                <form class="form-horizontal" novalidate name="ProfileForm">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="name">Name<span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <input id="name" name="name" placeholder="Name" ng-init="name='<%= profile.name %>'" ng-model="name" class="form-control input-md" required="" type="text">
+                                            <span class=" errspan pointer" ng-class="(submiting) ? 'fa fa-spinner fa-pulse fa-fw' : 'fa fa-check'" ng-click="updateName(name)" ng-show="ProfileForm.name.$dirty && ProfileForm.name.$valid"></span>
+                                            <span style="font-size: 14px;font-weight: 300;color : red" ng-show="ProfileForm.name.$dirty && ProfileForm.name.$invalid">Please provide your name</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="form-horizontal" novalidate name="ProfileForm1">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="name">Email<span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <input id="email" name="email" placeholder="Email" ng-init="email='<%= profile.email %>'" ng-model="email" class="form-control input-md" required="" type="email">
+                                            <span class=" errspan pointer" ng-class="(submiting) ? 'fa fa-spinner fa-pulse fa-fw' : 'fa fa-check'" ng-click="updateEmail(email)" ng-show="ProfileForm1.email.$dirty && ProfileForm1.email.$valid"></span>
+                                            <span style="font-size: 14px;font-weight: 300;color : red" ng-show="ProfileForm1.email.$dirty && ProfileForm1.email.$invalid">Please provide a valid email</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="form-horizontal" novalidate name="ProfileForm2">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="name">Phone<span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <input id="phone" name="phone" placeholder="Phone" ng-init="phone='<%= profile.phone %>'" ng-model="phone" class="form-control input-md" required="" minlength="11" type="text">
+                                            <span class=" errspan pointer" ng-class="(submiting) ? 'fa fa-spinner fa-pulse fa-fw' : 'fa fa-check'" ng-click="updatePhone(phone)" ng-show="ProfileForm2.phone.$dirty && ProfileForm2.phone.$valid"></span>
+                                            <span style="font-size: 14px;font-weight: 300;color : red" ng-show="ProfileForm2.phone.$dirty && ProfileForm2.phone.$invalid">Please provide a valid phone</span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <h2 class="form-title">Wedding Details</h2>
+                                <form class="form-horizontal" novalidate name="ProfileForm3">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="weddingdate">Wedding Date<span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <div class="input-group">
+                                                <input class="form-control hasDatepicker" ng-init="time='<%= profile.time %>'" ng-model="time" id="weddingdate" placeholder="Wedding Date" type="text">
+                                                <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span> </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="form-horizontal" novalidate name="ProfileForm4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="weddingdate">Wedding State<span class="required">*</span></label>
+                                        <div class="col-md-8">
+                                            <select class="md-form-control" name="location" value="" ng-model="location" ng-init="location='<%= profile.location %>'" id="location" required="" style="background-color: transparent;">
+                                                <option ng-repeat="option in states" ng-selected="location == option.name" value="{{option.id}}">{{option.name}}</option>
+                                            </select>
+                                            <span class=" errspan pointer" ng-class="(submiting) ? 'fa fa-spinner fa-pulse fa-fw' : 'fa fa-check'" ng-click="updateLocation(location)" ng-show="ProfileForm4.location.$dirty && location != 'none'"></span>
+                                            <span style="font-size: 14px;font-weight: 300;color : red" ng-show="ProfileForm4.location.$dirty && location == 'none'">Please select a state</span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 dashboard-form">
+                        <form class="form-horizontal">
+                            <div class="bg-white pinside30">
+                                <!-- Form Name -->
+                                <h2 class="form-title">Change Password</h2>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="oldpassword">Old Password</label>
+                                    <div class="col-md-8">
+                                        <input id="oldpassword" name="oldpassword" placeholder="Old Password" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="newpassword">New Password</label>
+                                    <div class="col-md-8">
+                                        <input id="newpassword" name="newpassword" placeholder="New Password" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="ConfirmPassword">Confirm Password</label>
+                                    <div class="col-md-8">
+                                        <input id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" class="form-control input-md" required="" type="text">
+                                    </div>
+                                </div>
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="submit"></label>
+                                    <div class="col-md-4">
+                                        <button id="submit" name="submit" class="btn btn-primary btn-lg">Save Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

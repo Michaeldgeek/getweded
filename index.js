@@ -1,5 +1,5 @@
 // rememner to write codes for the initialization of the checklist tables and adding to the reminder table
-// when a new checklist is created
+// when a new checklist is created. and in production dont work with Loki.js
 var express = require('express');
 var config = require('./config');
 var connection = require('./db');
@@ -12,7 +12,6 @@ var port = process.env.PORT || config.PORT;
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var redirect = require('express-simple-redirect');
 var checkMobile = require('connect-mobile-detection');
 var Jusibe = require('jusibe');
 var util = require('util');
@@ -39,7 +38,8 @@ app.use(redirect({
     "/user/home": "/user/home/",
     "/user/checklist": "/user/checklist/",
     "/user/messages": "/user/messages/",
-    "/logout": "/logout/"
+    "/logout": "/logout/",
+    "/user/profile": "/user/profile/"
 }, 301));
 
 app.use(cookieParser());
@@ -89,7 +89,7 @@ app.use(function(req, res, next) {
                     req.body.user = response.email;
                     req.user_name_ = response.name;
                     var uid = response.email;
-                    req.body.uid = uid;
+                    // req.body.uid = uid;
                     next();
                 }
             }, connection);
@@ -134,6 +134,11 @@ app.get('/', function(req, res) {
 app.get('/register/', function(req, res) {
     res.render('register');
 });
+
+app.get('/planner/register/', function(req, res) {
+    res.render('planner/register');
+});
+
 app.get('/user/home/', function(req, res) {
     var data = {};
     data.user = req.session.user;
@@ -148,6 +153,18 @@ app.get('/user/checklist/', function(req, res) {
     data._timeOfWedding_ = req._timeOfWedding_;
     res.render('checklist', data);
 });
+app.get('/user/profile/', function(req, res) {
+    var data = {};
+    data.user = req.session.user;
+    data.name = req.user_name_;
+    data._timeOfWedding_ = req._timeOfWedding_;
+    Util.getUserProfile(req.body.user, function(response) {
+        response.time = moment.unix(response.time).format("MMMM DD, YYYY");
+        data.profile = response;
+        res.render('profile', data);
+    }, connection);
+
+});
 app.get('/user/messages/', function(req, res) {
     var data = {};
     data.user = req.session.user;
@@ -161,13 +178,14 @@ app.post('/user/checklist/add/', jsonParser, function(req, res) {
     var data = {};
     if (checklist.name.trim().length < 5) {
         data.error = "Please give this checklist a name";
-    } //else if (checklist.note.trim().length < 10) {
-    //data.error = "Write something that can help you understand this checklist.";
-    // }
+    } else if (checklist.note.trim().length < 10) {
+        data.error = "Write something that can help you understand this checklist.";
+    }
     if (util.isNullOrUndefined(data.error)) {
         if (!util.isNullOrUndefined(checklist.reminder)) {
             checklist.reminder = moment(checklist.reminder).tz('Africa/Lagos').unix();
         }
+
         Util.addChecklist(connection, checklist, function(response) {
             if (!util.isNullOrUndefined(checklist.reminder)) {
                 checklist.menu = Util.getViewReminderMenu();
@@ -203,6 +221,73 @@ app.post('/user/checklist/mark/', jsonParser, function(req, res) {
                 data.status = config.DONE;
                 data.checklist = checklist;
                 data.menu = Util.getDefaultMenu();
+            } else {
+                data.error = "An unexpected error has occured";
+            }
+            res.send(data);
+        });
+    } else {
+        res.send(data);
+    }
+});
+app.post('/user/profile/update-name/', jsonParser, function(req, res) {
+    var user = req.body;
+    var data = {};
+    if (user.name < 1) {
+        data.error = "Please provide your name";
+    }
+    if (util.isNullOrUndefined(data.error)) {
+        Util.updateName(connection, user, function(response) {
+            if (util.isObject(response)) {
+                data.status = config.DONE;
+            } else {
+                data.error = "An unexpected error has occured";
+            }
+            res.send(data);
+        });
+    } else {
+        res.send(data);
+    }
+});
+app.post('/user/profile/update-email/', jsonParser, function(req, res) {
+    var user = req.body;
+    var data = {};
+    if (util.isNullOrUndefined(data.error)) {
+        Util.updateEmail(connection, user, function(response) {
+            if (util.isObject(response)) {
+                data.status = config.DONE;
+            } else {
+                data.error = "An unexpected error has occured";
+            }
+            res.send(data);
+        });
+    } else {
+        res.send(data);
+    }
+});
+app.post('/user/profile/update-phone/', jsonParser, function(req, res) {
+    var user = req.body;
+    var data = {};
+    if (util.isNullOrUndefined(data.error)) {
+        Util.updatePhone(connection, user, function(response) {
+            if (util.isObject(response)) {
+                data.status = config.DONE;
+            } else {
+                data.error = "An unexpected error has occured";
+            }
+            res.send(data);
+        });
+    } else {
+        res.send(data);
+    }
+});
+app.post('/user/profile/update-location/', jsonParser, function(req, res) {
+    var user = req.body;
+    var data = {};
+    if (util.isNullOrUndefined(data.error)) {
+        Util.updateLocation(connection, user, function(response) {
+            if (util.isObject(response)) {
+                data.status = config.DONE;
             } else {
                 data.error = "An unexpected error has occured";
             }
@@ -599,8 +684,10 @@ app.post('/user/get_recent_chats', function(req, res) {
     /*
         Calling 'getUserChatList' to get user chat list
     */
-    Util.getUserChatList(req.body.user, connection, function(dbUsers) {
-        res.send(dbUsers);
+    Util.getUsersToChat(req.body.user, connection, function(dbUsers) {
+        Util.mergeUsers(users, dbUsers, 'yes', function(mergedUsers) {
+            res.send(mergedUsers);
+        });
     });
 });
 

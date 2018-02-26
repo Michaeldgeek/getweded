@@ -25,6 +25,7 @@ class Util {
         connection.query("insert into `checklist` SET ?", checklist, function(err, results) {
             if (err) {
                 callback(undefined);
+                console.log(checklist);
                 return;
             }
             if (results.affectedRows == 0) {
@@ -98,7 +99,6 @@ class Util {
                     status: "error"
                 };
                 callback(obj);
-                console.log(err);
             });
     }
 
@@ -110,7 +110,6 @@ class Util {
                     return;
                 }
                 if (results.length === 0) {
-                    console.log(user);
                     return callback(true);
                 } else {
                     return callback(results[0]);
@@ -280,6 +279,66 @@ class Util {
             });
     }
 
+    static updateName(connection, user, callback) {
+        connection.query("update `users` set `name` = '" + user.name + "' where( `email` = '" + user.user + "' )",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
+    static updateEmail(connection, user, callback) {
+        connection.query("update `users` set `email` = '" + user.email + "' where( `token` = '" + user.token + "' )",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
+    static updatePhone(connection, user, callback) {
+        connection.query("update `users` set `phone` = '" + user.phone + "' where( `token` = '" + user.token + "' )",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
+    static updateLocation(connection, user, callback) {
+        connection.query("update `orders` set `location` = '" + user.location + "' where( `user` = '" + user.user + "' )",
+            function(err, results) {
+                if (err) {
+                    callback(undefined);
+                    return;
+                }
+                if (results.affectedRows <= 0) {
+                    callback(true);
+                } else {
+                    callback({ status: config.DONE });
+                }
+            });
+    }
+
     static updateCheckList(connection, checklist, callback) {
         connection.query("update `checklist` set `name` = '" + checklist.name + "', `note` = '" + checklist.note + "' where( `user` = '" + checklist.user + "' and `id` = '" + checklist.id + "')",
             function(err, results) {
@@ -345,7 +404,6 @@ class Util {
         connection.query("update `users` set `token` = '" + null + "', `online` = 'N'  where `email` = '" + user + "'",
             function(err, results) {
                 if (err) {
-                    console.log(err);
                     callback(undefined);
                     return;
                 }
@@ -445,6 +503,20 @@ class Util {
                     return callback(true);
                 } else {
                     return callback(results[0].token);
+                }
+            });
+    }
+
+    static getUserProfile(email, callback, connection) {
+        connection.query("SELECT `users`.name as name, `users`.email as email,`users`.phone as phone,`users`.photo as photo,`orders`.timeOfWedding as time,`orders`.location as location  from `users`  inner join `orders` on `users`.email = `orders`.user where `email` = '" + email + "'",
+            function(error, results, fields) {
+                if (error) {
+                    return callback(undefined);
+                }
+                if (results.length === 0) {
+                    return callback(true);
+                } else {
+                    return callback(results[0]);
                 }
             });
     }
@@ -805,6 +877,7 @@ class Util {
         connection.query(data.query, function(err, result) {
             var dbUsers = [];
             if (result.length > 0) {
+                return;
                 result.forEach(function(element, index, array) {
                     var data = {
                         query: "select u.* from conversation as c left join users as u on \
@@ -833,9 +906,9 @@ class Util {
         });
     }
 
-    static getUsersToChat(uid, connection, callback) {
+    static getUsersToChat(email, connection, callback) {
         var data = {
-            query: "SELECT  to_id, from_id FROM conversation WHERE to_id='" + uid + "' OR from_id='" + uid + "' GROUP BY con_id DESC  ",
+            query: "SELECT  to_id, from_id FROM conversation WHERE to_id='" + email + "' OR from_id='" + email + "' GROUP BY con_id DESC  ",
             connection: connection
         }
         connection.query(data.query, function(err, result) {
@@ -843,15 +916,17 @@ class Util {
             if (result.length > 0) {
                 var filter = [];
                 result.forEach(function(element, index, array) {
-                    filter.push(element['to_id']);
-                    filter.push(element['from_id']);
+                    if (element.to_id != email) {
+                        filter.push("'" + element['to_id'] + "'");
+                        filter.push("'" + element['from_id'] + "'");
+                    }
                 });
                 filter = filter.join();
-                data.query = "SELECT * FROM users WHERE id NOT IN (" + filter + ")";
+                data.query = "SELECT * FROM users WHERE email NOT IN (" + filter + ")";
             } else {
-                data.query = "SELECT * FROM users WHERE id NOT IN (" + uid + ")";
+                data.query = "SELECT * FROM users WHERE email NOT IN (" + email + ")";
             }
-            connection.query(data.query, function(usersData) {
+            connection.query(data.query, function(err, usersData) {
                 callback(usersData);
             });
         });

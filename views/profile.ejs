@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="userApp">
+
+<head>
+    <% include partials/head.ejs %>
+        <link href="/css/profile.css" rel="stylesheet">
+        <link href="/css/jquery.toast.css" rel="stylesheet">
+        <style type="text/css">
+            .errspan {
+                float: right;
+                margin-right: 6px;
+                margin-top: -30px;
+                position: relative;
+                z-index: 2;
+                color: #00aeaf;
+            }
+        </style>
+</head>
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+
+    <div class="page-wrapper" ng-controller="UserCtrl">
+        <!-- start preloader  -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <% include partials/nav.ejs %>
+            <!-- end of header -->
+            <!-- section -->
+            <section class="wedding-couple-section" style="background-color: #F5F5F5;position: relative;" id="couple">
+                <% include partials/banner.ejs %>
+                    <div class="nservice-wrapper" style="padding-top: 180px;">
+                        <div class="row">
+                            <div class="col col-md-12 ">
+                                <% include partials/profile.ejs %>
+                            </div>
+
+                        </div>
+
+                    </div>
+            </section>
+            <!-- section ends -->
+            <!-- footer starts -->
+            <% include partials/footer.ejs %>
+                <!-- footer ends -->
+                <script src="/js/moment.min.js"></script>
+                <script src="/js/jquery.toast.js"></script>
+
+</body>
+
+</html>
