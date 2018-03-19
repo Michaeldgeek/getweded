@@ -248,6 +248,7 @@ class Util {
             });
     }
 
+
     static updatePhoneStatus(connection, email, callback) {
         connection.query("update `users` set `isPhoneVerified` = '" + config.YES + "' where `email` = '" + email + "'",
             function(err, results) {

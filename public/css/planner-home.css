@@ -1,0 +1,831 @@
+@charset "UTF-8";
+ul {
+    padding: 0px;
+}
+
+.required {
+    color: red;
+}
+
+.no-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+button {
+    background: #ffa405;
+    color: #fff;
+    border-radius: 4px;
+}
+
+
+/*-----------------------------------
+space css class
+-----------------------------------*/
+
+
+/*----------------
+margin space
+-----------------*/
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+
+/*----------------
+margin space use for negative space
+-----------------*/
+
+
+/*---------------
+padding space
+-----------------*/
+
+
+/*---------------
+ Section Space
+ 
+ * Section space help to create top bottom space. 
+ *
+-----------------*/
+
+
+/*-----------------------------------------
+ background & block color 
+------------------------------------------*/
+
+
+/*------- Section Color CSS --------*/
+
+.title {
+    color: #3c3634;
+}
+
+
+/*------- Bullet Point CSS --------*/
+
+ul.check-circle {
+    margin-bottom: 30px;
+}
+
+.check-circle li {
+    position: relative;
+    list-style: none;
+    padding-left: 10px;
+}
+
+.check-circle li:before {
+    font-size: 16px;
+    margin-right: 10px;
+    font-family: FontAwesome;
+    top: 0;
+    left: -5px;
+    color: #00aeaf;
+    content: "\f058";
+}
+
+ul.listnone {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*------------------------
+  Template Buttons 
+--------------------------*/
+
+.btn {
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    border: transparent;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #f48f00;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #ffa422;
+    color: #fff;
+}
+
+
+/*--------------------
+  Main Container 
+----------------------*/
+
+
+/*--------------------
+  Content + Left Sidebar 
+----------------------*/
+
+
+/*------------------------
+   02. Home Page 
+--------------------------*/
+
+
+/*------ Top Bar -------*/
+
+
+/*------ Template Navigation -------*/
+
+
+/*#navigation > ul > li.has-sub > a:after {position: absolute; top: 22px; right: 11px; width: 8px; height: 2px;
+ display: block; background: #dddddd; content: '';}*/
+
+
+/*#navigation > ul > li.has-sub:hover > a:before {top: 23px; height: 0;}*/
+
+
+/*----- Homepage Template Slider --------*/
+
+
+/*---------- Home Page Finder Section ---------*/
+
+
+/*------- Top Location ------------*/
+
+
+/*--------Testimonial ---------*/
+
+
+/*------- Call To Action ----------*/
+
+
+/*---------Template Footer ----------*/
+
+
+/* ----- Template Tiny Footer -------*/
+
+
+/*-----------------------
+  03. Listing Page 
+------------------------*/
+
+
+/*---- Venue Thumbnail -------*/
+
+
+/*-------Thumbnail Label------*/
+
+
+/*------- Vendor Thumbnail Simple --------*/
+
+.vendor-detail {
+    padding: 0px;
+    border: 1px solid #e9e6e0;
+    border-radius: 0px;
+    border-top: transparent;
+    background-color: #fff;
+}
+
+.vendor-detail .caption {
+    padding: 30px;
+}
+
+.vendor-detail .caption .title {
+    font-size: 18px;
+}
+
+.vendor-detail .location {
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: #9c9693;
+    font-weight: 500;
+}
+
+.rating .rating-count {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 5px;
+    color: #706a68
+}
+
+
+/*--------- Vendor Thumbnail 2 ---------
+New Updated css v.1.0.2
+-----------------*/
+
+.vendor-list-block {
+    background-color: #fff;
+}
+
+.vendor-img {
+    position: relative;
+    opacity: .8;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.vendor-img:hover {
+    opacity: 1;
+}
+
+.price-lable {
+    position: absolute;
+    right: 1px;
+    bottom: 20px;
+    background: rgba(0, 0, 0, .6);
+    padding: 4px 10px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+    font-size: 16px;
+}
+
+.category-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #000000;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-weight: 800;
+}
+
+.category-link {
+    color: #fff;
+}
+
+.vendor-meta {}
+
+.vendor-meta span {
+    display: inline-block;
+    margin-right: 18px;
+    font-size: 13px;
+}
+
+.vendor-meta .map-icon {
+    color: #00aeaf;
+    padding-right: 6px;
+}
+
+.vendor-meta .location {
+    margin-bottom: 0px;
+}
+
+.favorite-action {}
+
+.fav-icon {
+    color: #ff4e4e;
+    background-color: #fff;
+    border-radius: 100px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 11px 8px 11px;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.fav-icon:focus,
+.fav-icon:hover {
+    color: #fff;
+    background-color: #ff4e4e;
+}
+
+
+/*------------Listing Map + Row  ----------*/
+
+
+/*----------------------------
+  04. Venue Details Page
+------------------------------*/
+
+.address {
+    margin-bottom: 0px;
+}
+
+.venue-details {}
+
+.rating {
+    margin: 0px;
+}
+
+.rating i {
+    color: #ffc513;
+}
+
+
+/*-------------------
+  Tabbed Detils Page 
+--------------------*/
+
+
+/*------- Thumbnail Slider----------*/
+
+
+/*------ Vendor Profile Sidebar-----------*/
+
+
+/*------- Page sidebar --------*/
+
+
+/*--------Custom Review -----------*/
+
+
+/*****Left Arrow*****/
+
+
+/*Outline effect style*/
+
+
+/*Background color effect*/
+
+
+/*****Right Arrow*****/
+
+
+/*Outline effect style*/
+
+
+/*Background color effect*/
+
+
+/*------- Write A Review ----------*/
+
+
+/*-------------------
+   05. - About us page 
+---------------------*/
+
+
+/*---------  How it works --------*/
+
+
+/*---------------------- 
+  History Timeline section
+-----------------------*/
+
+
+/** timeline box structure **/
+
+
+/** timeline panels **/
+
+
+/** panel arrows **/
+
+
+/** timeline circle icons **/
+
+
+/** timeline content **/
+
+
+/** media queries **/
+
+
+/*------ Team Section ---------*/
+
+
+/*-------------------------
+  06. - Blog Page 
+---------------------------*/
+
+
+/*--------- Wordpress Default Blog Image Class -------------*/
+
+
+/*---- Default Wordpress End -----*/
+
+
+/* ----------- Blog Meta ------*/
+
+
+/*----- Blog Sidebar --------*/
+
+
+/*------Secondary Sidebar ----------*/
+
+
+/*------------------------------
+  07. - Blog Single Page 
+--------------------------------*/
+
+
+/*---------Post author ----------*/
+
+
+/*-------------------------
+  08. - Pricing Page 
+---------------------------*/
+
+
+/*-----------------------------
+  09. - Help - FAQ Page  
+--------------------------------*/
+
+
+/*----------------------
+  10.- Contact us  
+-----------------------*/
+
+
+/*--------------------------------------
+  11. - Signup & Login Couple Page 
+--------------------------------------*/
+
+
+/*------- Social login button --------*/
+
+
+/*---------------------------
+  12. - 404 Error Page
+----------------------------*/
+
+
+/*-------------------------------
+    13. - Shortcodes 
+--------------------------------*/
+
+
+/*--------- Accordion ---------*/
+
+
+/*------ Pagination---------*/
+
+
+/*---------- Tabs --------*/
+
+.st-tabs {}
+
+.st-tabs .nav-tabs {
+    border-bottom: 1px solid #e9e6e0;
+}
+
+.st-tabs .nav-tabs>li>a {
+    background-color: #fcfbf9;
+    border-radius: 0px;
+    padding: 20px 30px;
+    text-transform: uppercase;
+    border: 1px solid #e9e6e0;
+    margin-right: -1px;
+    color: #706a68;
+    font-size: 14px;
+}
+
+.st-tabs .nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    border: 1px solid #e9e6e0;
+    border-bottom-color: transparent;
+    color: #f8960a;
+    background-color: #fff;
+}
+
+.st-tabs .tab-content {
+    background-color: #fff;
+    padding: 28px;
+    border: 1px solid #e9e6e0;
+    margin-bottom: 30px;
+    border-top-color: transparent;
+}
+
+
+/*------ Call To Action ---*/
+
+
+/*------------------------------------------
+  14. - Most Used / Repeatable Page CSS 
+------------------------------------------*/
+
+
+/*------ Page Header ------------*/
+
+
+/*----- Breadcrumb --------*/
+
+
+/*-------- Filter Box ---------*/
+
+
+/*------Sidebar Filter  ------*/
+
+
+/*---- White Box class------*/
+
+.well-box {
+    background-color: #fff;
+    padding: 28px;
+    border: 1px solid #e9e6e0;
+    margin-bottom: 30px;
+}
+
+
+/*-----------------------------------
+ Features blocks
+ -----------------------------------*/
+
+
+/*----- Feature ------*/
+
+
+/*----- Feature Regular -----*/
+
+
+/*----- Feature Center -----*/
+
+
+/*----- Feature Icon Left -----*/
+
+
+/*-------------- font icon used template---------*/
+
+
+/*------- Sidebar affix -------*/
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+/*----------- Woo Parallux Section----------------*/
+
+
+/*---------- parallax caption ----------*/
+
+
+/*--------------------------------
+  15. - Custom Used CSS - Creative checkbox and Listing Effect CSS
+----------------------------------*/
+
+
+/*----- checkbox and radio button css ----------*/
+
+.checkbox {
+    padding-left: 20px;
+}
+
+.checkbox label {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 10px;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    margin-left: -20px;
+    border: 1px solid #e0dcd1;
+    border-radius: 3px;
+    background-color: #faf9f5;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 5px;
+    padding-top: 0px;
+    font-size: 11px;
+    color: #555555;
+    margin-top: -3px;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+    z-index: 1;
+}
+
+.checkbox input[type="checkbox"]:disabled+label {
+    opacity: 0.65;
+}
+
+
+/*---------Creative Listing Effect --------*/
+
+
+/*
+.grid {
+  position: relative;
+  margin: 0 auto;
+  padding: 1em 0 4em;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
+}
+*/
+
+
+/* Common style */
+
+
+/* Anchor will cover the whole item by default */
+
+
+/* For some effects it will show as a button */
+
+
+/*---------------*/
+
+
+/***** Bubba *****/
+
+
+/*---------------*/
+
+
+/*------------------------------------
+    Dashboard Pages
+  -------------------------------------*/
+
+
+/*------ Page Header ------------*/
+
+
+/*----------------------------*
+     add-listing-dashboard
+  ------------------------------*/
+
+
+/*---------------------------
+    my-listing-dashboard
+  -----------------------------*/
+
+
+/*----------------------------
+    Couple Dashboard
+  ----------------------------*/
+
+
+/*---------------------------
+  Wishlist Dashboard
+  ---------------------------*/
+
+
+/*---------------------------
+  Coming soon Dashboard
+  ---------------------------*/
+
+.vendor-page-header {}
+
+.vendor-profile-info {
+    position: relative;
+    margin-top: -310px;
+}
+
+.vendor-profile-block {}
+
+
+/*-----------------------
+    Vendor Profile
+  -------------------------*/
+
+.vendor-profile-block {
+    margin-bottom: 30px;
+}
+
+.vendor-profile {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #e9e6e0;
+}
+
+.vendor-profile-info {
+    height: 360px;
+}
+
+.vendor-profile-title {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.vendor-profile-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.57)), rgba(0, 0, 0, 0.58) url(/images/vendor-profile-img.jpg) no-repeat center;
+    background-size: cover;
+    height: 460px;
+}
+
+.profile-meta {
+    color: #fff;
+}
+
+.meta-call i,
+.meta-address i,
+.meta-website i,
+.meta-email i {
+    padding-right: 10px;
+}
+
+.meta-call {}
+
+.meta-address {}
+
+.meta-email {}
+
+.meta-website {}
+
+.vendor-profile-social {}
+
+.vendor-profile-social {}
+
+.vendor-profile-social ul {}
+
+.vendor-profile-social ul li {
+    float: left;
+    padding-right: 20px;
+}
+
+
+/*------------------------------------
+    Couple Planning Tools
+  --------------------------------------*/
+
+
+/*-----------------------------------
+   Couple Todo Create page
+   -----------------------------------*/
+
+
+/*-----------------------------------
+   Couple Budget Page
+   -----------------------------------*/
+
+
+/*-----------------------------------
+  Couple Dashboard
+  -----------------------------------*/
+
+
+/*-----------------------------------
+   Home page 2 
+  -------------------------------------*/
+
+
+/*--------- Real Weddings -------------*/
+
+
+/*--------- Real Wedding single -------------*/
+
+
+/*------------------------------------
+    17. - @media query css template 
+  --------------------------------------*/
+
+@media (max-width:767px) {
+    .tab-title {
+        display: none;
+    }
+    /*------------- Vendor Profile ----------*/
+    .vendor-profile-info {
+        height: 420px;
+    }
+    .vendor-profile-info {
+        position: relative;
+        margin-top: -380px;
+    }
+    .st-tabs .tab-content {
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #e9e6e0;
+        margin-bottom: 30px;
+        border-top-color: transparent;
+    }
+    /*------------ woo commerce --------*/
+}
+
+
+/* Custom sizes (768px to 1024px) */
+
+
+/*----------------- Guideline -----------*/
+
+
+/*----------------------------
+   Calendar Component
+  ----------------------------*/

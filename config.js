@@ -7,6 +7,8 @@ var config = {
     TRUE: "true",
     FALSE: "false",
     DONE: "done",
+    PLANNER: "planner",
+    COUPLE: "couple",
     DELETE: "delete",
     EDIT: "edit",
     SET_REMINDER: "set reminder",

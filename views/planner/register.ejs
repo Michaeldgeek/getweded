@@ -35,11 +35,13 @@
     <link href="/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
     <link href="/css/jquery.webui-popover.min.css" rel="stylesheet">
     <link href="/css/ng-tags-input.min.css" rel="stylesheet">
+    <link href="/css/jquery.toast.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/planner-reg.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bundle.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.toast.js"></script>
     <style>
         .affix {
             top: 0;
@@ -68,6 +70,32 @@
         .affix~.container-fluid {
             position: relative;
             top: 50px;
+        }
+        
+        input.ng-pristine+ul#strength {
+            display: none;
+        }
+        
+        ul#strength {
+            display: inline;
+            list-style: none;
+            margin: 0;
+            margin-left: 15px;
+            padding: 0;
+            vertical-align: 2px;
+        }
+        
+        .point:last {
+            margin: 0 !important;
+        }
+        
+        .point {
+            background: #DDD;
+            border-radius: 2px;
+            display: inline-block;
+            height: 5px;
+            margin-right: 1px;
+            width: 20px;
         }
     </style>
 </head>
@@ -167,34 +195,38 @@
                 </div>
             </div>
         </div>
-        <div class="main-container">
+        <div class="main-container" ng-controller="MainCtrl">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
                         <div class="well-box">
-                            <form>
+                            <form name="PlannerForm" novalidate>
                                 <h2>Event Planner Registration</h2>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="control-label" for="name">User Name<span class="required">*</span></label>
-                                    <input id="name" name="name" placeholder="User name" class="form-control input-md" required="" type="text">
-                                </div>
-                                <!-- Text input-->
-                                <div class="form-group">
                                     <label class="control-label" for="email">E-mail<span class="required">*</span></label>
-                                    <input id="email" name="email" placeholder="E-Mail" class="form-control input-md" required="" type="text">
+                                    <input id="email" name="email" placeholder="E-Mail" ng-model="email" class="form-control input-md" required type="email">
+                                    <span style="font-size: 14px;font-weight: 300; color : red" ng-show="PlannerForm.email.$dirty && PlannerForm.email.$invalid">Please enter a valid email</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="email">Name<span class="required">*</span></label>
-                                    <input id="email" name="email" placeholder="Name" class="form-control input-md" required="" type="text">
+                                    <label class="control-label" for="name">Name<span class="required">*</span></label>
+                                    <input id="name" ng-model="name" name="name" placeholder="Name" class="form-control input-md" minlength="3" required type="text">
+                                    <span style="font-size: 14px;font-weight: 300; color : red" ng-show="PlannerForm.name.$dirty && PlannerForm.name.$invalid">Please enter a valid name</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="email">Phone<span class="required">*</span></label>
-                                    <input id="email" name="email" placeholder="Phone" class="form-control input-md" required="" type="text">
+                                    <label class="control-label" for="phone">Phone<span class="required">*</span></label>
+                                    <input id="phone" ng-model="phone" name="phone" placeholder="Phone" class="form-control input-md" required type="text">
+                                    <span style="font-size: 14px;font-weight: 300; color : red" ng-show="PlannerForm.phone.$dirty && PlannerForm.phone.$invalid">Please enter a valid phone number</span>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="password">Password<span class="required">*</span></label>
+                                    <input id="password" ng-model="password" name="password" placeholder="Password" class="form-control input-md" required type="password">
+                                    <ul id="strength" check-strength="password"></ul><span id="spanstr">&nbsp;</span>
+                                </div>
+
                                 <!-- Button -->
                                 <div class="form-group">
-                                    <button name="submit" class="btn btn-primary btn-lg">create an account</button>
+                                    <button name="submit" ng-click="registerPlanner(name,email,phone,password);" ng-disabled="PlannerForm.$invalid" class="btn btn-primary btn-lg">Create an account <i ng-hide="!submiting" class="fa fa-spinner fa-spin" ></i></button>
                                 </div>
                             </form>
                         </div>

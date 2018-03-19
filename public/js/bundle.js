@@ -222,6 +222,93 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     
 
     var app = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('mainApp', ['dynamicNumber', 'angucomplete-alt', 'ngTagsInput']);
+    __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('myApp.directives', []).
+    directive('checkStrength', function() {
+
+        return {
+            replace: false,
+            restrict: 'EACM',
+            link: function(scope, iElement, iAttrs) {
+
+                var strength = {
+                    colors: ['#F00', '#F90', '#FF0', '#9F0', '#0F0'],
+                    mesureStrength: function(p) {
+                        var _force = 0;
+                        var _regex = /[$-/:-?{-~!"^_`\[\]]/g;
+
+                        var _lowerLetters = /[a-z]+/.test(p);
+                        var _upperLetters = /[A-Z]+/.test(p);
+                        var _numbers = /[0-9]+/.test(p);
+                        var _symbols = _regex.test(p);
+
+                        var _flags = [_lowerLetters, _upperLetters, _numbers, _symbols];
+                        var _passedMatches = $.grep(_flags, function(el) {
+                            return el === true;
+                        }).length;
+
+                        _force += 2 * p.length + ((p.length >= 10) ? 1 : 0);
+                        _force += _passedMatches * 10;
+
+                        // penality (short password)
+                        _force = (p.length <= 6) ? Math.min(_force, 10) : _force;
+
+                        // penality (poor variety of characters)
+                        _force = (_passedMatches == 1) ? Math.min(_force, 10) : _force;
+                        _force = (_passedMatches == 2) ? Math.min(_force, 20) : _force;
+                        _force = (_passedMatches == 3) ? Math.min(_force, 40) : _force;
+
+                        return _force;
+
+                    },
+                    getColor: function(s) {
+
+                        var idx = 0;
+                        if (s <= 10) {
+                            idx = 0;
+                            document.getElementById('spanstr').innerHTML = "&nbsp; very weak";
+                            document.getElementById('spanstr').style.color = "#F00";
+                        } else if (s <= 20) {
+                            idx = 1;
+                            document.getElementById('spanstr').innerHTML = "&nbsp; medium";
+                            document.getElementById('spanstr').style.color = "#F90";
+                        } else if (s <= 30) {
+                            idx = 2;
+                            document.getElementById('spanstr').innerHTML = "&nbsp; strong";
+                            document.getElementById('spanstr').style.color = "#FF0";
+                        } else if (s <= 40) {
+                            idx = 3;
+                            document.getElementById('spanstr').innerHTML = "&nbsp; very strong";
+                            document.getElementById('spanstr').style.color = "#9F0";
+                        } else {
+                            idx = 4;
+                            document.getElementById('spanstr').innerHTML = "&nbsp; Excellent";
+                            document.getElementById('spanstr').style.color = "#0F0";
+                        }
+
+                        return { idx: idx + 1, col: this.colors[idx] };
+
+                    }
+                };
+
+                scope.$watch(iAttrs.checkStrength, function() {
+                    if (scope.password === '') {
+                        iElement.css({ "display": "none" });
+                    } else {
+                        var c = strength.getColor(strength.mesureStrength(scope.password));
+                        iElement.css({ "display": "inline" });
+                        iElement.children('li')
+                            .css({ "background": "#DDD" })
+                            .slice(0, c.idx)
+                            .css({ "background": c.col });
+                    }
+                });
+
+            },
+            template: '<li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li><li class="point"></li>'
+        };
+
+    });
+
 
     app.controller('mainController', ['$scope', '$filter', '$http', '$interval', function($scope, $filter, $http, $interval) {
         var vendors = new __WEBPACK_IMPORTED_MODULE_2__classes_Vendors__["a" /* default */]();
@@ -1642,7 +1729,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         };
     }]);
-    var app3 = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('plannerApp', []);
+
+    var app3 = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('plannerApp', ['myApp.directives']);
+    app3.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+        $scope.registerPlanner = function(name, email, phone, password) {
+            if ($scope.submiting) {
+                return;
+            }
+            $scope.submiting = true;
+            var user = new __WEBPACK_IMPORTED_MODULE_4__classes_User__["a" /* default */]();
+            user.setEmail(email);
+            user.setPhone(phone);
+            user.setName(name);
+            user.setPassword(password);
+            var promise = __WEBPACK_IMPORTED_MODULE_4__classes_User__["a" /* default */].registerPlanner(user, $http);
+            promise.then(function(success) {
+                $scope.submiting = undefined;
+                var data = success.data;
+                if (data.status == __WEBPACK_IMPORTED_MODULE_8__config___default.a.DONE) {
+                    $.toast({
+                        text: data.msg,
+                        icon: 'info',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                } else {
+                    $.toast({
+                        text: data.error,
+                        icon: 'danger',
+                        position: 'top-right',
+                        loader: false,
+                        loaderBg: '#9EC600'
+                    });
+                }
+            }, function(error) {
+                $scope.submiting = undefined;
+                $.toast({
+                    text: "Network error",
+                    icon: 'danger',
+                    position: 'top-right',
+                    loader: false,
+                    loaderBg: '#9EC600'
+                });
+            });
+        };
+    }]);
 
 /***/ }),
 /* 2 */
@@ -35915,6 +36047,19 @@ class User {
         });
         return promise;
     }
+
+    static registerPlanner(user, $http) {
+        var email = user.getEmail();
+        var password = user.getPassword();
+        var phone = user.getPhone();
+        var name = user.getName();
+        var promise = $http({
+            url: '/planner/register/',
+            method: 'POST',
+            data: { email: email, password: password, name: name, phone: phone }
+        });
+        return promise;
+    }
 }
 /* harmony default export */ __webpack_exports__["a"] = (User);
 
@@ -36135,6 +36280,8 @@ var config = {
     TRUE: "true",
     FALSE: "false",
     DONE: "done",
+    PLANNER: "planner",
+    COUPLE: "couple",
     DELETE: "delete",
     EDIT: "edit",
     SET_REMINDER: "set reminder",

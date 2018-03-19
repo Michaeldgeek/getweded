@@ -19,6 +19,11 @@ var moment = require('moment-timezone');
 var session = require('express-session');
 var LokiStore = require('connect-loki')(session);
 var cookieParser = require('cookie-parser');
+var fs = require('fs');
+var api_key = 'key-b3c24520d9eeb2b81482db527bab65c8';
+var domain = 'sandbox11b641cb5caa45d0a47243b8b0e9b615.mailgun.org';
+var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+
 const UIDGenerator = require('uid-generator');
 
 
@@ -39,7 +44,9 @@ app.use(redirect({
     "/user/checklist": "/user/checklist/",
     "/user/messages": "/user/messages/",
     "/logout": "/logout/",
-    "/user/profile": "/user/profile/"
+    "/user/profile": "/user/profile/",
+    "/planner/home": "/planner/home/",
+    "/planner/register": "/planner/register/"
 }, 301));
 
 app.use(cookieParser());
@@ -86,6 +93,54 @@ app.use(function(req, res, next) {
                         return;
                     }
                 } else {
+                    if (response.type == config.PLANNER) {
+                        if (req.method == "GET") {
+                            res.redirect('/');
+                            return;
+                        } else {
+                            res.send({ error: "Session expired. Login again" });
+                            return;
+                        }
+                        return;
+                    }
+                    req.body.user = response.email;
+                    req.user_name_ = response.name;
+                    var uid = response.email;
+                    // req.body.uid = uid;
+                    next();
+                }
+            }, connection);
+        }
+    } else if (req.url.includes("/planner/") && !req.url.includes("/planner/register/")) {
+        if (util.isNullOrUndefined(req.session.user)) {
+            if (req.method == "GET") {
+                res.redirect('/');
+                return;
+            } else {
+                res.send({ error: "Session expired. Login again" });
+                return;
+            }
+        } else {
+            Util.verifyToken(req.session.user, function(response) {
+                if (response == false) {
+                    if (req.method == "GET") {
+                        res.redirect('/');
+                        return;
+                    } else {
+                        res.send({ error: "Session expired. Login again" });
+                        return;
+                    }
+                } else {
+                    if (response.type == config.COUPLE) {
+                        if (req.method == "GET") {
+                            res.redirect('/');
+                            return;
+                        } else {
+                            res.send({ error: "Session expired. Login again" });
+                            return;
+                        }
+                        return;
+                    }
                     req.body.user = response.email;
                     req.user_name_ = response.name;
                     var uid = response.email;
@@ -137,6 +192,13 @@ app.get('/register/', function(req, res) {
 
 app.get('/planner/register/', function(req, res) {
     res.render('planner/register');
+});
+
+app.get('/planner/home/', function(req, res) {
+    var data = {};
+    data.user = req.session.user;
+    data.name = req.user_name_;
+    res.render('planner/home', data);
 });
 
 app.get('/user/home/', function(req, res) {
@@ -500,6 +562,50 @@ app.post('/logout/', jsonParser, function(req, res) {
     });
 
 });
+app.post('/planner/register/', jsonParser, function(req, res) {
+    var data = req.body;
+    Util.isNewUser(data.email, function(response) {
+        var datum = {};
+        if (util.isObject(response)) {
+            datum.error = "Email already exist";
+            res.send(datum);
+        } else {
+            var contents = fs.readFileSync('./email.tpl', 'utf8');
+            contents = contents.replace("##name##", data.name);
+            contents = contents.replace("##link##", "http://localhost:30/planner/home/");
+            var obj = {
+                from: 'GetWeded <no-reply@sandbox11b641cb5caa45d0a47243b8b0e9b615.mailgun.org>',
+                to: data.email,
+                subject: 'Email Verification',
+                html: contents
+            };
+            mailgun.messages().send(obj, function(error, body) {
+                if (error) {
+                    datum.error = "Could not verify email";
+                    res.send(datum);
+                    return;
+                }
+                var token = uidgen.generateSync();
+                var user = {
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone,
+                    password: data.password,
+                    token: token,
+                    type: config.PLANNER
+                }
+                Util.saveNewUser(user, function(response) {
+                    datum.status = config.DONE;
+                    datum.msg = "Please check your inbox for further instructions";
+                    req.session.user = token;
+                    res.send(datum);
+                }, connection);
+
+            });
+        }
+    }, connection);
+
+});
 app.get('/user/logout/:user_id', jsonParser, function(req, res) {
     Util.verifyToken(req.params.user_id, function(response) {
         req.session.user = undefined;
@@ -527,13 +633,18 @@ app.post('/login/', jsonParser, function(req, res) {
                 }, connection);
             } else {
                 var token = uidgen.generateSync();
-                Util.issueNewToken(connection, token, email, function(response) {
+                Util.issueNewToken(connection, token, email, function(result) {
                     req.session.user = token;
                     var set_online = {
                         query: "update users set online='Y' where token='" + token + "'",
                         connection: connection
-                    }
+                    };
+
                     connection.query(set_online.query, function(err, result_online) {
+                        if (response.type == config.PLANNER) {
+                            res.send({ status: config.DONE, url: '/planner/home/' });
+                            return;
+                        }
                         res.send({ status: config.DONE, url: '/user/home/' });
                     });
 

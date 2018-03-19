@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="userApp">
+
+<head>
+    <% include ../partials/head.ejs %>
+        <link href="/css/planner-home.css" rel="stylesheet">
+</head>
+
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50" ng-init="user='<%= user %>'">
+
+    <div class="page-wrapper">
+        <!-- start preloader  -->
+        <div class="preloader">
+            <div class="inner">
+                <span class="icon"><i class="fi flaticon-two"></i></span>
+            </div>
+        </div>
+        <!-- end preloader -->
+
+        <!-- Start header -->
+        <% include ../partials/nav.ejs %>
+            <!-- end of header -->
+            <!-- section -->
+            <div class="vendor-page-header" style="margin-top: 50px">
+                <div class="vendor-profile-img"> </div>
+                <div class="vendor-profile-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 hidden-xs">
+                                <div class="vendor-profile-block">
+                                    <div class="vendor-profile"> <img src="/images/vendor-logo.jpg" alt="" class="img-responsive"> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="profile-meta mb30">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h1 class="vendor-profile-title">Edward Villson</h1>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4"><span class="meta-address"> <i class="fa fa-map-marker"></i> <span class="address"> Studio spaces,110 Pennington, London, E1W 2BB </span> </span>
+                                        </div>
+                                        <div class="col-md-4"><span class="meta-email"><i class="fa fa-envelope"></i>Info@weddingvenue.com</span></div>
+                                        <div class="col-md-4"><span class="meta-call"><i class="fa fa-phone"></i>1800-123-456 / 789</span></div>
+                                    </div>
+                                </div>
+                                <div class="profile-meta">
+                                    <div class="row">
+                                        <div class="col-md-4"><span class="meta-website"><i class="fa fa-link"></i> http://www.myvenue.com</span></div>
+                                        <div class="col-md-6">
+                                            <div class="vendor-profile-social"> <span>
+                          <ul class="listnone">
+                            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                          </ul>
+                          </span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 venue-action">
+                                <a href="#googleMap" class="btn btn-primary">VIEW MAP</a>
+                                <a href="#inquiry" class="btn btn-default">Book Venue</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" ">
+                <div class="container">
+                    <div class="row">
+                        <div class="venue-details">
+                            <div class="col-md-9">
+                                <div class="st-tabs">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#myListing" title="Gallery" aria-controls="myListing" role="tab" data-toggle="tab"> <i class="fa fa-list"></i><span class="tab-title"> My Listing</span></a>
+                                        </li>
+                                        <li role="presentation"> <a href="#about" title="about info" aria-controls="about" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> <span class="tab-title"> About Vendor</span> </a> </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <!-- tab content start-->
+                                        <div role="tabpanel" class="tab-pane fade in active" id="myListing">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-1.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name </a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-2.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name</a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-3.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name </a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-4.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name</a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-1.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name </a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="vendor-list-block mb30">
+                                                        <!-- vendor list block -->
+                                                        <div class="vendor-img">
+                                                            <a href="#"><img src="images/vendor-new-2.jpg" alt="wedding venue" class="img-responsive"></a>
+                                                            <div class="category-badge"><a href="#" class="category-link">category-badge</a></div>
+                                                            <div class="price-lable">$600 - $800</div>
+                                                            <div class="favorite-action"> <a href="#" class="fav-icon"><i class="fa fa-heart"></i></a> </div>
+                                                        </div>
+                                                        <div class="vendor-detail">
+                                                            <!-- vendor details -->
+                                                            <div class="caption">
+                                                                <h2><a href="#" class="title">Wedding Vendor Title Name</a></h2>
+                                                                <div class="vendor-meta"> <span class="location"> <i class="fa fa-map-marker map-icon"></i> Udaypur, Rajasthan</span> <span class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <span class="rating-count">(22)</span>                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.vendor details -->
+                                                    </div>
+                                                    <!-- /.vendor list block -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="about">
+                                            <div class="venue-details">
+                                                <h2>About Venue Title of Heading</h2>
+                                                <p>Latin words combined with a handful of model sentence structures, to generate Lorem Ipsum which one looks reasonable. The generated Lorem Ipsum is therefore always free from repetition injected humour or
+                                                    non characteristic words etc.</p>
+                                                <p>Quisque laoreet mi libero, et tempus lacus venenatis eget. Nulla vitaeipsum inturpis blandit congue ofer ornare inleo. Nulla nibhmi sagittis necaliquet pharetra vitae turpis. Nam tristique mauris necultricies
+                                                    its tristiqu. orbilitelit molestie eget tincidunt luctus consequat sitameturna.</p>
+                                                <p>Aenean sapienest, rutrum malesuada quamuis tristique tincinibh hasellusut elementum not semlass and aptent taciti sociosqu ad litorarutrum malesuada quamuis tristique torquent per conubia nostra permite
+                                                    inceptos our its it himenaeos aecsed laoreet diam. Crasut auctor ipsusque commodo suscipit onet tristiques viverrarcu idaugue blandit ultricies nibhrhoncus rutrum malesuada tristique.</p>
+                                                <p>Latin words combined with a handful of model sentence structures to generate Loremere Ipsum which looks reasonable. The generated lorem Ipsum is therefore always free fromes combined with a handful of model
+                                                    repetition injected humour or non characteristic words etc.</p>
+                                                <h2>Why Our Wedding Venue </h2>
+                                                <ul class="check-circle">
+                                                    <li>Wedding parties have exclusive use of the venue for the day</li>
+                                                    <li>Last Minute Offer £3,800 inc VAT for any wedding booked in the next 8 weeks.</li>
+                                                    <li>Licensed for civil ceremonies, civil partnerships and outside ceremonies with stunning views.</li>
+                                                    <li>This venue is a superb location for a Wedding Reception catering from 30 to 650 guests.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.tab content start-->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="">
+                                    <div class="well-box" id="inquiry">
+                                        <h2>Send Enquiry to Vendor</h2>
+                                        <p>Fill in your details and a Venue Specialist will get back to you shortly.</p>
+                                        <form class="">
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="control-label" for="name-one">Name:<span class="required">*</span></label>
+                                                <div class="">
+                                                    <input id="name-one" name="name" placeholder="Name" class="form-control input-md" required="" type="text">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="control-label" for="phone">Phone:<span class="required">*</span></label>
+                                                <div class="">
+                                                    <input id="phone" name="phone" placeholder="Phone" class="form-control input-md" required="" type="text">
+                                                    <span class="help-block"> </span> </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="control-label" for="email-one">E-Mail:<span class="required">*</span></label>
+                                                <div class="">
+                                                    <input id="email-one" name="email" placeholder="E-Mail" class="form-control input-md" required="" type="text">
+                                                </div>
+                                            </div>
+                                            <!-- Select Basic -->
+                                            <div class="form-group no-padding">
+                                                <label class="control-label" for="date">Wedding Date</label>
+                                                <div class="input-group">
+                                                    <input class="form-control hasDatepicker" id="weddingdate" placeholder="Wedding Date" type="text">
+                                                    <span class="input-group-addon" id="basic-addon2"><i class="fa fa-calendar"></i></span> </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label" for="guest">Number of Guests:<span class="required">*</span></label>
+                                                <div class="">
+                                                    <select id="guest" name="guest" class="form-control">
+                                                        <option value="35 to 50">35 to 50</option>
+                                                        <option value="50 to 65">50 to 65</option>
+                                                        <option value="65 to 85">65 to 85</option>
+                                                        <option value="85 to 105">85 to 105</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!-- Multiple Radios -->
+                                            <div class="form-group">
+                                                <label class="control-label">Send me info via</label>
+                                                <div class="checkbox checkbox-success">
+                                                    <input name="checkbox" id="checkbox-0" value="1" class="styled" type="checkbox">
+                                                    <label for="checkbox-0" class="control-label"> E-Mail </label>
+                                                </div>
+                                                <div class="checkbox checkbox-success">
+                                                    <input name="checkbox" id="checkbox-1" value="2" class="styled" type="checkbox">
+                                                    <label for="checkbox-1" class="control-label"> Need Call back </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button name="submit" class="btn btn-primary">Book MY Venue now</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- section ends -->
+            <!-- footer starts -->
+            <% include ../partials/footer.ejs %>
+                <!-- footer ends -->
+                <script src="/js/moment.min.js"></script>
+
+</body>
+
+</html>

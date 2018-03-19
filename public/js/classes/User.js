@@ -68,5 +68,18 @@ class User {
         });
         return promise;
     }
+
+    static registerPlanner(user, $http) {
+        var email = user.getEmail();
+        var password = user.getPassword();
+        var phone = user.getPhone();
+        var name = user.getName();
+        var promise = $http({
+            url: '/planner/register/',
+            method: 'POST',
+            data: { email: email, password: password, name: name, phone: phone }
+        });
+        return promise;
+    }
 }
 export default User;
